@@ -1,68 +1,45 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# health100 project
+with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데이터 활용 경진대회](http://sportsdata.or.kr/event_view.html)
 
-In the project directory, you can run:
+### 팀원
+경희대학교 최호성
+- 프로젝트 아이디어 설계
+- 프로젝트 기획
+- 웹 서비스 기능 정의
 
-### `npm start`
+경희대학교 최원석
+- 웹 서비스 기능 정의
+- 웹 서비스 구현 및 배포
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 체력측정별 운동처방 데이터를 활용한 비대면 운동처방 서비스 개발
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 기획안
 
-### `npm test`
+* [Teachable Machine](https://teachablemachine.withgoogle.com/)을 활용하여 웹 서비스 구축
+    - 추가적으로 [kakao음성](https://developers.kakao.com/) 활용
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* [국민체력100](http://14.49.46.105/front/certify/cer0102_list.do) 측정을 기반으로 운동 처방을 한 내역을 살펴보면 대부분 집에서 할 수 있는 운동들임
+    - 최근 코로나로 인해 중단된 국민체력100을 안전하게 집에서 간소화된 종목과 방법으로 측정하고영상과 측정기록에 따른 운동처방을 전달
 
-### `npm run build`
+* 운동처방이 목적이 아니더라도 계속 집에만 머물러 있는 사람들이 스스로 꾸준하게 운동하고 자가 측정을 할 수 있도록 자신의 계정에 측정 날짜, 측정 기록, 영상 등이 데이터베이쓰에 쌓임
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### 발전 방향
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+> 정보 공개 사이트 검색 결과 최근 국민체육진흥 공단에서 '노인 건강 마일리지 - 국민체력 100 협업', '국민 체력 100 포인트 시스템 구축' 등의 움직임과 연계 예정
 
-### `npm run eject`
+> 코로나 사태 이후에도 계속해서 시스템 고도화를 이뤄 시간, 공간 등을 절약할 수 있는 피트니스 서비스가 될 수 있음
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> 비대면 실시간 피트니스 플랫폼으로 서비스 확장 가능
+    1. 자가 측정을 통해 본인의 신체 수준을 평가
+    2. 원하는 트레이너를 소개글, 이력, 영상 등을 통해 설정하고 자신의 신체 수준에 맞는 클래스 및 시간대 설정
+    3. 해당 시간에 트레이너와 비대면 플랫폼을 통해 안전하게 실시간으로 홈트레이닝 가능
+        - 일대 다수로 진행하는 시스템이므로 이전처럼 일대일로 진행하는 PT보다 훨씬 저렴한 가격으로 집에서 안전하게 참여 가능
+        - 이후 여러 종목으로 확장 가능
+        - 비대면이지만 실시간으로 진행하기에 꾸준한 운동 참여 독려
+        - 비대면 프로그램은 zoom 등과 연계 요함
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> 측정 종목은 연령별로 다른 종목
+    - 준비운동 세션, 팔굽혀펴기, 윗몸일으키기, 플랭크 등 전신을 고르게 측정할 수 있는 종목으로 배치
