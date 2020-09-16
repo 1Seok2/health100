@@ -31,11 +31,11 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 
 ### 프로젝트 구성
 
-Framework: React.js
-Cloud : Google Cloud Service
+- Framework: React.js
+- Cloud : Google Cloud Service
     and Google Teachable Machine
-Deploy:
-Build: npm or yarn run build
+- Deploy:
+- Build: npm or yarn run build
 
 
 
