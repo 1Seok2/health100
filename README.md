@@ -10,6 +10,9 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 
 ### 프로젝트 설명
 
+[자세히 보기](https://www.notion.so/health100-c1765134086240b79fe617c50126ad10)
+
+
 체력측정별 운동처방 데이터를 활용한 비대면 운동처방 서비스 개발
 
 - [Teachable Machine](https://teachablemachine.withgoogle.com/)을 활용하여 웹 서비스 구축
@@ -17,8 +20,6 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 - [국민체력100](http://14.49.46.105/front/certify/cer0102_list.do) 측정을 기반으로 운동 처방을 한 내역을 살펴보면 대부분 집에서 할 수 있는 운동들임
     - 최근 코로나로 인해 중단된 국민체력100을 안전하게 집에서 간소화된 종목과 방법으로 측정하고영상과 측정기록에 따른 운동처방을 전달
 - 운동처방이 목적이 아니더라도 계속 집에만 머물러 있는 사람들이 스스로 꾸준하게 운동하고 자가 측정을 할 수 있도록 자신의 계정에 측정 날짜, 측정 기록, 영상 등이 데이터베이쓰에 쌓임
-
-[자세히 보기](https://www.notion.so/health100-c1765134086240b79fe617c50126ad10)
 
 
 
@@ -31,13 +32,9 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 ### 프로젝트 구성
 
 Framework: React.js
-
 Cloud : Google Cloud Service
-
     and Google Teachable Machine
-
 Deploy:
-
 Build: npm or yarn run build
 
 
