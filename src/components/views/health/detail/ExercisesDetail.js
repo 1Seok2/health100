@@ -11,7 +11,7 @@ const ExercisesDetail = ({ showDetail, setShow }) => {
   return (
     <Container>
       <CloseButton onClick={() => closeDetail()}>&#215;</CloseButton>
-      <div>detail</div>
+      <div>{showDetail.title}</div>
     </Container>
   );
 };

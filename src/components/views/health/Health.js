@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ExercisesItem from './exercises';
 import ExercisesDetail from './detail';
-import { Container } from './Health.styled';
+import { Wrapper, Container } from './Health.styled';
+import { list } from './exercises/List';
 
 const Health = () => {
   const [showDetail, setShow] = useState({
@@ -11,7 +12,16 @@ const Health = () => {
   });
   return (
     <Container>
-      <ExercisesItem showDetail={showDetail} setShow={setShow} />
+      <Wrapper width={showDetail.show ? 488 : null}>
+        {list.map((item) => (
+          <ExercisesItem
+            key={item.title}
+            item={item}
+            showDetail={showDetail}
+            setShow={setShow}
+          />
+        ))}
+      </Wrapper>
       {showDetail.show && (
         <ExercisesDetail showDetail={showDetail} setShow={setShow} />
       )}
