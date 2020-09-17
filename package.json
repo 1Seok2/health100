@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^7.2.1",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
+    "firebase": "^7.20.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
@@ -19,9 +21,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "airbnb",
-      "prettier"
+      "react-app"
     ],
     "rules": {
       "react/prefer-stateless-function": 0,

@@ -1,9 +1,8 @@
-// /* eslint-disable */
 import React from 'react';
+import AppRouter from './Router';
 
 const App = () => {
-  // const [state, setstate] = useState('');
-  return <div>hihi</div>;
+  return <AppRouter />;
 };
 
 export default App;
