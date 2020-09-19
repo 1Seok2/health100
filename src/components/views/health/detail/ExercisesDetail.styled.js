@@ -6,6 +6,7 @@ export const Container = styled.div`
   top: 4rem;
   box-shadow: 2px 0px 6px 3px rgba(1, 1, 1, 0.1);
   width: 540px;
+  transform: ${(props) => (props.show ? 'scaleX(1)' : 'scaleX(0)')};
   height: ${window.innerHeight - 316}px;
   background-color: #f9f9f9;
   padding: 24px;

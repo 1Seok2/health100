@@ -12,10 +12,11 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   display: inline-block;
+  position: relative;
   width: ${(props) => (props.width ? props.width : 492)}px;
   z-index: 0;
   height: 6rem;
-  box-shadow: 0px 2px 6px 2px rgba(0.5, 0.5, 0.5, 0.1);
+  box-shadow: 0px 2px 3px 2px rgba(0.5, 0.5, 0.5, 0.1);
   border-radius: 0.4rem;
   align-items: center;
   padding: 16px;
@@ -26,6 +27,8 @@ export const Container = styled.div`
   &:hover {
     cursor: pointer;
     background-color: #f9f9f9;
+    transition: all 0.3s;
+    box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.3);
   }
 `;
 
