@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Squat = () => {
+let model, webcam, ctx, labelContainer, maxPredictions;
+
+export let WebCam;
+
+export const Squat = () => {
   const URL = 'https://teachablemachine.withgoogle.com/models/0g3ySaq4f/';
-  let model, webcam, ctx, labelContainer, maxPredictions;
 
   async function init() {
     const modelURL = URL + 'model.json';
@@ -15,9 +18,10 @@ const Squat = () => {
     maxPredictions = model.getTotalClasses();
 
     // Convenience function to setup a webcam
-    const size = 200;
+    const size = 400;
     const flip = true; // whether to flip the webcam
     webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
+    WebCam = webcam;
     await webcam.setup(); // request access to the webcam
     await webcam.play();
     window.requestAnimationFrame(loop);
@@ -57,6 +61,11 @@ const Squat = () => {
     drawPose(pose);
   }
 
+  const stop = () => {
+    console.log(webcam);
+    webcam.stop();
+  };
+
   function drawPose(pose) {
     if (webcam.canvas) {
       ctx.drawImage(webcam.canvas, 0, 0);
@@ -72,6 +81,7 @@ const Squat = () => {
   return (
     <>
       <div onClick={() => init()}>lets squat</div>
+      <div onClick={() => stop()}>stop squat</div>
       <div>
         <canvas id="canvas"></canvas>
       </div>
@@ -79,5 +89,3 @@ const Squat = () => {
     </>
   );
 };
-
-export default Squat;

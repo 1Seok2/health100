@@ -3,7 +3,9 @@ import ExercisesItem from './exercises';
 import ExercisesDetail from './detail';
 import { Wrapper, Container } from './Health.styled';
 import { list } from './exercises/List';
-import AiScript from '../../../assets/ai/AiScript';
+import AiScript from 'assets/ai/AiScript';
+import { Link } from 'react-router-dom';
+import { WebCam } from 'assets/ai/squat/Squat';
 
 const Health = () => {
   const [showDetail, setShow] = useState({
@@ -14,6 +16,7 @@ const Health = () => {
 
   useEffect(() => {
     AiScript();
+    // return WebCam && WebCam.stop();
   }, []);
   return (
     <Container>
