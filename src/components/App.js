@@ -1,13 +1,15 @@
 import React from 'react';
 import AppRouter from './Router';
 import GlobalStyle from 'components/modules/style/Global.Styled';
+import { OuterContainer } from './App.styled';
 import Header from './sections/header';
 
 const App = () => {
   return (
     <>
-      <Header />
-      <AppRouter />
+      <OuterContainer>
+        <AppRouter />
+      </OuterContainer>
       <GlobalStyle />
     </>
   );
