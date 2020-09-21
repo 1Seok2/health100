@@ -1,25 +1,45 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
+/* route components ... */
 import Intro from 'components/views/intro';
 import Health from 'components/views/health';
 import Login from 'components/views/login';
-import SignUp from 'components/views/singup';
 import MyPage from 'components/views/mypage';
 import Qna from 'components/views/qna';
 import Header from './sections/header';
 
-const AppRouter = () => {
-  // const [isLogin, setIsLogin] = useState(true);
+const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
-      <Header />
+      {isLoggedIn && <Header userObj={userObj} />}
       <Switch>
-        <Route exact path="/" component={Intro} />
-        <Route exact path="/health" component={Health} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/mypage" component={MyPage} />
-        <Route exact path="/qna" component={Qna} />
+        {isLoggedIn ? (
+          <>
+            {/* if user already logged in ... */}
+            <Route exact path="/" render={() => <Health userObj={userObj} />} />
+            <Route
+              exact
+              path="/mypage"
+              render={() => (
+                <MyPage userObj={userObj} refreshUser={refreshUser} />
+              )}
+            />
+            <Route exact path="/qna" render={() => <Qna userObj={userObj} />} />
+          </>
+        ) : (
+          <>
+            {/* if user is not logged in ... */}
+            <Route exact path="/" component={Intro} />
+            <Route exact path="/login" component={Login} />\
+          </>
+        )}
+        <Redirect path="*" to="/" />
       </Switch>
     </Router>
   );

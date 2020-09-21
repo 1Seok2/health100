@@ -1,6 +1,6 @@
 .nav-button {
   text-transform: uppercase;
-  position: fixed;
+  position: absolute;
   right: 1rem;
   top: 0.3rem;
   z-index: 89;
@@ -8,10 +8,10 @@
 .nav-wrapper {
   background-color: #dddddd;
   box-shadow: -1px 0px 3px 0px rgba(0, 0, 0, 0.75);
-  height: 100%;
   padding-top: 80px;
   perspective: 1000px;
   position: fixed;
+  height: calc(100vh - 80px);
   right: 0;
   top: 0;
   transform: translateX(100%);

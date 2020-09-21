@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import MenuList from './Menu';
+import { FirebaseAuth } from 'config/fbConfig';
 
 const Navigation = () => {
   const [clicked, setClicked] = useState('none');
   const [aboutClicked, setAboutClicked] = useState('none');
 
   const MenuValueList = [
+    {
+      name: '시작 페이지',
+      path: '/',
+    },
     {
       name: '셀프 운동',
       path: '/health',
@@ -33,14 +38,15 @@ const Navigation = () => {
     }
   };
 
-  const onClickHBG = (e) => {
-    e.preventDefault();
+  const onClickHBG = () => {
     const wrapper = document.querySelector('.other-menu-wrapper');
     wrapper.classList.toggle('nav-visible');
   };
 
+  const logOut = () => FirebaseAuth.signOut();
+
   return (
-    <>
+    <div className="other-menu-wrapper">
       <header>
         <button
           aria-label="Toggle menu"
@@ -53,35 +59,23 @@ const Navigation = () => {
       </header>
       <nav className="nav-wrapper">
         <ul className="nav">
-          {MenuValueList.map((value) => {
-            return (
-              <MenuList
-                key={value.name + value.path}
-                name={value.name}
-                path={value.path}
-              />
-            );
-          })}
+          {MenuValueList.map((value) => (
+            <MenuList
+              key={value.name + value.path}
+              name={value.name}
+              path={value.path}
+              onClickHBG={onClickHBG}
+            />
+          ))}
+
           <li className="nav-list">
-            <a href="#" onClick={onClickAbout}>
-              ABOUT
-              <span className="list-entity">&gt;</span>
+            <a href="#" onClick={logOut}>
+              로그아웃
             </a>
           </li>
-          <ul className="other-menu-about none">
-            <li>
-              <a href="https://apis.map.kakao.com/">@KAKAO MAP</a>
-            </li>
-            <li>
-              <a href="https://github.com/1Seok2/Hack-GreenSky">@GITHUB</a>
-            </li>
-            <li>
-              <a href="mailto:unos@khu.ac.kr">CONTACT</a>
-            </li>
-          </ul>
         </ul>
       </nav>
-    </>
+    </div>
   );
 };
 
