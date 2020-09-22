@@ -39,13 +39,11 @@ const App = () => {
     <>
       {init ? (
         <>
-          <OuterContainer>
-            <AppRouter
-              refreshUser={refreshUser}
-              isLoggedIn={Boolean(userObj)}
-              userObj={userObj}
-            />
-          </OuterContainer>
+          <AppRouter
+            refreshUser={refreshUser}
+            isLoggedIn={Boolean(userObj)}
+            userObj={userObj}
+          />
           <GlobalStyle />
         </>
       ) : (

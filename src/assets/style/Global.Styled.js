@@ -34,7 +34,6 @@ const globalStyle = createGlobalStyle`
         /* padding-top: ${(props) => (props.paddingTop ? '90px' : '0')} */
         height: 100%;
         margin : 0 auto;
-        padding-top: 4rem;
         line-height: 1;
         color: #303030;
         font-size: 16px;

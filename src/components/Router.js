@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import { OuterContainer } from './App.styled';
 
 /* common sections ... */
 import Header from './sections/header';
@@ -26,22 +27,32 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
       <Switch>
         {isLoggedIn ? (
           <>
-            {/* if user already logged in ... */}
-            <Route exact path="/" render={() => <Health userObj={userObj} />} />
-            <Route
-              exact
-              path="/mypage"
-              render={() => (
-                <MyPage userObj={userObj} refreshUser={refreshUser} />
-              )}
-            />
-            <Route exact path="/qna" render={() => <Qna userObj={userObj} />} />
-            <Route
-              exact
-              path="/trainer"
-              render={() => <Trainer userObj={userObj} />}
-            />
-            <Redirect path="*" to="/" />
+            <OuterContainer>
+              {/* if user already logged in ... */}
+              <Route
+                exact
+                path="/"
+                render={() => <Health userObj={userObj} />}
+              />
+              <Route
+                exact
+                path="/mypage"
+                render={() => (
+                  <MyPage userObj={userObj} refreshUser={refreshUser} />
+                )}
+              />
+              <Route
+                exact
+                path="/qna"
+                render={() => <Qna userObj={userObj} />}
+              />
+              <Route
+                exact
+                path="/trainer"
+                render={() => <Trainer userObj={userObj} />}
+              />
+              <Redirect path="*" to="/" />
+            </OuterContainer>
           </>
         ) : (
           <>

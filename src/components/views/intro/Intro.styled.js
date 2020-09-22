@@ -1,26 +1,83 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
+import introImg from '../../../assets/img/intro_background.jpg';
+
+const ScrollFade = keyframes`
+0% {
+  opacity: 1;
+}
+50% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`;
 
 export const Container = styled.div`
   width: 100%;
-  border: 1px solid gray;
   position: relative;
 `;
 
-export const IntroItem = styled.div`
+export const IntroTitle = styled.h1`
+  position: sticky;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 500px;
-  border: 1px solid gray;
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
+  padding-top: 2.4rem;
+  padding-left: 1.8rem;
+  padding-bottom: 8rem;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 64px;
+  color: #666666;
+`;
+
+export const IntroImgWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-image: url(${introImg});
+  background-position: center;
+  background-attachment: fixed;
+`;
+export const IntroDesc = styled.div`
+  position: absolute;
+  bottom: 0;
+  font-size: 18px;
+  color: white;
+  animation: ${ScrollFade} 2s infinite;
+`;
+export const Scroll = styled.div`
+  text-align: center;
+  font-size: 32px;
+  line-height: 28px;
+  color: white;
+  animation: ${ScrollFade} 2s infinite;
+`;
+
+export const IntroItem = styled.div`
+  width: 80vw;
+  margin-left: 10vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-position: fixed;
 `;
 
 export const ImgWrapper = styled.div`
   display: inline-block;
   width: 40%;
-  height: 300px;
+  height: 80%;
   border: 1px solid gray;
 `;
 
@@ -31,15 +88,15 @@ export const Img = styled.img`
 `;
 
 export const Desc = styled.div`
-  width: 58%;
-  height: 300px;
+  width: 60%;
+  height: 80%;
   display: inline-block;
   border: 1px solid gray;
 `;
 
 export const ButtonWrapper = styled.div`
   width: 100%;
-  height: 200px;
+  height: 160px;
 `;
 
 export const LoginButton = styled(Link)`
@@ -58,4 +115,9 @@ export const LoginButton = styled(Link)`
   color: white;
   font-size: 22px;
   font-weight: 300;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #3fbbed;
+    transition: background-color 0.3s;
+  }
 `;
