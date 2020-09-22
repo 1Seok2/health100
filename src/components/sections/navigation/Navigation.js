@@ -25,19 +25,6 @@ const Navigation = () => {
     },
   ];
 
-  const onClickAbout = () => {
-    const about = document.querySelector('.other-menu-about');
-    if (aboutClicked === 'none') {
-      setAboutClicked('show');
-      about.classList.remove('none');
-      about.classList.add('show');
-    } else {
-      setAboutClicked('none');
-      about.classList.remove('show');
-      about.classList.add('none');
-    }
-  };
-
   const onClickHBG = () => {
     const wrapper = document.querySelector('.other-menu-wrapper');
     wrapper.classList.toggle('nav-visible');
