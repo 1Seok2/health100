@@ -6,7 +6,7 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 
 [프로젝트 배포]()
 
-### 프로젝트 설명
+## 프로젝트 설명
 
 [자세히 보기](https://www.notion.so/health100-c1765134086240b79fe617c50126ad10)
 
@@ -22,7 +22,7 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 
 ![health100](https://user-images.githubusercontent.com/49581472/93219919-dba6e080-f7a6-11ea-8f2e-579bc02e9b75.png)
 
-### 프로젝트 구성
+## 프로젝트 구성
 
 - Framework: React.js
 - Cloud : Google Cloud Service
@@ -30,11 +30,11 @@ with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데�
 - Deploy:
 - Build: npm or yarn run build
 
-### 프로젝트 규칙
+## 프로젝트 규칙
 
 > Performance 를 우선시하고, Clean Code 를 지향한다.
 
-#### 절대 경로 적용
+### 절대 경로 적용
 
 'src' 디렉토리 하위에 있는 폴더를 기준으로 타고 들어감
 
@@ -50,7 +50,7 @@ import TextInput from '../../components/modules/TextInput';
 import TextInput from 'components/modules/TextInput';
 ```
 
-#### eslint 및 prettier 적용
+### eslint 및 prettier 적용
 
 airbnb를 기준으로 몇 가지 커스텀 작업을 하였음.
 
@@ -62,20 +62,20 @@ airbnb를 기준으로 몇 가지 커스텀 작업을 하였음.
 
 - [Prettier](https://marketplace.visualstudio.com/itemdetails?itemName=esbenp.prettier-vscode)
 
-#### Intro Page에 scroll animation (AOS) 적용
+### Intro Page에 scroll animation (AOS) 적용
 
 자세한 사항은 [AOS](https://github.com/michalsnik/aos) 참고.
 스크롤에 반응하는 애니메이션임
 
-#### .gitignore 파일 세팅
+### .gitignore 파일 세팅
 
 build 결과물 형태의 모든 파일들은 .gitignore에 추가되어야함.
 
-#### 코드작성법
+### 코드작성법
 
 - 반복적인 코드는 하나로 통일한다 ex) api.js
 
-#### 코드 작성시 준수 사항
+### 코드 작성시 준수 사항
 
 - Styled Component 사용
 - Container / Presenter Pattern 사용 + Container: apis 호출 등 로직을 담당 + Presenter: 로직을 제외한 view를 담당
@@ -84,11 +84,11 @@ build 결과물 형태의 모든 파일들은 .gitignore에 추가되어야함.
 - 구조분해할당 > 구조분해할당은 배열이나 객체에서 특정 데이터를 뽑아내서 각각 별도의 변수에 할당하는 것을 말한다. 이를 사용하여 간결한 코드를 기술 할 수 있다
 - 템플릿 리터럴 Javascript에서 문자열의 열결 시 '+' 등 사용 대신 더 간단히 표현 가능. 줄바꿈 코드 역시 템플릿 리터럴로 표현
 
-#### Functional Components
+### Functional Components
 
 > React.js는 최근 hook API등의 함수형 컴포넌트로 전환하였기 때문에 함수형 컴포넌트로 작성하는 것을 추천
 
-#### 아토믹(Atomic) 디자인
+### 아토믹(Atomic) 디자인
 
 > **_공통으로 인식하는 컴포넌트 기준이 있으면 이에 따라 충분한 이해를 바탕으로 분할할 수 있다._** > **_개발팀에서 이에 대한 가이드라인을 체계적으로 만들고 팀 조직내에서 공통 인식으로 공개 되는 것이 바람직하다._**
 
