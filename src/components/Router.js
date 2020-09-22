@@ -31,15 +31,16 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               )}
             />
             <Route exact path="/qna" render={() => <Qna userObj={userObj} />} />
+            <Redirect path="*" to="/" />
           </>
         ) : (
           <>
             {/* if user is not logged in ... */}
             <Route exact path="/" component={Intro} />
-            <Route exact path="/login" component={Login} />\
+            <Route exact path="/login" component={Login} />
+            <Redirect path="*" to="/" />
           </>
         )}
-        <Redirect path="*" to="/" />
       </Switch>
     </Router>
   );

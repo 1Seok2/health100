@@ -5,6 +5,14 @@
 
 import React, { useState } from 'react';
 import { FirebaseAuth, FirebaseInstance } from 'config/fbConfig';
+import {
+  TextInput,
+  Form,
+  Submit,
+  ErrorMessage,
+  AuthSwitch,
+  AuthButton
+} from './Login.styled';
 
 const inputStyles = {};
 
@@ -56,8 +64,8 @@ const Login = () => {
   };
   return (
     <>
-      <form onSubmit={onSubmit} className="container">
-        <input
+      <Form onSubmit={onSubmit} className="container">
+        <TextInput
           name="email"
           type="email"
           placeholder="Email"
@@ -66,7 +74,7 @@ const Login = () => {
           onChange={onChange}
           className="authInput"
         />
-        <input
+        <TextInput
           name="password"
           type="password"
           placeholder="Password"
@@ -75,22 +83,22 @@ const Login = () => {
           className="authInput"
           onChange={onChange}
         />
-        <input
+        <Submit
           type="submit"
           className="authInput authSubmit"
           value={newAccount ? 'Create Account' : 'Sign In'}
         />
-        {error && <span className="authError">{error}</span>}
-      </form>
-      <span onClick={toggleAccount} className="authSwitch">
+        {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
+      </Form>
+      <AuthSwitch onClick={toggleAccount} className="authSwitch">
         {newAccount ? 'Sign In' : 'Create Account'}
-      </span>
-      <button name="google" onClick={SNSLogin}>
+      </AuthSwitch>
+      <AuthButton name="google" onClick={SNSLogin}>
         start with google ...
-      </button>
-      <button name="facebook" onClick={SNSLogin}>
+      </AuthButton>
+      {/* <AuthButton name="facebook" onClick={SNSLogin}>
         start with facebook ...
-      </button>
+      </AuthButton> */}
     </>
   );
 };

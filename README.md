@@ -62,6 +62,11 @@ airbnb를 기준으로 몇 가지 커스텀 작업을 하였음.
 
 - [Prettier](https://marketplace.visualstudio.com/itemdetails?itemName=esbenp.prettier-vscode)
 
+#### Intro Page에 scroll animation (AOS) 적용
+
+자세한 사항은 [AOS](https://github.com/michalsnik/aos) 참고.
+스크롤에 반응하는 애니메이션임
+
 #### .gitignore 파일 세팅
 
 build 결과물 형태의 모든 파일들은 .gitignore에 추가되어야함.
