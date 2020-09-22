@@ -6,7 +6,10 @@ const ScrollFade = keyframes`
 0% {
   opacity: 1;
 }
-50% {
+33% {
+  opacity : 0.9;
+}
+66% {
   opacity: 0;
 }
 100% {
@@ -28,11 +31,11 @@ export const IntroTitle = styled.h1`
   padding: 0;
   align-self: flex-start;
   padding-top: 2.4rem;
-  padding-left: 1.8rem;
+  padding-left: 8%;
   padding-bottom: 8rem;
   font-size: 28px;
   font-weight: 400;
-  line-height: 64px;
+  line-height: 48px;
   color: #666666;
 `;
 

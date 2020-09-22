@@ -11,7 +11,7 @@ import {
   Submit,
   ErrorMessage,
   AuthSwitch,
-  AuthButton
+  AuthButton,
 } from './Login.styled';
 
 const inputStyles = {};
@@ -83,19 +83,19 @@ const Login = () => {
           className="authInput"
           onChange={onChange}
         />
+        <AuthSwitch onClick={toggleAccount} className="authSwitch">
+          {newAccount ? '계정이 이미 있으신가요?' : '계정이 없으신가요?'}
+        </AuthSwitch>
         <Submit
           type="submit"
           className="authInput authSubmit"
-          value={newAccount ? 'Create Account' : 'Sign In'}
+          value={newAccount ? '회원가입' : '로그인'}
         />
         {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
+        <AuthButton name="google" onClick={SNSLogin}>
+          start with google ...
+        </AuthButton>
       </Form>
-      <AuthSwitch onClick={toggleAccount} className="authSwitch">
-        {newAccount ? 'Sign In' : 'Create Account'}
-      </AuthSwitch>
-      <AuthButton name="google" onClick={SNSLogin}>
-        start with google ...
-      </AuthButton>
       {/* <AuthButton name="facebook" onClick={SNSLogin}>
         start with facebook ...
       </AuthButton> */}
