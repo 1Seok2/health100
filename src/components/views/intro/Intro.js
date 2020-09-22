@@ -62,7 +62,7 @@ const Intro = () => {
       <ButtonWrapper
         data-aos="fade-up"
         data-aos-anchor-placement="top-bottom"
-        data-aos-delay="800"
+        data-aos-delay="400"
       >
         <LoginButton to="/login"> lets start !!</LoginButton>
       </ButtonWrapper>

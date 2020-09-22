@@ -6,13 +6,18 @@ import {
   Switch,
 } from 'react-router-dom';
 
-/* route components ... */
+/* common sections ... */
+import Header from './sections/header';
+
+/* need login ... */
 import Intro from 'components/views/intro';
-import Health from 'components/views/health';
 import Login from 'components/views/login';
+
+/* already login ... */
+import Health from 'components/views/health';
 import MyPage from 'components/views/mypage';
 import Qna from 'components/views/qna';
-import Header from './sections/header';
+import Trainer from 'components/views/trainer';
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
@@ -31,6 +36,11 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               )}
             />
             <Route exact path="/qna" render={() => <Qna userObj={userObj} />} />
+            <Route
+              exact
+              path="/trainer"
+              render={() => <Trainer userObj={userObj} />}
+            />
             <Redirect path="*" to="/" />
           </>
         ) : (

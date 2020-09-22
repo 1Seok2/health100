@@ -23,6 +23,10 @@ const Navigation = () => {
       name: '처방 게시판',
       path: '/qna',
     },
+    {
+      name: '트레이너 찾기',
+      path: '/trainer',
+    },
   ];
 
   const onClickHBG = () => {
