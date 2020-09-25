@@ -39,4 +39,40 @@ export const list = [
     title: '운동들2',
     imgSrc: 'hihi',
   },
+  {
+    title: '운동들1',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '다른2',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '운동들2',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '운동들1',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '다른2',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '운동들2',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '운동들1',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '다른2',
+    imgSrc: 'hihi',
+  },
+  {
+    title: '운동들2',
+    imgSrc: 'hihi',
+  },
 ];

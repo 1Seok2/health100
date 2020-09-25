@@ -7,7 +7,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   padding-top: 8px;
   z-index: 10;
   box-shadow: 0 6px 10px -10px rgba(1, 1, 1, 0.3);
@@ -15,9 +15,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (max-width: 360px) {
-    height: 4rem;
-  }
 `;
 
 export const Wrapper = styled.div`
@@ -32,7 +29,7 @@ export const Wrapper = styled.div`
 
 export const MenuWrapper = styled.ul`
   float: right;
-  width: 1500px;
+  width: 800px;
   height: 100%;
   margin-bottom: 8px;
   display: flex;
@@ -43,11 +40,11 @@ export const MenuWrapper = styled.ul`
   }
 `;
 
-export const Menu = styled.li`
+export const SLink = styled(Link)`
   margin-right: 1.4rem;
   margin: 1px;
   font-size: 20px;
-  width: 18%;
+  width: 30%;
   height: 100%;
   border-radius: 3px;
   background-color: ${(props) => (props.current ? HEALTH_COLOR : 'white')};
@@ -63,11 +60,6 @@ export const Menu = styled.li`
     transition: background-color 0.3s;
   }
   text-align: center;
-  line-height: 5rem;
-`;
-
-export const SLink = styled(Link)`
-  width: 100%;
-  height: 100%;
+  line-height: 4rem;
   color: ${(props) => (props.current ? 'white' : 'black')};
 `;

@@ -6,39 +6,28 @@ import {
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
 
-export const Wrapper = styled.div`
-  width: ${(props) => (props.width ? `${props.width}px` : '100%')};
-  padding-top: 1rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-  position: relative;
-  height: calc(100vh - 5.5rem);
-  overflow: scroll;
-`;
-
 export const Container = styled.div`
   display: inline-block;
-  position: relative;
-  width: ${(props) => (props.width ? props.width : 492)}px;
+  width: ${(props) => (props.show ? '44%' : '156px')};
+  height: 156px;
+  margin: 12px;
   z-index: 0;
-  height: 6rem;
   box-shadow: 0px 2px 3px 2px rgba(0.5, 0.5, 0.5, 0.1);
   border-radius: 0.4rem;
   align-items: center;
-  padding: 16px;
-  margin: 0.5rem;
-  &:last-child {
-    border-bottom: 1px solid #dfdfdf;
-  }
+  justify-content: center;
+  background-color: white;
   &:hover {
     cursor: pointer;
-    background-color: #f9f9f9;
+    background-color: #2e98d9;
     transition: all 0.3s;
     box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.3);
   }
-  @media (max-width: 1080px) {
-    width: 44%;
-    margin: 1%;
+  @media (max-width: 440px) {
+    width: 90%;
+  }
+  @media (max-width: 960px) {
+    width: ${(props) => (props.show ? '80%' : '44%')};
   }
 `;
 
@@ -47,27 +36,23 @@ export const Image = styled.img`
 `;
 
 export const ImageWrapper = styled.div`
-  float: left;
   width: 96px;
   height: 96px;
   overflow: hidden;
-  margin-right: 16px;
   border: 1px solid gray;
 `;
 
 export const DescWrapper = styled.div`
-  position: relative;
-  height: 100%;
-  width: ${(props) => (props.width ? `${props.width}px` : '378px')};
-  float: left;
+  display: block;
+  text-align: center;
 `;
 
 export const BranchName = styled.div`
   display: block;
-  font-size: 20px;
-  font-weight: 700;
-  margin-right: 16px;
-  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: 200;
+  margin-top: 10%;
+  color: black;
 `;
 
 export const UnitName = styled.div`

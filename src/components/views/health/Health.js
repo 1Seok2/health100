@@ -18,7 +18,7 @@ const Health = () => {
   }, []);
   return (
     <Container>
-      <Wrapper width={showDetail.show ? 488 : null}>
+      <Wrapper show={showDetail.show}>
         {list.map((item) => (
           <ExercisesItem
             key={item.title}
@@ -28,9 +28,9 @@ const Health = () => {
           />
         ))}
       </Wrapper>
-      {/* {showDetail.show && ( */}
-      <ExercisesDetail showDetail={showDetail} setShow={setShow} />
-      {/* )} */}
+      {showDetail.show && (
+        <ExercisesDetail showDetail={showDetail} setShow={setShow} />
+      )}
     </Container>
   );
 };
