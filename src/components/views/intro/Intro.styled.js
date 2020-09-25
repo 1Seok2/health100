@@ -1,6 +1,12 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import introImg from '../../../assets/img/intro_background.jpg';
+import introImg from 'assets/img/intro_background.jpg';
+import {
+  DeskTopWidth,
+  TabletWidth,
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 
 const ScrollFade = keyframes`
 0% {
@@ -75,6 +81,18 @@ export const IntroItem = styled.div`
   justify-content: center;
   align-items: center;
   background-position: fixed;
+  @media (max-width: ${TabletWidth}) {
+    height: 50vh;
+  }
+  @media (max-width: ${SmallTabletWidth}) {
+    height: 38vh;
+  }
+  @media (max-width: ${SmartPhoneWidth}) {
+    height: 34vh;
+  }
+  @media (max-width: ${SmartPhoneWidth}) {
+    height: 28vh;
+  }
 `;
 
 export const ImgWrapper = styled.div`
@@ -82,6 +100,9 @@ export const ImgWrapper = styled.div`
   width: 52%;
   height: 100%;
   overflow: hidden;
+  @media (max-width: ${SmallTabletWidth}) {
+    width: 44%;
+  }
 `;
 
 export const Img = styled.img`
@@ -101,6 +122,9 @@ export const Desc = styled.div`
   text-align: center;
   line-height: normal;
   display: inline-block;
+  @media (max-width: ${SmallTabletWidth}) {
+    width: 56%;
+  }
 `;
 
 export const Contents = styled.div`
@@ -111,13 +135,25 @@ export const Contents = styled.div`
   font-size: 30px;
   line-height: 48px;
   font-weight: 300;
-  border: 1px solid gray;
   transition: all 0.4s;
   &:hover {
     margin-top: 22%;
     width: 76%;
     padding-left: 12%;
     transition: all 0.4s;
+  }
+  @media (max-width: ${TabletWidth}) {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  @media (max-width: ${SmartPhoneWidth}) {
+    font-size: 16px;
+    margin-top: 13%;
+    line-height: 28px;
+    &:hover {
+      margin-top: 10%;
+      transition: all 0.4s;
+    }
   }
 `;
 
