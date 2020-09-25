@@ -20,12 +20,20 @@ import MyPage from 'components/views/mypage';
 import Qna from 'components/views/qna';
 import Trainer from 'components/views/trainer';
 
-const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
+const AppRouter = ({
+  refreshUser,
+  isLoggedIn,
+  // isSigned,
+  userObj,
+  // setSigned,
+}) => {
   return (
     <Router>
       {isLoggedIn && <Header userObj={userObj} />}
+      {/* {isSigned && <Header userObj={userObj} setSigned={setSigned} />} */}
       <Switch>
         {isLoggedIn ? (
+          // {/* {isSigned ? ( */}
           <>
             <OuterContainer>
               {/* if user already logged in ... */}
@@ -58,7 +66,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
           <>
             {/* if user is not logged in ... */}
             <Route exact path="/" component={Intro} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" render={() => <Login />} />
             <Redirect path="*" to="/" />
           </>
         )}

@@ -10,6 +10,7 @@ console.log(FirebaseAuth);
 const App = () => {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
+  const [isSigned, setSigned] = useState(false);
   useEffect(() => {
     FirebaseAuth.onAuthStateChanged((user) => {
       if (user) {
@@ -24,6 +25,14 @@ const App = () => {
       setInit(true);
     });
   }, []);
+  // useEffect(() => {
+  //   const userEmail = window.localStorage.getItem('healthUserEmail');
+  //   if (userEmail) {
+  //     /* if user's email exist in localstorage ... */
+  //     setSigned(true);
+  //   }
+  //   setInit(true);
+  // });
   useEffect(() => {
     AiScript();
   });
@@ -42,6 +51,8 @@ const App = () => {
           <AppRouter
             refreshUser={refreshUser}
             isLoggedIn={Boolean(userObj)}
+            // isSigned={isSigned}
+            // setSigned={setSigned}
             userObj={userObj}
           />
           <GlobalStyle />

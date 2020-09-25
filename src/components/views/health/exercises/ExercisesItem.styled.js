@@ -1,4 +1,10 @@
 import styled from 'styled-components';
+import {
+  DeskTopWidth,
+  TabletWidth,
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 
 export const Wrapper = styled.div`
   width: ${(props) => (props.width ? `${props.width}px` : '100%')};
@@ -29,6 +35,10 @@ export const Container = styled.div`
     background-color: #f9f9f9;
     transition: all 0.3s;
     box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.3);
+  }
+  @media (max-width: 1080px) {
+    width: 44%;
+    margin: 1%;
   }
 `;
 

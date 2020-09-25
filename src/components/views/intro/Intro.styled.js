@@ -18,7 +18,7 @@ const ScrollFade = keyframes`
 `;
 
 export const Container = styled.div`
-  width: 100%;
+  width: 100vw;
   position: relative;
 `;
 
@@ -30,11 +30,11 @@ export const IntroTitle = styled.h1`
   margin: 0;
   padding: 0;
   align-self: flex-start;
-  padding-top: 2.4rem;
+  padding-top: 4rem;
   padding-left: 8%;
   padding-bottom: 8rem;
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 48px;
   color: #666666;
 `;
@@ -50,6 +50,7 @@ export const IntroImgWrapper = styled.div`
   background-image: url(${introImg});
   background-position: center;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 `;
 export const IntroDesc = styled.div`
   position: absolute;
@@ -67,8 +68,7 @@ export const Scroll = styled.div`
 `;
 
 export const IntroItem = styled.div`
-  width: 80vw;
-  margin-left: 10vw;
+  width: 100vw;
   height: 70vh;
   display: flex;
   flex-direction: row;
@@ -79,22 +79,46 @@ export const IntroItem = styled.div`
 
 export const ImgWrapper = styled.div`
   display: inline-block;
-  width: 40%;
-  height: 80%;
-  border: 1px solid gray;
+  width: 52%;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  border: 1px solid gray;
+  transition: all 0.4s;
+  &:hover {
+    width: 103%;
+    height: 103%;
+    transition: all 0.4s;
+  }
 `;
 
 export const Desc = styled.div`
-  width: 60%;
-  height: 80%;
+  width: 48%;
+  height: 100%;
+  text-align: center;
+  line-height: normal;
   display: inline-block;
+`;
+
+export const Contents = styled.div`
+  width: 70%;
+  padding-left: 15%;
+  margin-top: 25%;
+  text-align: ${(props) => props.direct};
+  font-size: 30px;
+  line-height: 48px;
+  font-weight: 300;
   border: 1px solid gray;
+  transition: all 0.4s;
+  &:hover {
+    margin-top: 22%;
+    width: 76%;
+    padding-left: 12%;
+    transition: all 0.4s;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
