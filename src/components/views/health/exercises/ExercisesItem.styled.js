@@ -23,11 +23,11 @@ export const Container = styled.div`
     transition: all 0.3s;
     box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.3);
   }
-  @media (max-width: 440px) {
-    width: 90%;
-  }
   @media (max-width: 960px) {
     width: ${(props) => (props.show ? '80%' : '44%')};
+  }
+  @media (max-width: 440px) {
+    width: 90%;
   }
 `;
 

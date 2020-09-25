@@ -14,7 +14,6 @@ export const Wrapper = styled.div`
   margin-bottom: 1rem;
   overflow: scroll;
   text-align: center;
-  border: 1px solid gray;
   @media (max-width: 960px) {
     width: ${(props) => (props.show ? '30%' : '100%')};
   }

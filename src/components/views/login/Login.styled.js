@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { HEALTH_COLOR } from 'components/modules/style/Color';
 
 export const Container = styled.div`
   width: 100vw;
@@ -46,7 +47,7 @@ export const TextInput = styled.input`
 export const Submit = styled.input`
   float: right;
   border: none;
-  background-color: #2d98da;
+  background-color: ${HEALTH_COLOR};
   width: 34%;
   height: 36px;
   border-radius: 24px;

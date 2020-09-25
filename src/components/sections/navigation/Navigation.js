@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuList from './Menu';
 import { FirebaseAuth } from 'config/fbConfig';
 
-const Navigation = () => {
+const Navigation = ({ pathname }) => {
   const [clicked, setClicked] = useState('none');
   const [aboutClicked, setAboutClicked] = useState('none');
 
@@ -56,11 +56,16 @@ const Navigation = () => {
               name={value.name}
               path={value.path}
               onClickHBG={onClickHBG}
+              pathname={pathname}
             />
           ))}
 
           <li className="nav-list">
-            <a href="#" onClick={logOut}>
+            <a
+              style={{ marginTop: '4rem', textAlign: 'right' }}
+              href="#"
+              onClick={logOut}
+            >
               로그아웃
             </a>
           </li>

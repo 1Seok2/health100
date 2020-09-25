@@ -2,7 +2,7 @@
   text-transform: uppercase;
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 0.8rem;
   z-index: 89;
 }
 @media (min-width: 1080px) {
@@ -17,9 +17,9 @@
   }
 }
 .nav-wrapper {
-  background-color: #dddddd;
-  box-shadow: -1px 0px 3px 0px rgba(0, 0, 0, 0.75);
-  padding-top: 80px;
+  background-color: #f9f9f9;
+  box-shadow: -6px 0px 8px -5px rgba(0, 0, 0, 0.75);
+  padding-top: 7rem;
   perspective: 1000px;
   position: fixed;
   height: calc(100vh - 80px);
@@ -28,6 +28,7 @@
   transform: translateX(100%);
   transition: transform 0.6s, visibility 0.6s;
   visibility: hidden;
+  max-width: 18rem;
   width: 60vw;
   min-width: 15rem;
   z-index: 79;
@@ -47,7 +48,7 @@
   transform: rotateY(0deg);
 }
 .nav li.active a {
-  background-color: #e6e6e6;
+  background-color: #efefef;
 }
 .nav a {
   display: block;
@@ -57,7 +58,7 @@
 }
 .nav a:focus,
 .nav a:hover {
-  background-color: #d8d8d8;
+  background-color: rgba(46, 152, 217, 0.15);
   text-decoration: none;
 }
 .nav-marker {
@@ -80,7 +81,7 @@
   width: 0;
 }
 .color-1 {
-  color: rgb(122, 122, 122);
+  color: #efefef;
 }
 .button-lines {
   background: transparent;
@@ -91,7 +92,7 @@
   user-select: none;
 }
 .lines {
-  background: #333;
+  background: #2d98da;
   border-radius: 0.2rem;
   display: inline-block;
   height: 0.2rem;
@@ -99,11 +100,11 @@
   position: relative;
 }
 .lines:hover {
-  background: #000;
+  background: #2d98da;
 }
 .lines:after,
 .lines:before {
-  background: #333;
+  background: #2d98da;
   border-radius: 0.2rem;
   display: inline-block;
   height: 0.2rem;
@@ -114,7 +115,7 @@
 }
 .lines:after:hover,
 .lines:before:hover {
-  background: #333;
+  background: #2d98da;
 }
 .lines:after {
   top: 0.5rem;
@@ -148,10 +149,9 @@ li {
   list-style: none;
 }
 .nav-list a {
-  padding-right: 0;
-  padding-left: 0;
+  padding-left: 12px;
+  padding-right: 12px;
   text-align: left;
   margin-left: 1rem;
   margin-right: 1rem;
-  border-bottom: 1px solid gray;
 }

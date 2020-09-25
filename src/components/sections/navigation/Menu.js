@@ -1,13 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { SLink, Entity } from './Menu.styled';
 
-const MenuList = ({ name, path, onClickHBG }) => {
+const MenuList = ({ name, path, onClickHBG, pathname }) => {
   return (
     <li className="nav-list">
-      <Link to={path} onClick={onClickHBG}>
+      <SLink to={path} current={pathname.includes(path)} onClick={onClickHBG}>
         {name}
-        <span className="list-entity">&gt;</span>
-      </Link>
+        <Entity current={pathname.includes(path)} className="list-entity">
+          &gt;
+        </Entity>
+      </SLink>
     </li>
   );
 };

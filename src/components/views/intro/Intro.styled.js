@@ -7,6 +7,7 @@ import {
   SmallTabletWidth,
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
+import { HEALTH_COLOR } from 'components/modules/style/Color';
 
 const ScrollFade = keyframes`
 0% {
@@ -167,7 +168,7 @@ export const LoginButton = styled(Link)`
   width: 60%;
   max-width: 280px;
   box-shadow: 0px 8px 10px -6px rgb(100, 100, 100);
-  background-color: #2d98da;
+  background-color: ${HEALTH_COLOR};
   bottom: 60px;
   left: 50%;
   transform: translateX(-50%);

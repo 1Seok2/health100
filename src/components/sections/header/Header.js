@@ -10,7 +10,7 @@ console.log(window.innerWidth);
 export default withRouter(({ location: { pathname } }) => (
   <Container>
     <Wrapper>HEALTH100</Wrapper>
-    <Navigation />
+    <Navigation pathname={pathname} />
     <MenuWrapper>
       <SLink current={pathname === '/'} to="/">
         셀프운동
