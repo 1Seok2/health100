@@ -37,11 +37,13 @@ const AppRouter = ({
           <>
             <OuterContainer>
               {/* if user already logged in ... */}
+              {/* main is self health */}
               <Route
                 exact
                 path="/"
                 render={() => <Health userObj={userObj} />}
               />
+              {/* can see my data */}
               <Route
                 exact
                 path="/mypage"
@@ -49,11 +51,13 @@ const AppRouter = ({
                   <MyPage userObj={userObj} refreshUser={refreshUser} />
                 )}
               />
+              {/* can consultant about my data */}
               <Route
                 exact
                 path="/qna"
                 render={() => <Qna userObj={userObj} />}
               />
+              {/* can contact with trainer */}
               <Route
                 exact
                 path="/trainer"
