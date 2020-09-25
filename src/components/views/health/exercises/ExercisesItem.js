@@ -14,9 +14,15 @@ const ExercisesItem = ({ showDetail, setShow, item }) => {
   };
 
   return (
-    <Container onClick={() => clickList()} show={showDetail.show}>
+    <Container
+      onClick={() => clickList()}
+      show={showDetail.show}
+      current={showDetail.title === item.title}
+    >
       <DescWrapper>
-        <BranchName>{item.title}</BranchName>
+        <BranchName current={showDetail.title === item.title}>
+          {item.title}
+        </BranchName>
       </DescWrapper>
       {/* <ImageWrapper> */}
       {/* <Image

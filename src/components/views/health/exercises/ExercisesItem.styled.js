@@ -5,6 +5,7 @@ import {
   SmallTabletWidth,
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
+import { HEALTH_COLOR } from '../../../modules/style/Color';
 
 export const Container = styled.div`
   display: inline-block;
@@ -16,7 +17,7 @@ export const Container = styled.div`
   border-radius: 0.4rem;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ${(props) => (props.current ? HEALTH_COLOR : 'white')};
   &:hover {
     cursor: pointer;
     background-color: #2e98d9;
@@ -53,6 +54,7 @@ export const BranchName = styled.div`
   font-weight: 200;
   margin-top: 10%;
   color: black;
+  color: ${(props) => (!props.current ? 'black' : 'white')};
 `;
 
 export const UnitName = styled.div`

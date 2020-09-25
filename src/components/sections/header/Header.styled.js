@@ -29,7 +29,7 @@ export const Wrapper = styled.div`
 
 export const MenuWrapper = styled.ul`
   float: right;
-  width: 800px;
+  width: 900px;
   height: 100%;
   margin-bottom: 8px;
   display: flex;

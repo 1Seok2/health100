@@ -89,10 +89,8 @@ export const IntroItem = styled.div`
     height: 38vh;
   }
   @media (max-width: ${SmartPhoneWidth}) {
-    height: 34vh;
-  }
-  @media (max-width: ${SmartPhoneWidth}) {
-    height: 28vh;
+    flex-direction: column;
+    height: 80vh;
   }
 `;
 
@@ -103,6 +101,11 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   @media (max-width: ${SmallTabletWidth}) {
     width: 44%;
+  }
+  @media (max-width: ${SmartPhoneWidth}) {
+    width: 100vw;
+    display: block;
+    height: 90vw;
   }
 `;
 
@@ -125,6 +128,10 @@ export const Desc = styled.div`
   display: inline-block;
   @media (max-width: ${SmallTabletWidth}) {
     width: 56%;
+  }
+  @media (max-width: ${SmartPhoneWidth}) {
+    width: 100vw;
+    display: block;
   }
 `;
 
