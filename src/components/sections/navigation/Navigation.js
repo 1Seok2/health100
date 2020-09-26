@@ -9,7 +9,7 @@ const Navigation = ({ pathname }) => {
   const MenuValueList = [
     {
       name: '셀프운동',
-      path: '/',
+      path: '/health',
     },
     {
       name: '내 기록 보기',

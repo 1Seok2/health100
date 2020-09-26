@@ -62,7 +62,6 @@ export const Squat = () => {
   }
 
   const stop = () => {
-    console.log(webcam);
     webcam.stop();
   };
 

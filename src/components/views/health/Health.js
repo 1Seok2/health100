@@ -3,8 +3,6 @@ import ExercisesItem from './exercises';
 import ExercisesDetail from './detail';
 import { Wrapper, Container } from './Health.styled';
 import { list } from './exercises/List';
-import { Link } from 'react-router-dom';
-import { WebCam } from 'assets/ai/squat/Squat';
 
 const Health = ({ userObj }) => {
   const [showDetail, setShow] = useState({

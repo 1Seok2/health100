@@ -32,7 +32,6 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
 
   useEffect(() => {
     setCount(0);
-    console.log(userObj);
   }, [title]);
 
   const init = async () => {
@@ -106,7 +105,6 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
 
   const stop = () => {
     setStart(false);
-    console.log(webcam);
     webcam.stop();
   };
 

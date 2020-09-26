@@ -4,15 +4,13 @@ import { Container, Wrapper, MenuWrapper, SLink } from './Header.styled';
 import 'assets/style/css/Menu.css';
 import Navigation from '../navigation/Navigation';
 
-console.log(window.innerWidth);
-
 /* header title & navbar */
 export default withRouter(({ location: { pathname } }) => (
   <Container>
     <Wrapper>HEALTH100</Wrapper>
     <Navigation pathname={pathname} />
     <MenuWrapper>
-      <SLink current={pathname === '/'} to="/">
+      <SLink current={pathname.includes('/health')} to="/health">
         셀프운동
       </SLink>
       <SLink current={pathname.includes('/mypage')} to="/mypage">

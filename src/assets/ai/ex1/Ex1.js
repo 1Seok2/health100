@@ -71,7 +71,6 @@ const Ex1 = () => {
   }
 
   const stop = () => {
-    console.log(webcam);
     webcam.stop();
   };
 

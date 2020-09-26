@@ -40,7 +40,7 @@ const AppRouter = ({
               {/* main is self health */}
               <Route
                 exact
-                path="/"
+                path="/health"
                 render={() => <Health userObj={userObj} />}
               />
               {/* can see my data */}
@@ -63,7 +63,7 @@ const AppRouter = ({
                 path="/trainer"
                 render={() => <Trainer userObj={userObj} />}
               />
-              <Redirect path="*" to="/" />
+              <Redirect path="*" to="/health" />
             </OuterContainer>
           </>
         ) : (

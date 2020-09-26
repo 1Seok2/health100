@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, DescWrapper, BranchName } from './ExercisesItem.styled';
 import GetRandomColor from 'components/modules/style/RandomColor';
 
-console.log(`#${(parseInt('2e98d9', 16) * Math.random() * 1).toString(16)}`);
 const ExercisesItem = ({ showDetail, setShow, item }) => {
   const clickList = () => {
     setShow({

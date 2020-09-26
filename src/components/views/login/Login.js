@@ -59,9 +59,7 @@ const Login = ({ setSigned }) => {
         /* sign in ... */
         data = await FirebaseAuth.signInWithEmailAndPassword(email, password);
       }
-      console.log('login data is ... ', data);
     } catch (error) {
-      console.log(error.message);
       switch (error.message) {
         case 'The email address is already in use by another account.':
           setError('* 이미 가입된 이메일입니다.');
@@ -99,7 +97,6 @@ const Login = ({ setSigned }) => {
       provider = new FirebaseInstance.auth.FacebookAuthProvider();
     }
     const data = await FirebaseAuth.signInWithPopup(provider);
-    console.log(data);
   };
   return (
     <Container>

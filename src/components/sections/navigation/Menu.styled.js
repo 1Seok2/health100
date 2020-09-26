@@ -4,7 +4,7 @@ import { HEALTH_COLOR } from '../../modules/style/Color';
 
 export const SLink = styled(Link)`
   background-color: ${(props) => (props.current ? HEALTH_COLOR : 'none')};
-  color: ${(props) => (props.current ? 'white' : HEALTH_COLOR)};
+  color: ${(props) => (props.current ? 'white' : '#666')};
   padding-right: 12px;
   text-align: left;
   margin-left: 1rem;
@@ -13,6 +13,6 @@ export const SLink = styled(Link)`
 `;
 
 export const Entity = styled.span`
-  color: ${(props) => (props.current ? 'white' : HEALTH_COLOR)};
+  color: ${(props) => (props.current ? 'white' : '#666')};
   float: right;
 `;

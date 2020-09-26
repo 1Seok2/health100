@@ -1,3 +1,7 @@
+/**
+ * show hamburger nav's list
+ */
+
 import React from 'react';
 import { SLink, Entity } from './Menu.styled';
 

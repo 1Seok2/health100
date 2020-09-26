@@ -5,8 +5,6 @@ import { OuterContainer } from './App.styled';
 import { FirebaseAuth } from 'config/fbConfig';
 import AiScript from 'assets/ai/AiScript';
 
-console.log(FirebaseAuth);
-
 const App = () => {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);
