@@ -1,0 +1,150 @@
+/**
+ * url에 따라 나타내는 tmPose가 달라짐
+ */
+
+import React, { useEffect, useState, useCallback } from 'react';
+import {
+  CamContainer,
+  CamMessage,
+  Count,
+  Status,
+  ExerciseButton,
+} from './TurnOnWebCam.styled';
+
+let model,
+  webcam,
+  ctx,
+  labelContainer,
+  maxPredictions,
+  status = 'default';
+
+const userPose = {
+  default: 'default',
+  correct: 'correct',
+  wrong: 'wrong',
+};
+
+const TurnOnWebCam = ({ title, URL, count, setCount }) => {
+  const [start, setStart] = useState(false);
+  const [showStatus, setShow] = useState(false);
+
+  useEffect(() => {
+    setCount(0);
+  }, [title]);
+
+  const init = async () => {
+    setStart(true);
+    const modelURL = URL + 'model.json';
+    const metadataURL = URL + 'metadata.json';
+
+    model = await window.tmPose.load(modelURL, metadataURL);
+    maxPredictions = model.getTotalClasses();
+
+    const size = 300;
+    const flip = true; // whether to flip the webcam
+    webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
+    await webcam.setup(); // request access to the webcam
+    await webcam.play();
+    window.requestAnimationFrame(loop);
+
+    // append/get elements to the DOM
+    const canvas = document.getElementById('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    ctx = canvas.getContext('2d');
+    labelContainer = document.getElementById('label-container');
+    for (let i = 0; i < maxPredictions; i++) {
+      // and class labels
+      labelContainer.appendChild(document.createElement('div'));
+    }
+  };
+
+  const loop = async (timestamp) => {
+    webcam.update(); // update the webcam frame
+    await predict();
+    window.requestAnimationFrame(loop);
+  };
+
+  const predict = async () => {
+    // Prediction #1: run input through posenet
+    // estimatePose can take in an image, video or canvas html element
+    const { pose, posenetOutput } = await model.estimatePose(webcam.canvas);
+    // Prediction 2: run input through teachable machine classification model
+    const prediction = await model.predict(posenetOutput);
+
+    /* if squat ... */
+    if (prediction[0].probability.toFixed(2) > 0.9) {
+      if (status === userPose.correct) {
+        setCount((prev) => prev + 1);
+        /* audio ... ? */
+      }
+      status = userPose.default;
+    } else if (prediction[1].probability.toFixed(2) > 0.9) {
+      status = userPose.correct;
+    } else if (prediction[2].probability.toFixed(2) > 0.95) {
+      if (
+        status.pose === userPose.correct ||
+        status.pose === userPose.default
+      ) {
+        /* its wrong ... */
+      }
+      status = userPose.wrong;
+    }
+
+    for (let i = 0; i < maxPredictions; i++) {
+      const classPrediction =
+        prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+      labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
+
+    // finally draw the poses
+    drawPose(pose);
+  };
+
+  const stop = () => {
+    setStart(false);
+    console.log(webcam);
+    webcam.stop();
+  };
+
+  const drawPose = (pose) => {
+    if (webcam.canvas) {
+      ctx.drawImage(webcam.canvas, 0, 0);
+      // draw the keypoints and skeleton
+      if (pose) {
+        const minPartConfidence = 0.5;
+        window.tmPose.drawKeypoints(pose.keypoints, minPartConfidence, ctx);
+        window.tmPose.drawSkeleton(pose.keypoints, minPartConfidence, ctx);
+      }
+    }
+  };
+
+  return (
+    <>
+      <CamContainer>
+        {!start ? (
+          <CamMessage>캠을 켜주세요</CamMessage>
+        ) : (
+          <canvas id="canvas"></canvas>
+        )}
+      </CamContainer>
+      {start && (
+        <Status fSize={16} display={start} onClick={() => setShow(!showStatus)}>
+          상태보기
+        </Status>
+      )}
+      <Status display={showStatus && start} id="label-container"></Status>
+      <Count style={{ fontSize: 30 }}>운동 횟수 : {count} 회</Count>
+      {/* <div style={{ fontSize: 30 }}>{status}</div> */}
+      {!start ? (
+        <ExerciseButton onClick={() => init()}>운동 시작하기</ExerciseButton>
+      ) : (
+        <ExerciseButton bgColor="#8854d0" onClick={() => stop()}>
+          결과 저장하기
+        </ExerciseButton>
+      )}
+    </>
+  );
+};
+
+export default TurnOnWebCam;

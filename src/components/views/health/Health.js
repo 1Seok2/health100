@@ -6,12 +6,13 @@ import { list } from './exercises/List';
 import { Link } from 'react-router-dom';
 import { WebCam } from 'assets/ai/squat/Squat';
 
-const Health = () => {
+const Health = ({ userObj }) => {
   const [showDetail, setShow] = useState({
     show: false,
     // branch : branch,   다른 해당 운동에 대한 정보들
     // unit : unit,
   });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     // return WebCam && WebCam.stop();
@@ -29,7 +30,13 @@ const Health = () => {
         ))}
       </Wrapper>
       {showDetail.show && (
-        <ExercisesDetail showDetail={showDetail} setShow={setShow} />
+        <ExercisesDetail
+          userObj={userObj}
+          showDetail={showDetail}
+          setShow={setShow}
+          setCount={setCount}
+          count={count}
+        />
       )}
     </Container>
   );

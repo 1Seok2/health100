@@ -1,14 +1,17 @@
 /**
- * 새로운 운동 추가 시 assets/ai에 추가 후 불러와야하는 페이지
+ * 새로운 운동 추가 시 assets/ai에 URL 추가 후 불러와야하는 페이지
  * webcam stop, init 관리 추가적으로 필요
  */
 
 import React, { useEffect } from 'react';
-import { Squat } from 'assets/ai/squat';
 import { CloseButton, Container } from './ExercisesDetail.styled';
-import Ex1 from 'assets/ai/ex1';
+import TurnOnWebCam from '../teachablemachine';
 
-const ExercisesDetail = ({ showDetail, setShow }) => {
+/* URLs ... */
+import { SquatURL } from 'assets/ai/squat/SquatUrl';
+import { Ex1URL } from 'assets/ai/ex1/Ex1Url';
+
+const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
   const closeDetail = () => {
     setShow({
       ...showDetail,
@@ -23,9 +26,14 @@ const ExercisesDetail = ({ showDetail, setShow }) => {
       {showDetail.title === '스쿼트' ||
       showDetail.title === '다른' ||
       showDetail.title === '다른1' ? (
-        <Squat />
+        <TurnOnWebCam
+          title={showDetail.title}
+          URL={SquatURL}
+          setCount={setCount}
+          count={count}
+        />
       ) : (
-        <Ex1 />
+        <TurnOnWebCam URL={Ex1URL} setCount={setCount} count={count} />
       )}
     </Container>
   );
