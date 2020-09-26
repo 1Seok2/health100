@@ -24,11 +24,6 @@ const ExercisesItem = ({ showDetail, setShow, item }) => {
           {item.title}
         </BranchName>
       </DescWrapper>
-      {/* <ImageWrapper> */}
-      {/* <Image
-          src={`https://cdn.myzzym.com/myzzym/images/branch/${branch.id}/${unit[0].id}/${unit[0].unitImage[0].fileName}`}
-        /> */}
-      {/* </ImageWrapper> */}
     </Container>
   );
 };

@@ -8,12 +8,8 @@ const Navigation = ({ pathname }) => {
 
   const MenuValueList = [
     {
-      name: '시작 페이지',
+      name: '셀프운동',
       path: '/',
-    },
-    {
-      name: '셀프 운동',
-      path: '/health',
     },
     {
       name: '내 기록 보기',

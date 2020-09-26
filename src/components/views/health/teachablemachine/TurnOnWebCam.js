@@ -1,5 +1,6 @@
 /**
  * url에 따라 나타내는 tmPose가 달라짐
+ * 측정 후 운동횟수 데이터로 저장
  */
 
 import React, { useEffect, useState, useCallback } from 'react';
@@ -10,6 +11,7 @@ import {
   Status,
   ExerciseButton,
 } from './TurnOnWebCam.styled';
+import { FirebaseStore } from '../../../../config/fbConfig';
 
 let model,
   webcam,
@@ -24,12 +26,13 @@ const userPose = {
   wrong: 'wrong',
 };
 
-const TurnOnWebCam = ({ title, URL, count, setCount }) => {
+const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   const [start, setStart] = useState(false);
   const [showStatus, setShow] = useState(false);
 
   useEffect(() => {
     setCount(0);
+    console.log(userObj);
   }, [title]);
 
   const init = async () => {
@@ -119,6 +122,18 @@ const TurnOnWebCam = ({ title, URL, count, setCount }) => {
     }
   };
 
+  /* save counts in firebaseStore */
+  const SaveCounts = async () => {
+    stop();
+    await FirebaseStore.collection('exercises').add({
+      userId: userObj.uid,
+      exercise: title,
+      count: count,
+      createdAt: Date.now(),
+    });
+    setCount(0);
+  };
+
   return (
     <>
       <CamContainer>
@@ -139,7 +154,7 @@ const TurnOnWebCam = ({ title, URL, count, setCount }) => {
       {!start ? (
         <ExerciseButton onClick={() => init()}>운동 시작하기</ExerciseButton>
       ) : (
-        <ExerciseButton bgColor="#8854d0" onClick={() => stop()}>
+        <ExerciseButton bgColor="#8854d0" onClick={() => SaveCounts()}>
           결과 저장하기
         </ExerciseButton>
       )}

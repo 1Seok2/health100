@@ -27,6 +27,7 @@ const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
       showDetail.title === '다른' ||
       showDetail.title === '다른1' ? (
         <TurnOnWebCam
+          userObj={userObj}
           title={showDetail.title}
           URL={SquatURL}
           setCount={setCount}

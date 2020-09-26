@@ -44,16 +44,16 @@ export const ImageWrapper = styled.div`
 `;
 
 export const DescWrapper = styled.div`
-  display: block;
-  text-align: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BranchName = styled.div`
   display: block;
   font-size: 24px;
   font-weight: 200;
-  margin-top: 10%;
-  color: black;
   color: ${(props) => (!props.current ? 'black' : 'white')};
 `;
 
