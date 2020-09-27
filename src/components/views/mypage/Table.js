@@ -1,11 +1,21 @@
 /**
  * show table about exercise data ...
+ * need chart?
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { STable, STh, STr, Std } from './MyPage.styled';
+import moment from 'moment';
 
-export const Table = ({ myList, title }) => {
+export const Table = ({
+  myList,
+  title,
+  select,
+  makePackage,
+  setMake,
+  checkPackage,
+  setCheck,
+}) => {
   return (
     <>
       {myList.length !== 0 && (
@@ -15,8 +25,24 @@ export const Table = ({ myList, title }) => {
             {myList.map(
               (row) =>
                 row.title === title && (
-                  <Std title={true} key={row.date + Math.random()}>
-                    {row.date}
+                  <Std
+                    title={true}
+                    key={row.date + Math.random()}
+                    onClick={() => {
+                      if (makePackage) {
+                        select(
+                          row.title,
+                          row.date,
+                          Math.floor(row.duration / 1000),
+                          row.count,
+                        );
+                      }
+                    }}
+                    current={
+                      makePackage && checkPackage[row.title]?.date === row.date
+                    }
+                  >
+                    {moment(row.date).format('YY.MM.DD')}
                   </Std>
                 ),
             )}
@@ -26,7 +52,23 @@ export const Table = ({ myList, title }) => {
             {myList.map(
               (row) =>
                 row.title === title && (
-                  <Std title={false} key={Math.random() + row.count}>
+                  <Std
+                    title={false}
+                    key={Math.random() + row.count}
+                    onClick={() => {
+                      if (makePackage) {
+                        select(
+                          row.title,
+                          row.date,
+                          Math.floor(row.duration / 1000),
+                          row.count,
+                        );
+                      }
+                    }}
+                    current={
+                      makePackage && checkPackage[row.title]?.date === row.date
+                    }
+                  >
                     {row.count} 회
                   </Std>
                 ),
@@ -37,7 +79,23 @@ export const Table = ({ myList, title }) => {
             {myList.map(
               (row) =>
                 row.title === title && (
-                  <Std title={false} key={Math.random() + row.count}>
+                  <Std
+                    title={false}
+                    key={Math.random() + row.count}
+                    onClick={() => {
+                      if (makePackage) {
+                        select(
+                          row.title,
+                          row.date,
+                          Math.floor(row.duration / 1000),
+                          row.count,
+                        );
+                      }
+                    }}
+                    current={
+                      makePackage && checkPackage[row.title]?.date === row.date
+                    }
+                  >
                     {Math.floor(row.duration / 1000) || '0'} 초
                   </Std>
                 ),

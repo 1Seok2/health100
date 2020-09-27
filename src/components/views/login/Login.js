@@ -120,7 +120,7 @@ const Login = ({ setSigned }) => {
             />
           </SLabel>
           <Notice>
-            {isTrainer && '\n트레이너는 구글 로그인을 제공하지 않습니다'}
+            {isTrainer && '\n트레이너에게는 구글 로그인을 제공하지 않습니다'}
           </Notice>
         </CheckWrapper>
         <TextInput

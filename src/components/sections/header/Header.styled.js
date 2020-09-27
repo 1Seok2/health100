@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { HEALTH_COLOR } from '../../modules/style/Color';
+import { HEALTH_COLOR, HEALTH_COLOR_LIGHT } from '../../modules/style/Color';
 
 export const Container = styled.div`
   position: absolute;
@@ -55,7 +55,7 @@ export const SLink = styled(Link)`
   }
   &:hover {
     background-color: ${(props) =>
-      props.current ? HEALTH_COLOR : 'rgba(46, 152, 217, 0.1)'};
+      props.current ? HEALTH_COLOR : HEALTH_COLOR_LIGHT};
     cursor: pointer;
     transition: background-color 0.3s;
   }

@@ -1,5 +1,9 @@
 import styled from 'styled-components';
-import { HEALTH_COLOR } from 'components/modules/style/Color';
+import {
+  HEALTH_COLOR_DARK,
+  HEALTH_COLOR,
+  NEGATIVE_COLOR,
+} from 'components/modules/style/Color';
 
 export const CamContainer = styled.div`
   height: 300px;
@@ -44,14 +48,14 @@ export const ExerciseButton = styled.a`
   text-align: center;
   color: white;
   background-color: ${(props) =>
-    props.bgColor ? props.bgColor : HEALTH_COLOR};
+    props.bgColor ? props.bgColor : HEALTH_COLOR_DARK};
   border-radius: 21px;
   box-shadow: 0px 6px 10px -6px rgb(100, 100, 100);
   transition: background-color 0.3s;
   &:hover {
     cursor: pointer;
     background-color: ${(props) =>
-      props.bgColor ? 'rgba(136, 83, 208,0.7)' : 'rgba(46, 152, 217, 0.7)'};
+      props.bgColor ? NEGATIVE_COLOR : HEALTH_COLOR};
     transition: background-color 0.2s;
   }
 `;

@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import {
+  HEALTH_COLOR_DARK,
+  HEALTH_COLOR,
+  HEALTH_COLOR_LIGHT,
+  NEGATIVE_COLOR_LIGHT,
+  NEGATIVE_COLOR,
+} from 'components/modules/style/Color';
 
 export const Container = styled.div`
   width: 100%;
@@ -53,9 +60,33 @@ export const Std = styled.td`
   margin: 0;
   border: 3px solid #ffffff;
   background-color: ${(props) =>
-    props.title ? 'rgba(136, 83, 208,0.2)' : '#fafafa'};
+    props.title ? NEGATIVE_COLOR_LIGHT : '#fafafa'};
+  ${(props) =>
+    props.current ? `background-color : ${HEALTH_COLOR_DARK};` : null}
+  ${(props) => (props.current ? `color : white;` : null)}
   text-align: center;
   line-height: 42px;
   font-weight: 200;
   min-width: 100px;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+  height: 42px;
+`;
+
+export const SButton = styled.button`
+  width: 100px;
+  height: 42px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 200;
+  background-color: ${(props) =>
+    props.bgColor ? NEGATIVE_COLOR : HEALTH_COLOR};
+  color: white;
+  margin-right: 1.5rem;
+  &:hover {
+    background-color: ${(props) =>
+      props.bgColor ? NEGATIVE_COLOR_LIGHT : HEALTH_COLOR_LIGHT};
+  }
 `;

@@ -5,7 +5,7 @@ import {
   SmallTabletWidth,
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
-import { HEALTH_COLOR } from '../../../modules/style/Color';
+import { HEALTH_COLOR, HEALTH_COLOR_LIGHT } from '../../../modules/style/Color';
 
 export const Container = styled.div`
   display: inline-block;
@@ -21,7 +21,7 @@ export const Container = styled.div`
     props.current ? HEALTH_COLOR : `rgba(46, 152, 217, ${props.opacity})`};
   &:hover {
     cursor: pointer;
-    background-color: rgba(46, 152, 217, 0.3);
+    background-color: HEALTH_COLOR_LIGHT;
     transition: all 0.3s;
     box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.5);
   }
