@@ -11,11 +11,11 @@ export const Form = styled.form`
   text-align: center;
   position: absolute;
   width: 30%;
-  height: 300px;
+  height: 70%;
   min-width: 260px;
   margin: 0 auto;
   padding: 18px;
-  padding-top: 32px;
+  padding-top: 20%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -25,8 +25,26 @@ export const Title = styled.div`
   font-weight: 100;
   text-align: center;
   font-size: 24px;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 `;
+
+export const CheckWrapper = styled.div`
+  width: 100%;
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: right;
+  margin-bottom: 1.2rem;
+`;
+
+export const Notice = styled.div`
+  font-size: 10px;
+  font-weight: 100;
+  color: #c23616;
+  margin-top: 4px;
+`;
+
+export const SLabel = styled.label``;
 
 export const TextInput = styled.input`
   display: block;
@@ -92,13 +110,13 @@ export const AuthSwitch = styled.div`
   }
 `;
 
-export const AuthButton = styled.button`
+export const AuthButton = styled.a`
   position: absolute;
-  width: 190px;
-  height: 36px;
-  bottom: 12%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
+  width: 190px;
+  height: 36px;
   text-align: center;
   border-radius: 18px;
   border: 1px solid #ddd;
@@ -111,20 +129,18 @@ export const AuthButton = styled.button`
     box-shadow: 0px 4px 6px -6px rgb(100, 100, 100);
     transition: all 0.3s;
   }
+  text-align: right;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 36px;
 `;
 
 export const LoginImg = styled.img`
+  display: inline-block;
   width: 24px;
   height: 24px;
-  float: left;
   margin-bottom: 6px;
   position: absolute;
   left: 16px;
   top: 5px;
-`;
-
-export const AuthDesc = styled.span`
-  float: right;
-  font-weight: 200;
-  font-size: 12px;
 `;

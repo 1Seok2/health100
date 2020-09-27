@@ -11,7 +11,7 @@ import {
   Status,
   ExerciseButton,
 } from './TurnOnWebCam.styled';
-import { FirebaseStore } from '../../../../config/fbConfig';
+import { FirebaseStore, FirebaseAuth } from '../../../../config/fbConfig';
 
 let model,
   webcam,
@@ -29,7 +29,10 @@ const userPose = {
 const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   const [start, setStart] = useState(false);
   const [showStatus, setShow] = useState(false);
-
+  const [times, setTimes] = useState({
+    start: 0,
+    end: 0,
+  });
   useEffect(() => {
     setCount(0);
   }, [title]);
@@ -46,7 +49,12 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
     const flip = true; // whether to flip the webcam
     webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
     await webcam.setup(); // request access to the webcam
-    await webcam.play();
+    await webcam.play().then(() =>
+      setTimes({
+        ...times,
+        start: Date.now(),
+      }),
+    );
     window.requestAnimationFrame(loop);
 
     // append/get elements to the DOM
@@ -123,12 +131,15 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   /* save counts in firebaseStore */
   const SaveCounts = async () => {
     stop();
-    await FirebaseStore.collection('exercises').add({
-      userId: userObj.uid,
-      exercise: title,
-      count: count,
-      createdAt: Date.now(),
-    });
+    await FirebaseStore.collection(`${userObj.uid}`)
+      .doc(`${Date.now()}`)
+      .set({
+        userId: userObj.uid,
+        exercise: title,
+        count: count,
+        createdAt: Date.now(),
+        duration: Date.now() - times.start,
+      });
     setCount(0);
   };
 

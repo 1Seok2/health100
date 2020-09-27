@@ -13,6 +13,7 @@ const Health = ({ userObj }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    console.log(userObj);
     // return WebCam && WebCam.stop();
   }, []);
   return (

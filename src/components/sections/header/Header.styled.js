@@ -43,7 +43,7 @@ export const MenuWrapper = styled.ul`
 export const SLink = styled(Link)`
   margin-right: 1.4rem;
   margin: 1px;
-  font-size: 20px;
+  font-size: 18px;
   width: 30%;
   height: 100%;
   border-radius: 3px;
@@ -62,4 +62,16 @@ export const SLink = styled(Link)`
   text-align: center;
   line-height: 4rem;
   color: ${(props) => (props.current ? 'white' : 'black')};
+`;
+
+export const LogOut = styled.a`
+  width: 115px;
+  height: 100%;
+  font-weight: 200;
+  font-size: 16px;
+  line-height: 4rem;
+  padding-left: 1.1rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;

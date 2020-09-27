@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { STable, STr, Std } from './MyPage.styled';
+import { STable, STh, STr, Std } from './MyPage.styled';
 
 export const Table = ({ myList, title }) => {
   return (
@@ -27,7 +27,18 @@ export const Table = ({ myList, title }) => {
               (row) =>
                 row.title === title && (
                   <Std title={false} key={Math.random() + row.count}>
-                    {row.count}
+                    {row.count} 회
+                  </Std>
+                ),
+            )}
+          </STr>
+          <STr>
+            <Std title={false}>운동시간</Std>
+            {myList.map(
+              (row) =>
+                row.title === title && (
+                  <Std title={false} key={Math.random() + row.count}>
+                    {Math.floor(row.duration / 1000) || '0'} 초
                   </Std>
                 ),
             )}

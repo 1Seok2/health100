@@ -14,21 +14,24 @@ export const Container = styled.div`
   margin: 12px;
   z-index: 0;
   box-shadow: 0px 2px 3px 2px rgba(0.5, 0.5, 0.5, 0.1);
-  border-radius: 0.4rem;
+  border-radius: 3rem;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.current ? HEALTH_COLOR : 'white')};
+  background-color: ${(props) =>
+    props.current ? HEALTH_COLOR : `rgba(46, 152, 217, ${props.opacity})`};
   &:hover {
     cursor: pointer;
-    background-color: #2e98d9;
+    background-color: rgba(46, 152, 217, 0.3);
     transition: all 0.3s;
-    box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.3);
+    box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.5);
   }
   @media (max-width: 960px) {
     width: ${(props) => (props.show ? '80%' : '44%')};
+    height: 120px;
   }
   @media (max-width: 440px) {
     width: 90%;
+    height: 80px;
   }
 `;
 
@@ -55,6 +58,9 @@ export const BranchName = styled.div`
   font-size: 24px;
   font-weight: 200;
   color: ${(props) => (!props.current ? 'black' : 'white')};
+  @media (max-width: 440px) {
+    font-size: 18px;
+  }
 `;
 
 export const UnitName = styled.div`

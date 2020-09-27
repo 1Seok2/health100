@@ -26,7 +26,7 @@ export const ListTitle = styled.h1`
 
 export const TableWrapper = styled.div`
   width: 100%;
-  height: 110px;
+  height: 150px;
   padding-top: 8px;
   overflow-x: scroll;
   border-bottom: 1px solid #dfdfdf;
@@ -39,7 +39,12 @@ export const STable = styled.table`
   overflow: scroll;
 `;
 
-export const STr = styled.tr`
+export const STh = styled.th`
+  margin: 0;
+  height: 42px;
+`;
+
+export const STr = styled.tbody`
   margin: 0;
   height: 42px;
 `;

@@ -15,6 +15,8 @@ const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
   const closeDetail = () => {
     setShow({
       ...showDetail,
+      title: '',
+      imgSrc: '',
       show: false,
     });
   };
@@ -22,7 +24,7 @@ const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
   return (
     <Container show={showDetail.show}>
       <CloseButton onClick={() => closeDetail()}>&#215;</CloseButton>
-      <div>{showDetail.title || null}</div>
+      <div>{showDetail.title}</div>
       {showDetail.title === '스쿼트' ||
       showDetail.title === '다른' ||
       showDetail.title === '다른1' ? (
@@ -34,7 +36,14 @@ const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
           count={count}
         />
       ) : (
-        <TurnOnWebCam URL={Ex1URL} setCount={setCount} count={count} />
+        // <TurnOnWebCam URL={Ex1URL} setCount={setCount} count={count} />
+        <TurnOnWebCam
+          userObj={userObj}
+          title={showDetail.title}
+          URL={SquatURL}
+          setCount={setCount}
+          count={count}
+        />
       )}
     </Container>
   );

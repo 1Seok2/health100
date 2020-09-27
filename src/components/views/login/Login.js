@@ -4,18 +4,24 @@
  */
 
 import React, { useState } from 'react';
-import { FirebaseAuth, FirebaseInstance, FirebaseStore } from 'config/fbConfig';
+import {
+  FirebaseAuth,
+  FirebaseInstance,
+  FirebaseStore,
+} from '../../../config/fbConfig';
 import {
   Container,
   TextInput,
   Form,
   Title,
+  CheckWrapper,
+  SLabel,
+  Notice,
   Submit,
   ErrorMessage,
   AuthSwitch,
   AuthButton,
   LoginImg,
-  AuthDesc,
 } from './Login.styled';
 
 const GoogleLogo = require('assets/img/google.png');
@@ -32,6 +38,7 @@ const Login = ({ setSigned }) => {
   const [phoneNum, setPhoneNum] = useState('');
   const [newAccount, setNewAccount] = useState(false);
   const [error, setError] = useState('');
+  const [isTrainer, setIsTrainer] = useState(false);
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -46,14 +53,13 @@ const Login = ({ setSigned }) => {
   };
   const onSubmit = async (event) => {
     event.preventDefault();
+    let data;
     try {
-      let data;
       if (newAccount) {
         /* sign up ... */
         data = await FirebaseAuth.createUserWithEmailAndPassword(
           email,
           password,
-          // type trainer or normal
         );
       } else {
         /* sign in ... */
@@ -83,25 +89,40 @@ const Login = ({ setSigned }) => {
         default:
           setError(error.message);
       }
+    } finally {
+      if (newAccount && data) {
+        await FirebaseStore.collection('users').add({
+          userId: email,
+          createdAt: Date.now(),
+          isTrainer: isTrainer,
+        });
+      }
     }
   };
   const toggleAccount = () => setNewAccount((prev) => !prev);
   const SNSLogin = async (e) => {
-    const {
-      target: { name },
-    } = e;
-    let provider;
-    if (name === 'google') {
-      provider = new FirebaseInstance.auth.GoogleAuthProvider();
-    } else if (name === 'facebook') {
-      provider = new FirebaseInstance.auth.FacebookAuthProvider();
-    }
+    const provider = new FirebaseInstance.auth.GoogleAuthProvider();
+    console.log('p', provider);
     const data = await FirebaseAuth.signInWithPopup(provider);
+    console.log('login data : ', data);
   };
   return (
     <Container>
       <Form onSubmit={onSubmit} className="container">
         <Title>국민체력 100</Title>
+        <CheckWrapper>
+          <SLabel>
+            트레이너이신가요? &nbsp;
+            <input
+              type="checkbox"
+              name="isTrainer"
+              onClick={() => setIsTrainer(!isTrainer)}
+            />
+          </SLabel>
+          <Notice>
+            {isTrainer && '\n트레이너는 구글 로그인을 제공하지 않습니다'}
+          </Notice>
+        </CheckWrapper>
         <TextInput
           name="email"
           type="email"
@@ -130,13 +151,13 @@ const Login = ({ setSigned }) => {
           value={newAccount ? '회원가입' : '로그인'}
         />
       </Form>
-      <AuthButton name="google" onClick={SNSLogin}>
-        <LoginImg src={GoogleLogo} alt="googleLogin" />
-        <AuthDesc>구글 계정으로 로그인</AuthDesc>
-      </AuthButton>
-      {/* <AuthButton name="facebook" onClick={SNSLogin}>
-        start with facebook ...
-      </AuthButton> */}
+      {/* Only normal user can login with google */}
+      {!isTrainer && (
+        <AuthButton name="google" onClick={(e) => SNSLogin(e)}>
+          <LoginImg src={GoogleLogo} alt="googleLogin" />
+          구글 계정으로 로그인
+        </AuthButton>
+      )}
     </Container>
   );
 };
