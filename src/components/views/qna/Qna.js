@@ -3,24 +3,30 @@ import { FirebaseStore } from 'config/fbConfig';
 import TrainerAnswer from './trainer';
 import OwnQna from './own';
 
+import { Containter, Wrapper } from './Qna.styled';
+import Loading from '../../modules/loading/Loading';
+
 const Qna = ({ userObj }) => {
   const [type, setType] = useState(false);
 
   const isTrainer = async () => {
-    let answer = false;
     const user = await FirebaseStore.collection('users').get();
     user.forEach((document) => {
-      if (document.data().userId === userObj.uid) {
-        answer = true;
+      if (document.data().userId === userObj.uid && !type) {
+        setType(true);
       }
     });
-    return answer;
   };
 
   useEffect(() => {
-    if (isTrainer) setType(true);
+    isTrainer();
   }, [userObj]);
-  return <>{type ? <TrainerAnswer /> : <OwnQna />}</>;
+  return (
+    <Containter>
+      {/* <Wrapper>{type ? <TrainerAnswer /> : <OwnQna />}</Wrapper> */}
+      <Loading />
+    </Containter>
+  );
 };
 
 export default Qna;
