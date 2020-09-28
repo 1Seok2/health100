@@ -4,6 +4,7 @@ import GlobalStyle from 'assets/style/Global.Styled';
 import { OuterContainer } from './App.styled';
 import { FirebaseAuth } from 'config/fbConfig';
 import AiScript from 'assets/ai/AiScript';
+import Loading from './modules/loading';
 
 const App = () => {
   const [init, setInit] = useState(false);
@@ -56,7 +57,7 @@ const App = () => {
           <GlobalStyle />
         </>
       ) : (
-        'Initializing...'
+        <Loading />
       )}
     </>
   );

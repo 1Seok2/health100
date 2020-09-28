@@ -17,8 +17,10 @@ import { FirebaseStore } from 'config/fbConfig';
 import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
 import { Table } from './Table';
 import moment from 'moment';
+import Loading from 'components/modules/loading';
 
 const MyPage = ({ userObj }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [myList, setMyList] = useState([]);
   const [titles, setTitles] = useState([]);
 
@@ -88,49 +90,53 @@ const MyPage = ({ userObj }) => {
   };
 
   useEffect(() => {
-    getMyData();
+    getMyData().then(() => setIsLoading(false));
   }, []);
 
   return (
     <Container>
-      <Wrapper>
-        <ButtonWrapper>
-          <SButton
-            bgColor={makePackage}
-            onClick={() => {
-              setCheck({});
-              setMake(!makePackage);
-            }}
-          >
-            {makePackage ? '선택취소' : '처방받기'}
-          </SButton>
-          {makePackage && <SButton onClick={submitPackage}>제출하기</SButton>}
-        </ButtonWrapper>
-        {EXERCISE_LIST.map((itemTitle) => {
-          if (titles.includes(itemTitle)) {
-            return (
-              <>
-                <ListTitle>{itemTitle}</ListTitle>
-                <TableWrapper>
-                  <Table
-                    myList={myList}
-                    title={itemTitle}
-                    key={itemTitle}
-                    select={select}
-                    makePackage={makePackage}
-                    setMake={setMake}
-                    checkPackage={checkPackage}
-                    setCheck={setCheck}
-                  />
-                </TableWrapper>
-              </>
-            );
-          } else return null;
-        })}
-        {titles.length === 0 && (
-          <ErrorContainer txt="데이터가 존재하지 않습니다" />
-        )}
-      </Wrapper>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Wrapper>
+          <ButtonWrapper>
+            <SButton
+              bgColor={makePackage}
+              onClick={() => {
+                setCheck({});
+                setMake(!makePackage);
+              }}
+            >
+              {makePackage ? '선택취소' : '처방받기'}
+            </SButton>
+            {makePackage && <SButton onClick={submitPackage}>제출하기</SButton>}
+          </ButtonWrapper>
+          {EXERCISE_LIST.map((itemTitle) => {
+            if (titles.includes(itemTitle)) {
+              return (
+                <div key={itemTitle}>
+                  <ListTitle>{itemTitle}</ListTitle>
+                  <TableWrapper>
+                    <Table
+                      myList={myList}
+                      title={itemTitle}
+                      key={itemTitle}
+                      select={select}
+                      makePackage={makePackage}
+                      setMake={setMake}
+                      checkPackage={checkPackage}
+                      setCheck={setCheck}
+                    />
+                  </TableWrapper>
+                </div>
+              );
+            } else return null;
+          })}
+          {titles.length === 0 && (
+            <ErrorContainer txt="데이터가 존재하지 않습니다" />
+          )}
+        </Wrapper>
+      )}
     </Container>
   );
 };

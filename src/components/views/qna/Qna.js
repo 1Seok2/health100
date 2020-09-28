@@ -8,6 +8,7 @@ import Loading from '../../modules/loading/Loading';
 
 const Qna = ({ userObj }) => {
   const [type, setType] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isTrainer = async () => {
     const user = await FirebaseStore.collection('users').get();
@@ -16,15 +17,25 @@ const Qna = ({ userObj }) => {
         setType(true);
       }
     });
+    if (user) setIsLoading(false);
   };
 
   useEffect(() => {
-    isTrainer();
+    isTrainer().then();
   }, [userObj]);
   return (
     <Containter>
-      {/* <Wrapper>{type ? <TrainerAnswer /> : <OwnQna />}</Wrapper> */}
-      <Loading />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Wrapper>
+          {type ? (
+            <TrainerAnswer userObj={userObj} />
+          ) : (
+            <OwnQna userObj={userObj} />
+          )}
+        </Wrapper>
+      )}
     </Containter>
   );
 };

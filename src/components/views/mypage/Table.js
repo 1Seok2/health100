@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { STable, STh, STr, Std } from './MyPage.styled';
+import { STable, SThead, STh, STbody, STr, STd } from './MyPage.styled';
 import moment from 'moment';
 
 export const Table = ({
@@ -20,87 +20,94 @@ export const Table = ({
     <>
       {myList.length !== 0 && (
         <STable active={makePackage}>
-          <STr>
-            <Std title={true}>날짜</Std>
-            {myList.map(
-              (row) =>
-                row.title === title && (
-                  <Std
-                    title={true}
-                    key={row.date + Math.random()}
-                    onClick={() => {
-                      if (makePackage) {
-                        select(
-                          row.title,
-                          row.date,
-                          Math.floor(row.duration / 1000),
-                          row.count,
-                        );
+          <SThead>
+            <STr>
+              <STh title={true}>날짜</STh>
+              {myList.map(
+                (row) =>
+                  row.title === title && (
+                    <STd
+                      title={true}
+                      key={row.date + Math.random()}
+                      onClick={() => {
+                        if (makePackage) {
+                          select(
+                            row.title,
+                            row.date,
+                            Math.floor(row.duration / 1000),
+                            row.count,
+                          );
+                        }
+                      }}
+                      current={
+                        makePackage &&
+                        checkPackage[row.title]?.date === row.date
                       }
-                    }}
-                    current={
-                      makePackage && checkPackage[row.title]?.date === row.date
-                    }
-                  >
-                    {moment(row.date).format('YY.MM.DD')}
-                  </Std>
-                ),
-            )}
-          </STr>
-          <STr>
-            <Std title={false}>횟수</Std>
-            {myList.map(
-              (row) =>
-                row.title === title && (
-                  <Std
-                    title={false}
-                    key={Math.random() + row.count}
-                    onClick={() => {
-                      if (makePackage) {
-                        select(
-                          row.title,
-                          row.date,
-                          Math.floor(row.duration / 1000),
-                          row.count,
-                        );
+                    >
+                      {moment(row.date).format('YY.MM.DD')}
+                    </STd>
+                  ),
+              )}
+            </STr>
+          </SThead>
+          <STbody>
+            <STr>
+              <STh title={false}>횟수</STh>
+              {myList.map(
+                (row) =>
+                  row.title === title && (
+                    <STd
+                      title={false}
+                      key={Math.random() + row.count}
+                      onClick={() => {
+                        if (makePackage) {
+                          select(
+                            row.title,
+                            row.date,
+                            Math.floor(row.duration / 1000),
+                            row.count,
+                          );
+                        }
+                      }}
+                      current={
+                        makePackage &&
+                        checkPackage[row.title]?.date === row.date
                       }
-                    }}
-                    current={
-                      makePackage && checkPackage[row.title]?.date === row.date
-                    }
-                  >
-                    {row.count} 회
-                  </Std>
-                ),
-            )}
-          </STr>
-          <STr>
-            <Std title={false}>운동시간</Std>
-            {myList.map(
-              (row) =>
-                row.title === title && (
-                  <Std
-                    title={false}
-                    key={Math.random() + row.count}
-                    onClick={() => {
-                      if (makePackage) {
-                        select(
-                          row.title,
-                          row.date,
-                          Math.floor(row.duration / 1000),
-                          row.count,
-                        );
+                    >
+                      {row.count} 회
+                    </STd>
+                  ),
+              )}
+            </STr>
+            <STr>
+              <STh title={false}>운동시간</STh>
+              {myList.map(
+                (row) =>
+                  row.title === title && (
+                    <STd
+                      title={false}
+                      key={Math.random() + row.count}
+                      onClick={() => {
+                        if (makePackage) {
+                          select(
+                            row.title,
+                            row.date,
+                            Math.floor(row.duration / 1000),
+                            row.count,
+                          );
+                        }
+                      }}
+                      current={
+                        makePackage &&
+                        checkPackage[row.title]?.date === row.date
                       }
-                    }}
-                    current={
-                      makePackage && checkPackage[row.title]?.date === row.date
-                    }
-                  >
-                    {Math.floor(row.duration / 1000) || '0'} 초
-                  </Std>
-                ),
-            )}
-          </STr>
+                    >
+                      {Math.floor(row.duration / 1000) || '0'} 초
+                    </STd>
+                  ),
+              )}
+            </STr>
+          </STbody>
         </STable>
       )}
     </>
