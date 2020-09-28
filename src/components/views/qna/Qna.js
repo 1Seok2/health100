@@ -4,7 +4,7 @@ import TrainerAnswer from './trainer';
 import OwnQna from './own';
 
 import { Containter, Wrapper } from './Qna.styled';
-import Loading from '../../modules/loading/Loading';
+import Loading from 'components/modules/loading/Loading';
 
 const Qna = ({ userObj }) => {
   const [type, setType] = useState(false);
@@ -13,8 +13,9 @@ const Qna = ({ userObj }) => {
   const isTrainer = async () => {
     const user = await FirebaseStore.collection('users').get();
     user.forEach((document) => {
-      if (document.data().userId === userObj.uid && !type) {
+      if (document.data().userId === userObj.uid && document.data().isTrainer) {
         setType(true);
+        console.log('aaaa');
       }
     });
     if (user) setIsLoading(false);
