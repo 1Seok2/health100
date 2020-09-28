@@ -19,7 +19,7 @@ export const Table = ({
   return (
     <>
       {myList.length !== 0 && (
-        <STable>
+        <STable active={makePackage}>
           <STr>
             <Std title={true}>날짜</Std>
             {myList.map(

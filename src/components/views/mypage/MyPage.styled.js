@@ -44,6 +44,9 @@ export const STable = styled.table`
   width: 100%;
   min-width: 500px;
   overflow: scroll;
+  &:hover {
+    ${(props) => (props.active ? 'cursor: pointer;' : null)}
+  }
 `;
 
 export const STh = styled.th`
@@ -54,9 +57,6 @@ export const STh = styled.th`
 export const STr = styled.tbody`
   margin: 0;
   height: 42px;
-  &:hover {
-    cursor: pointer;
-  }
 `;
 
 export const Std = styled.td`

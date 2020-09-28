@@ -18,7 +18,6 @@ export const FormWrapper = styled.div`
   min-width: 260px;
   margin: 0 auto;
   padding: 18px;
-  border: 1px solid gray;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -125,6 +124,7 @@ export const AuthButton = styled.button`
   text-align: center;
   border-radius: 18px;
   border: 1px solid #ddd;
+  padding: 8px;
   padding-right: 24px;
   box-shadow: none;
   transition: box-shadow 0.3s;
@@ -138,8 +138,8 @@ export const AuthButton = styled.button`
   font-weight: 200;
   font-size: 12px;
   background-image: url(${GoogleLogo});
-  background-size: contain;
-  background-position: left;
+  background-size: 20px;
+  background-position: 16px center;
   background-repeat: no-repeat;
 `;
 

@@ -22,16 +22,7 @@ import {
   ErrorMessage,
   AuthSwitch,
   AuthButton,
-  LoginImg,
 } from './Login.styled';
-
-const GoogleLogo = require('assets/img/google.png');
-
-var actionCodeSettings = {
-  url: 'http://localhost:3000',
-  // This must be true.
-  handleCodeInApp: true,
-};
 
 const Login = ({ setSigned }) => {
   const [email, setEmail] = useState('');
@@ -91,9 +82,10 @@ const Login = ({ setSigned }) => {
           setError(error.message);
       }
     } finally {
+      const { uid } = FirebaseAuth.currentUser;
       if (newAccount && data) {
         await FirebaseStore.collection('users').add({
-          userId: email,
+          userId: uid,
           createdAt: Date.now(),
           isTrainer: isTrainer,
         });
