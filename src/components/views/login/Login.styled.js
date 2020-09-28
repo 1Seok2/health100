@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { HEALTH_COLOR } from 'components/modules/style/Color';
+const GoogleLogo = require('assets/img/google.png');
 
 export const Container = styled.div`
   width: 100vw;
@@ -7,18 +8,26 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const Form = styled.form`
+export const FormWrapper = styled.div`
   text-align: center;
   position: absolute;
   width: 30%;
-  height: 70%;
+  height: 60%;
+  min-height: 300px;
+  max-width: 320px;
   min-width: 260px;
   margin: 0 auto;
   padding: 18px;
-  padding-top: 20%;
+  border: 1px solid gray;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const Form = styled.form`
+  width: 100%;
+  height: 80%;
+  position: relative;
 `;
 
 export const Title = styled.div`
@@ -110,11 +119,7 @@ export const AuthSwitch = styled.div`
   }
 `;
 
-export const AuthButton = styled.a`
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
+export const AuthButton = styled.button`
   width: 190px;
   height: 36px;
   text-align: center;
@@ -132,7 +137,10 @@ export const AuthButton = styled.a`
   text-align: right;
   font-weight: 200;
   font-size: 12px;
-  line-height: 36px;
+  background-image: url(${GoogleLogo});
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
 `;
 
 export const LoginImg = styled.img`

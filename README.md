@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데이터 활용 경진대회](http://sportsdata.or.kr/event_view.html)
 
-[프로젝트 배포](https://1seok2.github.io/health100/)
+[프로젝트 배포](health100-51c29.firebaseapp.com)
 
 ## 프로젝트 설명
 

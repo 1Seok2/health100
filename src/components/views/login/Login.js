@@ -12,6 +12,7 @@ import {
 import {
   Container,
   TextInput,
+  FormWrapper,
   Form,
   Title,
   CheckWrapper,
@@ -108,56 +109,58 @@ const Login = ({ setSigned }) => {
   };
   return (
     <Container>
-      <Form onSubmit={onSubmit} className="container">
-        <Title>국민체력 100</Title>
-        <CheckWrapper>
-          <SLabel>
-            트레이너이신가요? &nbsp;
-            <input
-              type="checkbox"
-              name="isTrainer"
-              onClick={() => setIsTrainer(!isTrainer)}
-            />
-          </SLabel>
-          <Notice>
-            {isTrainer && '\n트레이너에게는 구글 로그인을 제공하지 않습니다'}
-          </Notice>
-        </CheckWrapper>
-        <TextInput
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={onChange}
-          className="authInput"
-        />
-        <TextInput
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          value={password}
-          className="authInput"
-          onChange={onChange}
-        />
-        {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
-        <AuthSwitch onClick={toggleAccount} className="authSwitch">
-          {newAccount ? '계정이 이미 있으신가요?' : '계정이 없으신가요?'}
-        </AuthSwitch>
-        <Submit
-          type="submit"
-          className="authInput authSubmit"
-          value={newAccount ? '회원가입' : '로그인'}
-        />
-      </Form>
-      {/* Only normal user can login with google */}
-      {!isTrainer && (
-        <AuthButton name="google" onClick={(e) => SNSLogin(e)}>
-          <LoginImg src={GoogleLogo} alt="googleLogin" />
-          구글 계정으로 로그인
-        </AuthButton>
-      )}
+      <FormWrapper>
+        <Form onSubmit={onSubmit} className="container">
+          <Title>국민체력 100</Title>
+          <CheckWrapper>
+            <SLabel>
+              트레이너이신가요? &nbsp;
+              <input
+                type="checkbox"
+                name="isTrainer"
+                onClick={() => setIsTrainer(!isTrainer)}
+              />
+            </SLabel>
+            <Notice>
+              {isTrainer && '\n트레이너에게는 구글 로그인을 제공하지 않습니다'}
+            </Notice>
+          </CheckWrapper>
+          <TextInput
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={onChange}
+            className="authInput"
+          />
+          <TextInput
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+            value={password}
+            className="authInput"
+            onChange={onChange}
+          />
+          {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
+          <AuthSwitch onClick={toggleAccount} className="authSwitch">
+            {newAccount ? '계정이 이미 있으신가요?' : '계정이 없으신가요?'}
+          </AuthSwitch>
+          <Submit
+            type="submit"
+            className="authInput authSubmit"
+            value={newAccount ? '회원가입' : '로그인'}
+          />
+        </Form>
+        {/* Only normal user can login with google */}
+        {!isTrainer && (
+          <AuthButton name="google" onClick={(e) => SNSLogin(e)}>
+            {/* <LoginImg src={GoogleLogo} alt="googleLogin" /> */}
+            구글 계정으로 로그인
+          </AuthButton>
+        )}
+      </FormWrapper>
     </Container>
   );
 };

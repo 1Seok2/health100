@@ -48,13 +48,14 @@ export const IntroTitle = styled.h1`
 
 export const IntroImgWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-image: url(${introImg});
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -105,7 +106,7 @@ export const ImgWrapper = styled.div`
   @media (max-width: ${SmartPhoneWidth}) {
     width: 100vw;
     display: block;
-    height: 90vw;
+    height: 60%;
   }
 `;
 
@@ -114,8 +115,8 @@ export const Img = styled.img`
   height: 100%;
   transition: all 0.4s;
   &:hover {
-    width: 103%;
-    height: 103%;
+    width: 100%;
+    height: 100%;
     transition: all 0.4s;
   }
 `;
@@ -132,6 +133,7 @@ export const Desc = styled.div`
   @media (max-width: ${SmartPhoneWidth}) {
     width: 100vw;
     display: block;
+    height: 40%;
   }
 `;
 
