@@ -21,7 +21,7 @@ const Navigation = ({ pathname }) => {
     },
     {
       name: '트레이너 찾기',
-      path: '/trainer',
+      path: '/contact',
     },
   ];
 

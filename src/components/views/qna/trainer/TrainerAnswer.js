@@ -125,7 +125,7 @@ const TrainerAnswer = ({ userObj }) => {
                           const item = qna.split(',');
                           if (item[0].length < 3) return;
                           return (
-                            <STr>
+                            <STr key={item[0]}>
                               <STd>{item[0]}</STd>
                               <STd>{item[1]}</STd>
                               <STd>{item[2]}</STd>

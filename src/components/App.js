@@ -3,7 +3,7 @@ import AppRouter from './Router';
 import GlobalStyle from 'assets/style/Global.Styled';
 import { OuterContainer } from './App.styled';
 import { FirebaseAuth } from 'config/fbConfig';
-import AiScript from 'assets/ai/AiScript';
+import AiScript from 'assets/script/AiScript';
 import Loading from './modules/loading';
 
 const App = () => {

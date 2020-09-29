@@ -28,7 +28,6 @@ const Admin = ({ userObj }) => {
     FirebaseStore.collection('users').onSnapshot((snap) => {
       let list = [];
       snap.docs.map((doc) => {
-        console.log(doc.data());
         if (
           doc.data().isAvailable === 0 &&
           doc.data().isTrainer &&
@@ -44,7 +43,6 @@ const Admin = ({ userObj }) => {
         }
       });
       setNeed(list);
-      console.log(list);
     });
   };
 

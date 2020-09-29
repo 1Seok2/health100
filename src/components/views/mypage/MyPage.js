@@ -91,7 +91,6 @@ const MyPage = ({ userObj }) => {
         email: userObj.email,
         type: 0, // 아직 답변이 달리지 않음. 답변 달리면 1로 업데이트
       });
-    console.log(string);
     alert('처방 신청이 완료되었습니다');
     setMake(false);
   };

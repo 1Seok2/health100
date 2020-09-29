@@ -22,7 +22,7 @@ import Login from 'components/views/login';
 import Health from 'components/views/health';
 import MyPage from 'components/views/mypage';
 import Qna from 'components/views/qna';
-import Trainer from 'components/views/trainer';
+import ContactTrainer from 'components/views/contact';
 
 const AppRouter = ({
   refreshUser,
@@ -37,12 +37,15 @@ const AppRouter = ({
     FirebaseStore.collection('users').onSnapshot((snap) => {
       let trainer;
       let isAvailable = 0;
-      let email;
+      let email, createdAt, src, desc;
       snap.docs.map((doc) => {
         if (userObj.uid === doc.data().userId) {
           trainer = doc.data().isTrainer;
           isAvailable = doc.data().isAvailable;
           email = doc.data().userEmail;
+          createdAt = doc.data().createdAt;
+          src = doc.data().src;
+          desc = doc.data().desc;
         }
       });
       setUserObj({
@@ -56,6 +59,9 @@ const AppRouter = ({
         /* trainer can consultant ? */
         isAvailable: isAvailable === undefined ? 0 : isAvailable,
         email: email,
+        createdAt: createdAt,
+        src: src,
+        desc: desc,
       });
     });
   };
@@ -106,8 +112,8 @@ const AppRouter = ({
                 {/* can contact with trainer */}
                 <Route
                   exact
-                  path="/trainer"
-                  render={() => <Trainer userObj={UserObj} />}
+                  path="/contact"
+                  render={() => <ContactTrainer userObj={UserObj} />}
                 />
                 <Redirect path="*" to="/health" />
               </OuterContainer>

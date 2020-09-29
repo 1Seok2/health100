@@ -4,12 +4,11 @@ import { Containter, Wrapper } from './Qna.styled';
 
 import Loading from 'components/modules/loading/Loading';
 import TrainerAnswer from './trainer';
-import OwnQna from './own';
+import OwnQna from './user';
 
 /* if trainer, can answer */
 /* if user, can see enroll list */
 const Qna = ({ userObj }) => {
-  console.log(userObj);
   const [type, setType] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +18,6 @@ const Qna = ({ userObj }) => {
   };
 
   useEffect(() => {
-    console.log('user is ', userObj);
     isTrainer().then(() => setIsLoading(false));
   }, [userObj]);
   return (

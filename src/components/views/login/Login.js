@@ -117,7 +117,6 @@ const Login = ({ setSigned }) => {
   };
   const SNSLogin = async (e) => {
     googleLogin().then(async (data) => {
-      console.log(data);
       const user = FirebaseAuth.currentUser;
       if (data.additionalUserInfo.isNewUser) {
         const dateId = Date.now();

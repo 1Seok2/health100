@@ -35,7 +35,7 @@ export default withRouter(({ location: { pathname }, userObj }) => (
           <SLink current={pathname.includes('/qna')} to="qna">
             처방게시판
           </SLink>
-          <SLink current={pathname.includes('/trainer')} to="trainer">
+          <SLink current={pathname.includes('/contact')} to="contact">
             트레이너찾기
           </SLink>
           <LogOut onClick={logOut}>로그아웃</LogOut>
