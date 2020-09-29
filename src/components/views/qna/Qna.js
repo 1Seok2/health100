@@ -9,6 +9,7 @@ import OwnQna from './own';
 /* if trainer, can answer */
 /* if user, can see enroll list */
 const Qna = ({ userObj }) => {
+  console.log(userObj);
   const [type, setType] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 

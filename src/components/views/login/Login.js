@@ -110,9 +110,29 @@ const Login = ({ setSigned }) => {
     }
   };
   const toggleAccount = () => setNewAccount((prev) => !prev);
-  const SNSLogin = async (e) => {
+  const googleLogin = async () => {
     const provider = new FirebaseInstance.auth.GoogleAuthProvider();
     const data = await FirebaseAuth.signInWithPopup(provider);
+    return data;
+  };
+  const SNSLogin = async (e) => {
+    googleLogin().then(async (data) => {
+      console.log(data);
+      const user = FirebaseAuth.currentUser;
+      if (data.additionalUserInfo.isNewUser) {
+        const dateId = Date.now();
+        await FirebaseStore.collection('users').doc(`${dateId}`).set({
+          userId: user.uid,
+          userEmail: data.additionalUserInfo.profile.email,
+          createdAt: dateId,
+          isTrainer: 0,
+          // below are trainer info ...
+          tName: data.additionalUserInfo.profile.name,
+          tPhone: phone,
+          isAvailable: 0,
+        });
+      }
+    });
   };
 
   // if (isLoggedIn) return <Redirect to="/health" />;

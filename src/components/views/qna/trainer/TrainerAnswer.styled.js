@@ -20,7 +20,7 @@ export const EnrollDay = styled.div`
   font-weight: 200;
   font-size: 14px;
   ${(props) => (props.current ? `color : white;` : null)}
-  @media (max-width: 385px) {
+  @media (max-width: 450px) {
     display: none;
   }
 `;

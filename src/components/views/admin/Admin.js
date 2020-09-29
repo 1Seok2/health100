@@ -29,7 +29,11 @@ const Admin = ({ userObj }) => {
       let list = [];
       snap.docs.map((doc) => {
         console.log(doc.data());
-        if (doc.data().isAvailable === 0 && doc.data().isTrainer) {
+        if (
+          doc.data().isAvailable === 0 &&
+          doc.data().isTrainer &&
+          doc.data().isTrainer !== 2
+        ) {
           const obj = {
             name: doc.data().tName,
             email: doc.data().userEmail,
@@ -102,8 +106,8 @@ const Admin = ({ userObj }) => {
                   <STbody>
                     <STr>
                       <STd>{trainer.name}</STd>
-                      <STd>{trainer.phone}</STd>
                       <STd>{trainer.email}</STd>
+                      <STd>{trainer.phone}</STd>
                     </STr>
                   </STbody>
                 </STable>
