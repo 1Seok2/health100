@@ -30,6 +30,8 @@ const EnrollVideo = ({ userObj }) => {
       .update({
         src: src,
         desc: description,
+        /* 추후에 admin이 검수 거쳐야함 */
+        introAvailable: false,
       })
       .then(() => alert('정상 등록되었습니다'))
       .catch((err) => {
