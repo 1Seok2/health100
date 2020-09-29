@@ -137,6 +137,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
       .doc(`${Date.now()}`)
       .set({
         userId: userObj.uid,
+        email: userObj.email,
         exercise: title,
         count: count,
         createdAt: Date.now(),

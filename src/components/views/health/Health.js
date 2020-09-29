@@ -11,7 +11,6 @@ const Health = ({ userObj }) => {
     // branch : branch,   다른 해당 운동에 대한 정보들
     // unit : unit,
   });
-  const [count, setCount] = useState(0);
 
   return (
     <Container>
@@ -30,8 +29,6 @@ const Health = ({ userObj }) => {
           userObj={userObj}
           showDetail={showDetail}
           setShow={setShow}
-          setCount={setCount}
-          count={count}
         />
       )}
     </Container>

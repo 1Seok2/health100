@@ -7,35 +7,27 @@ import {
   NEGATIVE_COLOR_LIGHT,
 } from 'components/modules/style/Color';
 
-export const ButtonWrapper = styled.div`
-  margin-bottom: 12px;
+export const Containter = styled.div`
+  width: 100%;
+  height: calc(100vh - 6rem);
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 2rem;
 `;
 
-export const TypeButton = styled.button`
-  color: #aaa;
-  font-weight: 200;
-  &:hover {
-    background-color: ${HEALTH_COLOR_LIGHT};
-  }
-  ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)};
-  ${(props) => (props.current ? `color : white;` : null)};
-  margin-right: 8px;
+export const Wrapper = styled.div`
+  height: 100%;
+  padding-top: 1.7rem;
+  padding-left: 1.7rem;
+  padding-right: 1.7rem;
+  overflow: scroll;
+  position: relative;
 `;
 
 export const Title = styled.h1`
   font-weight: 200;
   font-size: 20px;
   margin-bottom: 1rem;
-`;
-
-export const Container = styled.div`
-  transition: background-color 0.3s;
-  border-radius: 5px;
-  &:hover {
-    transition: background-color 0.3s;
-    background-color: ${HEALTH_COLOR_LIGHT};
-    cursor: pointer;
-  }
 `;
 
 export const TableWrapper = styled.div`
@@ -47,8 +39,11 @@ export const STable = styled.table`
   margin: 0;
   margin: 12px;
   width: 90%;
-  min-width: 320px;
+  min-width: 500px;
   overflow: scroll;
+  &:hover {
+    ${(props) => (props.active ? 'cursor: pointer;' : null)}
+  }
   display: ${(props) => (props.current ? 'block' : 'none')};
 `;
 
@@ -61,10 +56,14 @@ export const QuestTitle = styled.h1`
   padding-top: 14px;
   padding-bottom: 10px;
   padding-left: 0.6rem;
-  border-radius: 5px;
+  border-bottom: 1px solid #cfcfcf;
+  transition: background-color 0.3s;
+  &:hover {
+    transition: background-color 0.3s;
+    background-color: ${HEALTH_COLOR_LIGHT};
+  }
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)}
   ${(props) => (props.current ? `color : white;` : null)}
-  ${(props) => (props.yet ? 'border-bottom : 1px solid #cfcfcf;' : null)}
 `;
 
 export const SThead = styled.thead`
@@ -85,7 +84,7 @@ export const STh = styled.th`
   ${(props) =>
     props.current ? `background-color : ${HEALTH_COLOR_DARK};` : null}
   ${(props) => (props.current ? `color : white;` : null)}
-text-align: center;
+  text-align: center;
   line-height: 42px;
   font-weight: 200;
   min-width: 100px;
@@ -104,28 +103,13 @@ export const STd = styled.td`
   ${(props) =>
     props.current ? `background-color : ${HEALTH_COLOR_DARK};` : null}
   ${(props) => (props.current ? `color : white;` : null)}
-  text-align: center;
+    text-align: center;
   line-height: 42px;
   font-weight: 200;
-  min-width: 100px;
+  min-width: 150px;
 `;
 
-export const Answer = styled.div`
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 200;
-  line-height: 32px;
-  padding-top: 14px;
-  padding-bottom: 10px;
-  padding-left: 1rem;
-  border-bottom: 1px solid #cfcfcf;
-`;
-
-export const Empty = styled.div`
-  height: 120px;
-`;
-
-export const DeleteButton = styled.button`
+export const AcceptButton = styled.button`
   font-size: 16px;
   font-weight: 600;
   color: #c23616;

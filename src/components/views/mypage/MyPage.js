@@ -31,7 +31,7 @@ const MyPage = ({ userObj }) => {
   const [checkPackage, setCheck] = useState({});
 
   /* selected list for enroll consultin */
-  const select = (s_title, s_date, s_duration, s_count) => {
+  const select = (s_title, s_date, s_duration, s_count, s_email) => {
     setCheck({
       ...checkPackage,
       [s_title]: {
@@ -39,6 +39,7 @@ const MyPage = ({ userObj }) => {
         date: s_date,
         duration: s_duration,
         count: s_count,
+        email: s_email,
       },
     });
   };
@@ -52,6 +53,7 @@ const MyPage = ({ userObj }) => {
         title: document.data().exercise,
         count: document.data().count,
         duration: document.data().duration,
+        email: document.data().email,
       };
       setMyList((prev) => [listObj, ...prev]);
       if (!titles.includes(listObj.title)) {
@@ -86,6 +88,7 @@ const MyPage = ({ userObj }) => {
         uid: userObj.uid,
         createdAt: moment(Date.now()).format('YY.MM.DD'),
         docId: docId,
+        email: userObj.email,
         type: 0, // 아직 답변이 달리지 않음. 답변 달리면 1로 업데이트
       });
     console.log(string);

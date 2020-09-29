@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
+// import Infinite from 'react-infinite';
 import {
   TableWrapper,
   Title,
   QuestTitle,
+  EnrollDay,
   STable,
   SThead,
   STbody,
@@ -19,6 +21,8 @@ import {
 } from './TrainerAnswer.styled';
 
 import Loading from 'components/modules/loading/Loading';
+
+var Infinite = require('react-infinite');
 
 /* trainer can answer for questions */
 const TrainerAnswer = ({ userObj }) => {
@@ -38,6 +42,7 @@ const TrainerAnswer = ({ userObj }) => {
             uid: doc.data().uid,
             qna: doc.data().qna.split('|'),
             docId: doc.data().docId,
+            email: doc.data().email,
           };
         } else return;
       });
@@ -48,6 +53,10 @@ const TrainerAnswer = ({ userObj }) => {
   /* 처방을 db 저장 */
   const submit = async (e) => {
     e.preventDefault();
+    if (userObj.isAvailable === 0) {
+      alert('승인되지 않은 트레이너입니다');
+      return;
+    }
     const updateType = await FirebaseStore.collection('qna').doc(
       selected.docId,
     );
@@ -69,6 +78,8 @@ const TrainerAnswer = ({ userObj }) => {
 
   useEffect(() => {
     getQuestions().then(setIsLoading(false));
+
+    window.scrollTo(0, document.body.scrollHeight);
   }, []);
   return (
     <div>
@@ -80,7 +91,7 @@ const TrainerAnswer = ({ userObj }) => {
           {questList.map(
             (quest, idx) =>
               quest !== undefined && (
-                <>
+                <div key={quest.docId}>
                   <QuestTitle
                     onClick={() => {
                       setSelected({
@@ -91,7 +102,12 @@ const TrainerAnswer = ({ userObj }) => {
                     }}
                     current={`${quest.createdAt}${idx}` === selected.key}
                   >
-                    신청일 : {quest.createdAt}
+                    신청자 : {quest.email}
+                    <EnrollDay
+                      current={`${quest.createdAt}${idx}` === selected.key}
+                    >
+                      신청일 : {quest.createdAt}
+                    </EnrollDay>
                   </QuestTitle>
                   <TableWrapper>
                     <STable
@@ -119,7 +135,7 @@ const TrainerAnswer = ({ userObj }) => {
                       </STbody>
                     </STable>
                   </TableWrapper>
-                </>
+                </div>
               ),
           )}
         </div>

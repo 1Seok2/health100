@@ -23,10 +23,10 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 1080px;
   padding-left: 32px;
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 300;
   @media (max-width: 360px) {
-    font-size: 28px;
+    font-size: 32px;
   }
 `;
 
@@ -76,5 +76,14 @@ export const LogOut = styled.a`
   padding-left: 1.1rem;
   &:hover {
     cursor: pointer;
+  }
+`;
+
+export const UserType = styled.span`
+  font-size: 18px;
+  font-weight: 300;
+
+  @media (max-width: 360px) {
+    font-size: 10px;
   }
 `;

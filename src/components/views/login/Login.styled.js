@@ -1,5 +1,10 @@
 import styled from 'styled-components';
-import { HEALTH_COLOR } from 'components/modules/style/Color';
+import {
+  HEALTH_COLOR,
+  HEALTH_COLOR_LIGHT,
+  NEGATIVE_COLOR,
+  NEGATIVE_COLOR_LIGHT,
+} from 'components/modules/style/Color';
 const GoogleLogo = require('assets/img/google.png');
 
 export const Container = styled.div`
@@ -73,7 +78,8 @@ export const TextInput = styled.input`
 export const Submit = styled.input`
   float: right;
   border: none;
-  background-color: ${HEALTH_COLOR};
+  background-color: ${(props) =>
+    props.newAccount ? NEGATIVE_COLOR : HEALTH_COLOR};
   width: 34%;
   height: 36px;
   border-radius: 24px;
@@ -86,7 +92,8 @@ export const Submit = styled.input`
   transition: all 0.3s;
   &:hover {
     cursor: pointer;
-    background-color: #3fbbed;
+    background-color: ${(props) =>
+      props.newAccount ? NEGATIVE_COLOR_LIGHT : HEALTH_COLOR_LIGHT};
     transition: all 0.3s;
     box-shadow: 0px 6px 10px -5px rgb(100, 100, 100);
   }
@@ -102,15 +109,15 @@ export const ErrorMessage = styled.div`
 
 export const AuthSwitch = styled.div`
   float: left;
-  width: 40%;
+  width: 50%;
   height: 36px;
   border-radius: 18px;
   line-height: 36px;
   margin-left: 0.2rem;
   margin-top: 0.6rem;
   color: #666;
-  font-size: 10px;
-  font-weight: 400;
+  font-size: 12px;
+  font-weight: 200;
   &:hover {
     cursor: pointer;
     color: #999;

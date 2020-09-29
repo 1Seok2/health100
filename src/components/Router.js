@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { FirebaseStore } from 'config/fbConfig';
 import {
   BrowserRouter as Router,
   Redirect,
@@ -9,6 +10,9 @@ import { OuterContainer } from './App.styled';
 
 /* common sections ... */
 import Header from './sections/header';
+
+/* admin page ... */
+import Admin from 'components/views/admin';
 
 /* need login ... */
 import Intro from 'components/views/intro';
@@ -27,44 +31,87 @@ const AppRouter = ({
   userObj,
   // setSigned,
 }) => {
+  const [UserObj, setUserObj] = useState({});
+
+  const setType = async () => {
+    FirebaseStore.collection('users').onSnapshot((snap) => {
+      let trainer;
+      let isAvailable = 0;
+      let email;
+      snap.docs.map((doc) => {
+        if (userObj.uid === doc.data().userId) {
+          trainer = doc.data().isTrainer;
+          isAvailable = doc.data().isAvailable;
+          email = doc.data().userEmail;
+        }
+      });
+      setUserObj({
+        ...userObj,
+        /**
+         * 0 : user
+         * 1 : trainer
+         * 2 : admin
+         */
+        type: trainer === undefined ? 0 : trainer,
+        /* trainer can consultant ? */
+        isAvailable: isAvailable === undefined ? 0 : isAvailable,
+        email: email,
+      });
+    });
+  };
+
+  useEffect(() => {
+    if (userObj !== null) setType();
+  }, [userObj]);
   return (
     <Router>
-      {isLoggedIn && <Header userObj={userObj} />}
+      {isLoggedIn && <Header userObj={UserObj} />}
       {/* {isSigned && <Header userObj={userObj} setSigned={setSigned} />} */}
       <Switch>
         {isLoggedIn ? (
           // {/* {isSigned ? ( */}
           <>
-            <OuterContainer>
-              {/* if user already logged in ... */}
-              {/* main is self health */}
-              <Route
-                exact
-                path="/health"
-                render={() => <Health userObj={userObj} />}
-              />
-              {/* can see my data */}
-              <Route
-                exact
-                path="/mypage"
-                render={() => (
-                  <MyPage userObj={userObj} refreshUser={refreshUser} />
-                )}
-              />
-              {/* can consultant about my data */}
-              <Route
-                exact
-                path="/qna"
-                render={() => <Qna userObj={userObj} />}
-              />
-              {/* can contact with trainer */}
-              <Route
-                exact
-                path="/trainer"
-                render={() => <Trainer userObj={userObj} />}
-              />
-              <Redirect path="*" to="/health" />
-            </OuterContainer>
+            {UserObj.type === 2 ? (
+              <OuterContainer>
+                <Route
+                  exact
+                  path="/admin"
+                  render={() => <Admin userObj={UserObj} />}
+                />
+                <Redirect path="*" to="/admin" />
+              </OuterContainer>
+            ) : (
+              <OuterContainer>
+                {/* if user already logged in ... */}
+                {/* main is self health */}
+                <Route
+                  exact
+                  path="/health"
+                  render={() => <Health userObj={UserObj} />}
+                />
+                {/* can see my data */}
+                <Route
+                  exact
+                  path="/mypage"
+                  render={() => (
+                    <MyPage userObj={UserObj} refreshUser={refreshUser} />
+                  )}
+                />
+                {/* can consultant about my data */}
+                <Route
+                  exact
+                  path="/qna"
+                  render={() => <Qna userObj={UserObj} />}
+                />
+                {/* can contact with trainer */}
+                <Route
+                  exact
+                  path="/trainer"
+                  render={() => <Trainer userObj={UserObj} />}
+                />
+                <Redirect path="*" to="/health" />
+              </OuterContainer>
+            )}
           </>
         ) : (
           <>

@@ -37,6 +37,7 @@ export const Table = ({
                             row.date,
                             Math.floor(row.duration / 1000),
                             row.count,
+                            row.email,
                           );
                         }
                       }}

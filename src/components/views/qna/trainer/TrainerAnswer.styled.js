@@ -13,6 +13,18 @@ export const Title = styled.h1`
   margin-bottom: 1rem;
 `;
 
+export const EnrollDay = styled.div`
+  display: inline-block;
+  float: right;
+  padding-right: 1rem;
+  font-weight: 200;
+  font-size: 14px;
+  ${(props) => (props.current ? `color : white;` : null)}
+  @media (max-width: 385px) {
+    display: none;
+  }
+`;
+
 export const TableWrapper = styled.div`
   width: 100%;
   overflow-x: scroll;
@@ -32,15 +44,16 @@ export const STable = styled.table`
 
 export const QuestTitle = styled.h1`
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
-  height: 32px;
+  height: 28px;
   line-height: 32px;
   padding-top: 14px;
   padding-bottom: 10px;
   padding-left: 0.6rem;
   border-bottom: 1px solid #cfcfcf;
   transition: background-color 0.3s;
+  border-radius: 5px;
   &:hover {
     transition: background-color 0.3s;
     background-color: ${HEALTH_COLOR_LIGHT};

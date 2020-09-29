@@ -26,7 +26,8 @@ const Login = ({ setSigned }) => {
   // const [isLoggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phoneNum, setPhoneNum] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [newAccount, setNewAccount] = useState(false);
   const [error, setError] = useState('');
   const [isTrainer, setIsTrainer] = useState(false);
@@ -38,14 +39,21 @@ const Login = ({ setSigned }) => {
       setEmail(value);
     } else if (name === 'password') {
       setPassword(value);
-    } else if (name === 'phoneNumber') {
-      setPhoneNum(value);
+    } else if (name === 'phone') {
+      setPhone(value);
+    } else if (name === 'name') {
+      setName(value);
     }
   };
   const onSubmit = async (event) => {
     event.preventDefault();
     let data;
     try {
+      if (isTrainer && (phone === '' || name === '')) {
+        throw {
+          message: '모두 기입해 주세요',
+        };
+      }
       if (newAccount) {
         /* sign up ... */
         data = await FirebaseAuth.createUserWithEmailAndPassword(
@@ -83,11 +91,18 @@ const Login = ({ setSigned }) => {
     } finally {
       const { uid } = FirebaseAuth.currentUser;
       if (newAccount && data) {
-        await FirebaseStore.collection('users').add({
+        const dateId = Date.now();
+        await FirebaseStore.collection('users').doc(`${dateId}`).set({
           userId: uid,
-          createdAt: Date.now(),
+          userEmail: email,
+          createdAt: dateId,
           isTrainer: isTrainer,
+          // below are trainer info ...
+          tName: name,
+          tPhone: phone,
+          isAvailable: 0,
         });
+        if (isTrainer) alert('검토 후 처방 가능합니다');
         // setLoggedIn(true);
       } else if (data) {
         // setLoggedIn(true);
@@ -97,9 +112,7 @@ const Login = ({ setSigned }) => {
   const toggleAccount = () => setNewAccount((prev) => !prev);
   const SNSLogin = async (e) => {
     const provider = new FirebaseInstance.auth.GoogleAuthProvider();
-    console.log('p', provider);
     const data = await FirebaseAuth.signInWithPopup(provider);
-    console.log('login data : ', data);
   };
 
   // if (isLoggedIn) return <Redirect to="/health" />;
@@ -124,6 +137,28 @@ const Login = ({ setSigned }) => {
               {isTrainer && '\n트레이너에게는 구글 로그인을 제공하지 않습니다'}
             </Notice>
           </CheckWrapper>
+          {isTrainer && (
+            <>
+              <TextInput
+                name="name"
+                type="name"
+                placeholder="Name"
+                required
+                value={name}
+                onChange={onChange}
+                className="authInput"
+              />
+              <TextInput
+                name="phone"
+                type="phone"
+                placeholder="Phone"
+                required
+                value={phone}
+                onChange={onChange}
+                className="authInput"
+              />
+            </>
+          )}
           <TextInput
             name="email"
             type="email"
@@ -150,6 +185,7 @@ const Login = ({ setSigned }) => {
             type="submit"
             className="authInput authSubmit"
             value={newAccount ? '회원가입' : '로그인'}
+            newAccount={newAccount}
           />
         </Form>
         {/* Only normal user can login with google */}

@@ -3,7 +3,7 @@
  * webcam stop, init 관리 추가적으로 필요
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CloseButton, Container } from './ExercisesDetail.styled';
 
 import TurnOnWebCam from '../teachablemachine';
@@ -11,7 +11,8 @@ import TurnOnWebCam from '../teachablemachine';
 /* URLs ... */
 import { SquatURL } from 'assets/ai/squat/SquatUrl';
 
-const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
+const ExercisesDetail = ({ userObj, showDetail, setShow }) => {
+  const [count, setCount] = useState(0);
   const closeDetail = () => {
     setShow({
       ...showDetail,

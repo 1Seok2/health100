@@ -14,18 +14,12 @@ const Qna = ({ userObj }) => {
 
   /* aware of user type */
   const isTrainer = async () => {
-    const user = await FirebaseStore.collection('users').get();
-    user.forEach((document) => {
-      if (document.data().userId === userObj.uid && document.data().isTrainer) {
-        setType(true);
-        console.log('aaaa');
-      }
-    });
-    if (user) setIsLoading(false);
+    if (userObj.type) setType(true);
   };
 
   useEffect(() => {
-    isTrainer().then();
+    console.log('user is ', userObj);
+    isTrainer().then(() => setIsLoading(false));
   }, [userObj]);
   return (
     <Containter>

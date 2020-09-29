@@ -83,7 +83,7 @@ const Intro = () => {
         data-aos-anchor-placement="top-bottom"
         data-aos-delay="400"
       >
-        <LoginButton to="/login"> lets start !!</LoginButton>
+        <LoginButton to="/login">시작하기</LoginButton>
       </ButtonWrapper>
     </Container>
   );

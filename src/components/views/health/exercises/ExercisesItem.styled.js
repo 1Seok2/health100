@@ -7,6 +7,7 @@ import {
 } from 'components/modules/style/Width';
 import {
   HEALTH_COLOR,
+  NEGATIVE_COLOR,
   HEALTH_COLOR_LIGHT,
 } from 'components/modules/style/Color';
 
@@ -21,7 +22,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    props.current ? HEALTH_COLOR : `rgba(46, 152, 217, ${props.opacity})`};
+    props.current ? NEGATIVE_COLOR : `rgba(46, 152, 217, ${props.opacity})`};
   &:hover {
     cursor: pointer;
     background-color: HEALTH_COLOR_LIGHT;

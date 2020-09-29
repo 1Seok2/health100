@@ -33,8 +33,8 @@ export const IntroItemList = [
     },
   },
   {
-    title: '운동 후 기록을',
-    title2: '저장해서 관리해 보세요',
+    title: '자신을 기록을',
+    title2: '저장 후 관리해 보세요',
     src: ImgSrc.log[0],
     desc: {
       direct: 'fade-up-right',
@@ -51,7 +51,7 @@ export const IntroItemList = [
   },
   {
     title: '저장된 기록으로',
-    title2: '더 나아진 몸 상태를 확인하세요',
+    title2: '운동을 처방 받으세요',
     src: ImgSrc.chart,
     img: {
       direct: 'flip-left',
@@ -67,8 +67,8 @@ export const IntroItemList = [
     },
   },
   {
-    title: '기록으로 운동을 처방받고',
-    title2: '전문 트레이너에게 PT를 받으세요',
+    title: '트레이너와 함께',
+    title2: '필요한 운동을 해보세요',
     src: ImgSrc.pt[0],
     desc: {
       direct: 'fade-right',
