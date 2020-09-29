@@ -75,9 +75,17 @@ export const Scroll = styled.div`
   animation: ${ScrollFade} 2s infinite;
 `;
 
+export const ItemWrapper = styled.div`
+  width: ${TabletWidth};
+  margin: 0 auto;
+  @media (max-width: ${TabletWidth}) {
+    width: 100%;
+  }
+`;
+
 export const IntroItem = styled.div`
-  width: 100vw;
-  height: 70vh;
+  width: 100%;
+  height: 60vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -87,11 +95,11 @@ export const IntroItem = styled.div`
     height: 50vh;
   }
   @media (max-width: ${SmallTabletWidth}) {
-    height: 38vh;
+    height: 40vh;
   }
   @media (max-width: ${SmartPhoneWidth}) {
     flex-direction: column;
-    height: 80vh;
+    height: 70vh;
   }
 `;
 
@@ -100,6 +108,10 @@ export const ImgWrapper = styled.div`
   width: 52%;
   height: 100%;
   overflow: hidden;
+  background-image: url(${(props) => props.urlItem});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   @media (max-width: ${SmallTabletWidth}) {
     width: 44%;
   }

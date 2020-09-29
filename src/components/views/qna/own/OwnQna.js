@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
 import Loading from 'components/modules/loading/Loading';
-import { Title } from './OwnQna.styled';
+import { Empty, TypeButton, ButtonWrapper } from './OwnQna.styled';
+
+import AnswerList from './AnswerList';
+import EnrollList from './EnrollList';
 
 const OwnQna = ({ userObj }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isDone, setDone] = useState([]);
   const [isYet, setYet] = useState([]);
+  const [showAnswer, setAnswer] = useState(true);
+
+  const [selected, setSelected] = useState({});
 
   const getQuestions = async () => {
     FirebaseStore.collection('qna').onSnapshot((snap) => {
@@ -40,14 +46,34 @@ const OwnQna = ({ userObj }) => {
 
   return (
     <div>
-      <Title>처방 완료 목록</Title>
-      {isDone.map((item) => (
-        <div>{item.answer}</div>
-      ))}
-      <Title>처방 신청 목록</Title>
-      {isYet.map((item) => (
-        <div>{item.createdAt}</div>
-      ))}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <ButtonWrapper>
+            <TypeButton current={showAnswer} onClick={() => setAnswer(true)}>
+              처방 완료 목록
+            </TypeButton>
+            <TypeButton current={!showAnswer} onClick={() => setAnswer(false)}>
+              처방 대기 목록
+            </TypeButton>
+          </ButtonWrapper>
+          {showAnswer ? (
+            <EnrollList
+              isDone={isDone}
+              setSelected={setSelected}
+              selected={selected}
+            ></EnrollList>
+          ) : (
+            <AnswerList
+              isYet={isYet}
+              setSelected={setSelected}
+              selected={selected}
+            />
+          )}
+        </>
+      )}
+      <Empty />
     </div>
   );
 };

@@ -78,7 +78,7 @@ const TrainerAnswer = ({ userObj }) => {
           {questList.map(
             (quest, idx) =>
               quest !== undefined && (
-                <TableWrapper>
+                <>
                   <QuestTitle
                     onClick={() => {
                       setSelected({
@@ -91,29 +91,33 @@ const TrainerAnswer = ({ userObj }) => {
                   >
                     신청일 : {quest.createdAt}
                   </QuestTitle>
-                  <STable current={`${quest.createdAt}${idx}` === selected.key}>
-                    <SThead>
-                      <STr>
-                        <STh title={true}>운동종류</STh>
-                        <STh title={true}>운동횟수</STh>
-                        <STh title={true}>운동시간</STh>
-                      </STr>
-                    </SThead>
-                    <STbody>
-                      {quest.qna.map((qna) => {
-                        const item = qna.split(',');
-                        if (item[0].length < 3) return;
-                        return (
-                          <STr>
-                            <STd>{item[0]}</STd>
-                            <STd>{item[1]}</STd>
-                            <STd>{item[2]}</STd>
-                          </STr>
-                        );
-                      })}
-                    </STbody>
-                  </STable>
-                </TableWrapper>
+                  <TableWrapper>
+                    <STable
+                      current={`${quest.createdAt}${idx}` === selected.key}
+                    >
+                      <SThead>
+                        <STr>
+                          <STh title={true}>운동종류</STh>
+                          <STh title={true}>운동횟수</STh>
+                          <STh title={true}>운동시간</STh>
+                        </STr>
+                      </SThead>
+                      <STbody>
+                        {quest.qna.map((qna) => {
+                          const item = qna.split(',');
+                          if (item[0].length < 3) return;
+                          return (
+                            <STr>
+                              <STd>{item[0]}</STd>
+                              <STd>{item[1]}</STd>
+                              <STd>{item[2]}</STd>
+                            </STr>
+                          );
+                        })}
+                      </STbody>
+                    </STable>
+                  </TableWrapper>
+                </>
               ),
           )}
         </div>
