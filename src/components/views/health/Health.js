@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Wrapper, Container } from './Health.styled';
 import { list } from './exercises/List';
 
@@ -13,10 +13,6 @@ const Health = ({ userObj }) => {
   });
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    console.log(userObj);
-    // return WebCam && WebCam.stop();
-  }, []);
   return (
     <Container>
       <Wrapper show={showDetail.show}>

@@ -13,7 +13,6 @@ import {
   IntroItem,
   Scroll,
   ImgWrapper,
-  Img,
   Desc,
   Contents,
   ButtonWrapper,

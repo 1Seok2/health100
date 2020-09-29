@@ -10,7 +10,6 @@ import TurnOnWebCam from '../teachablemachine';
 
 /* URLs ... */
 import { SquatURL } from 'assets/ai/squat/SquatUrl';
-import { Ex1URL } from 'assets/ai/ex1/Ex1Url';
 
 const ExercisesDetail = ({ userObj, showDetail, setShow, setCount, count }) => {
   const closeDetail = () => {

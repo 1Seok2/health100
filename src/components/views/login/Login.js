@@ -20,7 +20,10 @@ import {
   AuthButton,
 } from './Login.styled';
 
+// import { Redirect } from 'react-router-dom';
+
 const Login = ({ setSigned }) => {
+  // const [isLoggedIn, setLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNum, setPhoneNum] = useState('');
@@ -85,6 +88,9 @@ const Login = ({ setSigned }) => {
           createdAt: Date.now(),
           isTrainer: isTrainer,
         });
+        // setLoggedIn(true);
+      } else if (data) {
+        // setLoggedIn(true);
       }
     }
   };
@@ -95,20 +101,25 @@ const Login = ({ setSigned }) => {
     const data = await FirebaseAuth.signInWithPopup(provider);
     console.log('login data : ', data);
   };
+
+  // if (isLoggedIn) return <Redirect to="/health" />;
+
   return (
     <Container>
       <FormWrapper>
         <Form onSubmit={onSubmit} className="container">
           <Title>국민체력 100</Title>
           <CheckWrapper>
-            <SLabel>
-              트레이너이신가요? &nbsp;
-              <input
-                type="checkbox"
-                name="isTrainer"
-                onClick={() => setIsTrainer(!isTrainer)}
-              />
-            </SLabel>
+            {newAccount && (
+              <SLabel>
+                트레이너이신가요? &nbsp;
+                <input
+                  type="checkbox"
+                  name="isTrainer"
+                  onClick={() => setIsTrainer(!isTrainer)}
+                />
+              </SLabel>
+            )}
             <Notice>
               {isTrainer && '\n트레이너에게는 구글 로그인을 제공하지 않습니다'}
             </Notice>
@@ -133,7 +144,7 @@ const Login = ({ setSigned }) => {
           />
           {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
           <AuthSwitch onClick={toggleAccount} className="authSwitch">
-            {newAccount ? '계정이 이미 있으신가요?' : '계정이 없으신가요?'}
+            {newAccount ? '계정이 이미 있으신가요?' : '회원가입'}
           </AuthSwitch>
           <Submit
             type="submit"

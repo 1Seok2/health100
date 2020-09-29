@@ -44,7 +44,7 @@ export const IntroItemList = [
       duration: '800',
     },
     img: {
-      direct: 'zoom-in-left',
+      direct: 'zoom-in-right',
       offset: '120',
       easing: 'ease',
     },
