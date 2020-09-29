@@ -4,9 +4,10 @@
  */
 
 import React, { useState } from 'react';
-import { STable, SThead, STh, STbody, STr, STd } from './MyPage.styled';
 import moment from 'moment';
+import { STable, SThead, STh, STbody, STr, STd } from './MyPage.styled';
 
+/* data list */
 export const Table = ({
   myList,
   title,

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { HEALTH_COLOR, HEALTH_COLOR_LIGHT } from '../../modules/style/Color';
+import {
+  HEALTH_COLOR,
+  HEALTH_COLOR_LIGHT,
+} from 'components/modules/style/Color';
 
 export const Container = styled.div`
   position: absolute;

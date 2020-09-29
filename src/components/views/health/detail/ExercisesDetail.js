@@ -5,6 +5,7 @@
 
 import React, { useEffect } from 'react';
 import { CloseButton, Container } from './ExercisesDetail.styled';
+
 import TurnOnWebCam from '../teachablemachine';
 
 /* URLs ... */

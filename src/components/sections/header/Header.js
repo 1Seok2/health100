@@ -9,7 +9,7 @@ import {
 } from './Header.styled';
 import 'assets/style/css/Menu.css';
 import Navigation from '../navigation/Navigation';
-import { FirebaseAuth } from '../../../config/fbConfig';
+import { FirebaseAuth } from 'config/fbConfig';
 
 const logOut = () => FirebaseAuth.signOut();
 

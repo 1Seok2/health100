@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
+import { Containter, Wrapper } from './Qna.styled';
+
+import Loading from 'components/modules/loading/Loading';
 import TrainerAnswer from './trainer';
 import OwnQna from './own';
 
-import { Containter, Wrapper } from './Qna.styled';
-import Loading from 'components/modules/loading/Loading';
-
+/* if trainer, can answer */
+/* if user, can see enroll list */
 const Qna = ({ userObj }) => {
   const [type, setType] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  /* aware of user type */
   const isTrainer = async () => {
     const user = await FirebaseStore.collection('users').get();
     user.forEach((document) => {

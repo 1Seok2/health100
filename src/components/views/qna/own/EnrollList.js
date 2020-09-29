@@ -14,6 +14,7 @@ import {
   DeleteButton,
 } from './OwnQna.styled';
 
+/* question list which dont have answer */
 const EnrollList = ({ selected, setSelected, isYet }) => {
   const deleteItem = () => {
     const areYouSure = window.confirm('정말 삭제하시겠습니까?');

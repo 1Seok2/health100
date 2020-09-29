@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, DescWrapper, BranchName } from './ExercisesItem.styled';
 import GetRandomColor from 'components/modules/style/RandomColor';
 
+/* show flat list about applied exercises */
 const ExercisesItem = ({ showDetail, setShow, item }) => {
   const clickList = () => {
     setShow({

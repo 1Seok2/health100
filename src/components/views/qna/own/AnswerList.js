@@ -13,6 +13,7 @@ import {
   Empty,
 } from './OwnQna.styled';
 
+/* question list which have answer */
 const AnswerList = ({ selected, setSelected, isDone }) => {
   return (
     <>

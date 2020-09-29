@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
-import Loading from 'components/modules/loading/Loading';
 import { Empty, TypeButton, ButtonWrapper } from './OwnQna.styled';
 
+import Loading from 'components/modules/loading/Loading';
 import AnswerList from './AnswerList';
 import EnrollList from './EnrollList';
 
 const OwnQna = ({ userObj }) => {
   const [isLoading, setIsLoading] = useState(true);
+
+  /* HAS-ANSWER & NON-ANSWER */
   const [isDone, setDone] = useState([]);
   const [isYet, setYet] = useState([]);
+
+  /* show HAS-ANSWER list OR NON-ANSWER list */
   const [showAnswer, setAnswer] = useState(true);
 
+  /* object of selected in list */
   const [selected, setSelected] = useState({});
 
+  /* get questions if uid is same */
+  /* and separate HAS-ANSWER & NON-ANSWER */
   const getQuestions = async () => {
     FirebaseStore.collection('qna').onSnapshot((snap) => {
       let notYet = [];

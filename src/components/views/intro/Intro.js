@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 
+/* AOS scroll animation */
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import {
   Container,
   IntroTitle,
@@ -16,8 +20,6 @@ import {
   LoginButton,
 } from './Intro.styled';
 import { IntroItemList } from './IntroDesc';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Intro = () => {
   useEffect(() => {

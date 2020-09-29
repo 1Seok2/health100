@@ -5,7 +5,10 @@ import {
   SmallTabletWidth,
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
-import { HEALTH_COLOR, HEALTH_COLOR_LIGHT } from '../../../modules/style/Color';
+import {
+  HEALTH_COLOR,
+  HEALTH_COLOR_LIGHT,
+} from 'components/modules/style/Color';
 
 export const Container = styled.div`
   display: inline-block;

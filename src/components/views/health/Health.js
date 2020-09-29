@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ExercisesItem from './exercises';
-import ExercisesDetail from './detail';
 import { Wrapper, Container } from './Health.styled';
 import { list } from './exercises/List';
+
+import ExercisesItem from './exercises';
+import ExercisesDetail from './detail';
 
 const Health = ({ userObj }) => {
   const [showDetail, setShow] = useState({

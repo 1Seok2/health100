@@ -4,6 +4,8 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { FirebaseStore } from 'config/fbConfig';
+import moment from 'moment';
 import {
   Container,
   Wrapper,
@@ -12,13 +14,14 @@ import {
   ButtonWrapper,
   SButton,
 } from './MyPage.styled';
-import ErrorContainer from 'components/modules/error';
-import { FirebaseStore } from 'config/fbConfig';
-import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
-import { Table } from './Table';
-import moment from 'moment';
-import Loading from 'components/modules/loading';
 
+import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
+
+import Loading from 'components/modules/loading';
+import ErrorContainer from 'components/modules/error';
+import { Table } from './Table';
+
+/* can see my exercising data */
 const MyPage = ({ userObj }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [myList, setMyList] = useState([]);
@@ -27,6 +30,7 @@ const MyPage = ({ userObj }) => {
   const [makePackage, setMake] = useState(false);
   const [checkPackage, setCheck] = useState({});
 
+  /* selected list for enroll consultin */
   const select = (s_title, s_date, s_duration, s_count) => {
     setCheck({
       ...checkPackage,

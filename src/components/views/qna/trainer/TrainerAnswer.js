@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
-import Loading from 'components/modules/loading/Loading';
 import {
   TableWrapper,
   Title,
@@ -19,6 +18,9 @@ import {
   Empty,
 } from './TrainerAnswer.styled';
 
+import Loading from 'components/modules/loading/Loading';
+
+/* trainer can answer for questions */
 const TrainerAnswer = ({ userObj }) => {
   const [questList, setQuestList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

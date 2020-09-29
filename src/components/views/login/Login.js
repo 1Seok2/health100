@@ -4,11 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import {
-  FirebaseAuth,
-  FirebaseInstance,
-  FirebaseStore,
-} from '../../../config/fbConfig';
+import { FirebaseAuth, FirebaseInstance, FirebaseStore } from 'config/fbConfig';
 import {
   Container,
   TextInput,
