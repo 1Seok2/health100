@@ -62,6 +62,7 @@ export const QuestTitle = styled.h1`
   padding-left: 0.6rem;
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)}
   ${(props) => (props.current ? `color : white;` : null)}
+  ${(props) => (props.yet ? 'border-bottom : 1px solid #cfcfcf;' : null)}
 `;
 
 export const SThead = styled.thead`
@@ -120,4 +121,11 @@ export const Answer = styled.div`
 
 export const Empty = styled.div`
   height: 120px;
+`;
+
+export const DeleteButton = styled.button`
+  font-size: 16px;
+  font-weight: 600;
+  color: #c23616;
+  float: right;
 `;

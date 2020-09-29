@@ -51,21 +51,33 @@ const OwnQna = ({ userObj }) => {
       ) : (
         <>
           <ButtonWrapper>
-            <TypeButton current={showAnswer} onClick={() => setAnswer(true)}>
-              처방 완료 목록
+            <TypeButton
+              current={showAnswer}
+              onClick={() => {
+                setSelected({});
+                setAnswer(true);
+              }}
+            >
+              처방 완료 목록 ({isDone.length})
             </TypeButton>
-            <TypeButton current={!showAnswer} onClick={() => setAnswer(false)}>
-              처방 대기 목록
+            <TypeButton
+              current={!showAnswer}
+              onClick={() => {
+                setSelected({});
+                setAnswer(false);
+              }}
+            >
+              처방 대기 목록 ({isYet.length})
             </TypeButton>
           </ButtonWrapper>
           {showAnswer ? (
-            <EnrollList
+            <AnswerList
               isDone={isDone}
               setSelected={setSelected}
               selected={selected}
-            ></EnrollList>
+            />
           ) : (
-            <AnswerList
+            <EnrollList
               isYet={isYet}
               setSelected={setSelected}
               selected={selected}
