@@ -3,7 +3,7 @@
  * 측정 후 운동횟수 데이터로 저장
  */
 
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   CamContainer,
   CamMessage,
@@ -11,7 +11,8 @@ import {
   Status,
   ExerciseButton,
 } from './TurnOnWebCam.styled';
-import { FirebaseStore, FirebaseAuth } from '../../../../config/fbConfig';
+import Loading from 'components/modules/loading';
+import { FirebaseStore } from 'config/fbConfig';
 
 let model,
   webcam,
@@ -28,6 +29,7 @@ const userPose = {
 
 const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   const [start, setStart] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [showStatus, setShow] = useState(false);
   const [times, setTimes] = useState({
     start: 0,
@@ -48,7 +50,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
     const size = 300;
     const flip = true; // whether to flip the webcam
     webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
-    await webcam.setup(); // request access to the webcam
+    await webcam.setup().then(() => setIsLoading(false)); // request access to the webcam
     await webcam.play().then(() =>
       setTimes({
         ...times,
@@ -149,7 +151,10 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
         {!start ? (
           <CamMessage>캠을 켜주세요</CamMessage>
         ) : (
-          <canvas id="canvas"></canvas>
+          <>
+            <canvas id="canvas"></canvas>
+            {isLoading && <Loading />}
+          </>
         )}
       </CamContainer>
       {start && (
