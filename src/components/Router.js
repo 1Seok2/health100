@@ -37,14 +37,14 @@ const AppRouter = ({
     FirebaseStore.collection('users').onSnapshot((snap) => {
       let trainer;
       let isAvailable = 0;
-      let email, createdAt, src, desc, introAvailable;
+      let email, createdAt, originSrc, desc, introAvailable;
       snap.docs.map((doc) => {
         if (userObj.uid === doc.data().userId) {
           trainer = doc.data().isTrainer;
           isAvailable = doc.data().isAvailable;
           email = doc.data().userEmail;
           createdAt = doc.data().createdAt;
-          src = doc.data().src;
+          originSrc = doc.data().originSrc;
           desc = doc.data().desc;
           introAvailable = doc.data().introAvailable;
         }
@@ -61,7 +61,7 @@ const AppRouter = ({
         isAvailable: isAvailable === undefined ? 0 : isAvailable,
         email: email,
         createdAt: createdAt,
-        src: src,
+        originSrc: originSrc,
         desc: desc,
         introAvailable: introAvailable,
       });

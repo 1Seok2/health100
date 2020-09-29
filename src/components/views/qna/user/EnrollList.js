@@ -25,7 +25,7 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
         .delete()
         .then(() => alert('삭제되었습니다!'))
         .catch((err) => {
-          console.log(err);
+          console.error(err);
           alert('삭제하지 못 하였습니다');
         });
     }

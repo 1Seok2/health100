@@ -9,7 +9,6 @@ const ContactTrainer = ({ userObj }) => {
   /* set youtube api script ... */
   useEffect(() => {
     YoutubeAPIScript();
-    console.log(userObj.src);
   }, []);
   return (
     <Containter>

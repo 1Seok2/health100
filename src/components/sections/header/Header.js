@@ -19,8 +19,10 @@ export default withRouter(({ location: { pathname }, userObj }) => (
   <Container>
     <Wrapper>
       HEALTH100
-      {userObj.type && userObj.type !== 2 && <UserType>&nbsp;TRAINER</UserType>}
-      {userObj.type === 2 && <UserType>&nbsp;ADMIN</UserType>}
+      {userObj.type && userObj.type !== 2 ? (
+        <UserType>&nbsp;TRAINER</UserType>
+      ) : null}
+      {userObj.type === 2 ? <UserType>&nbsp;ADMIN</UserType> : null}
     </Wrapper>
     {userObj.type !== 2 && (
       <>

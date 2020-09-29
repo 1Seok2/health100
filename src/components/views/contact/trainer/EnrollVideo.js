@@ -28,7 +28,7 @@ const EnrollVideo = ({ userObj }) => {
     );
     updateUser
       .update({
-        src: src,
+        originSrc: src,
         desc: description,
         /* 추후에 admin이 검수 거쳐야함 */
         introAvailable: false,
