@@ -33,7 +33,7 @@ const Admin = ({ userObj }) => {
             phone: doc.data().tPhone,
             createdAt: doc.data().createdAt,
           };
-          listValid = [obj, ...listValid];
+          listValid = [...listValid, obj];
         }
         if (!doc.data().introAvailable && doc.data().originSrc) {
           const obj = {
@@ -46,7 +46,7 @@ const Admin = ({ userObj }) => {
               : doc.data().originSrc.split('.be/')[1],
             desc: doc.data().desc,
           };
-          listIntro = [obj, ...listIntro];
+          listIntro = [...listIntro, obj];
         }
       });
       setValid(listValid);

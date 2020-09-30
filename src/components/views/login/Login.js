@@ -49,11 +49,6 @@ const Login = ({ setSigned }) => {
     event.preventDefault();
     let data;
     try {
-      if (isTrainer && (phone === '' || name === '')) {
-        throw {
-          message: '모두 기입해 주세요',
-        };
-      }
       if (newAccount) {
         /* sign up ... */
         data = await FirebaseAuth.createUserWithEmailAndPassword(
@@ -89,23 +84,25 @@ const Login = ({ setSigned }) => {
           setError(error.message);
       }
     } finally {
-      const { uid } = FirebaseAuth.currentUser;
-      if (newAccount && data) {
-        const dateId = Date.now();
-        await FirebaseStore.collection('users').doc(`${dateId}`).set({
-          userId: uid,
-          userEmail: email,
-          createdAt: dateId,
-          isTrainer: isTrainer,
-          // below are trainer info ...
-          tName: name,
-          tPhone: phone,
-          isAvailable: 0,
-        });
-        if (isTrainer) alert('검토 후 처방 가능합니다');
-        // setLoggedIn(true);
-      } else if (data) {
-        // setLoggedIn(true);
+      if (FirebaseAuth.currentUser) {
+        const { uid } = FirebaseAuth.currentUser;
+        if (newAccount && data) {
+          const dateId = Date.now();
+          await FirebaseStore.collection('users').doc(`${dateId}`).set({
+            userId: uid,
+            userEmail: email,
+            createdAt: dateId,
+            isTrainer: isTrainer,
+            // below are trainer info ...
+            tName: name,
+            tPhone: phone,
+            isAvailable: 0,
+          });
+          if (isTrainer) alert('검토 후 처방 가능합니다');
+          // setLoggedIn(true);
+        } else if (data) {
+          // setLoggedIn(true);
+        }
       }
     }
   };

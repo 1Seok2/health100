@@ -8,8 +8,8 @@ import {
 
 export const UserEnrollInfo = styled.h2`
   font-weight: 200;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 18px;
+  line-height: 24px;
   margin-top: 1rem;
 `;
 
@@ -17,12 +17,23 @@ export const GoReEnrollButton = styled.button`
   margin: 0 auto;
   margin-top: 1rem;
   margin-bottom: 4rem;
-  background-color: ${NEGATIVE_COLOR};
+  background-color: ${(props) => (props.blue ? HEALTH_COLOR : NEGATIVE_COLOR)};
   color: white;
+  margin-right: 12px;
   &:hover {
-    background-color: ${NEGATIVE_COLOR_LIGHT};
+    background-color: ${(props) =>
+      props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
   }
 `;
+
+export const STitle = styled.h2`
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 36px;
+  margin-top: 1rem;
+`;
+
+/* enroll style */
 
 export const Wrapper = styled.div`
   width: 100%;
