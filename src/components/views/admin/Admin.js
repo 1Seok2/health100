@@ -35,7 +35,7 @@ const Admin = ({ userObj }) => {
           };
           listValid = [obj, ...listValid];
         }
-        if (!doc.data().introAvailable && doc.data().src) {
+        if (!doc.data().introAvailable && doc.data().originSrc) {
           const obj = {
             name: doc.data().tName,
             email: doc.data().userEmail,

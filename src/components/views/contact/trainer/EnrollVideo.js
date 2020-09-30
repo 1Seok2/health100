@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
+import {
+  Wrapper,
+  Title,
+  SForm,
+  SLabel,
+  SubTitle,
+  STextArea,
+  STextInput,
+  StringLength,
+  SButton,
+} from './TrainerMode.styled';
 
 const EnrollVideo = ({ userObj }) => {
   const [description, setDesc] = useState('');
@@ -40,28 +51,34 @@ const EnrollVideo = ({ userObj }) => {
       });
   };
   return (
-    <div>
-      <h1>소개가 아직 등록되지 않았어요</h1>
-      <h3>소개를 등록하여 고객들과 컨택하세요 !</h3>
-      <form onSubmit={onSubmit}>
-        <label>
-          <h5>자기소개</h5>
-          <textarea
+    <Wrapper>
+      <SubTitle>소개가 아직 등록되지 않았어요</SubTitle>
+      <Title>소개를 등록하여 고객들과 컨택하세요 !</Title>
+      <SForm onSubmit={onSubmit}>
+        <SLabel>
+          <SubTitle>자기소개</SubTitle>
+          <STextArea
             type="description"
             name="description"
             value={description}
             onChange={onChange}
+            placeholder={'안녕하세요? 저는 이런 사람입니다'}
           />
-          <div>{description.length} / 2,000 자</div>
-        </label>
-        <label>
-          <h5>동영상(YouTube) 링크</h5>
-          <div>형식 : https://youtu.be/N02RTnEDVhs</div>
-          <input type="src" name="src" value={src} onChange={onChange} />
-        </label>
-        <button>등록하기</button>
-      </form>
-    </div>
+          <StringLength>{description.length} / 2,000 자</StringLength>
+        </SLabel>
+        <SLabel row={true}>
+          <SubTitle inline={true}>동영상(YouTube) 링크</SubTitle>
+          <STextInput
+            type="src"
+            name="src"
+            value={src}
+            onChange={onChange}
+            placeholder="형식 : https://youtu.be/N02RTnEDVhs"
+          />
+        </SLabel>
+        <SButton>등록하기</SButton>
+      </SForm>
+    </Wrapper>
   );
 };
 export default EnrollVideo;

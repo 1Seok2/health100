@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
+import moment from 'moment';
 // import Infinite from 'react-infinite';
 import {
   TableWrapper,
@@ -57,6 +58,12 @@ const TrainerAnswer = ({ userObj }) => {
       alert('승인되지 않은 트레이너입니다');
       return;
     }
+    console.log({
+      answer: input,
+      type: 1,
+      ansTrainer: `${userObj.tName} / ${userObj.email}`,
+      endedAt: Date.now(),
+    });
     const updateType = await FirebaseStore.collection('qna').doc(
       selected.docId,
     );
@@ -64,6 +71,8 @@ const TrainerAnswer = ({ userObj }) => {
       .update({
         answer: input,
         type: 1,
+        ansTrainer: `${userObj.tName} / ${userObj.email}`,
+        endedAt: moment(Date.now()).format('YY.MM.DD'),
       })
       .then(() => {
         alert('처방 완료하였습니다!');
@@ -83,7 +92,11 @@ const TrainerAnswer = ({ userObj }) => {
   }, []);
   return (
     <div>
-      <Title>트레이너님, 처방 부탁드려요 !</Title>
+      {userObj.isAvailable === 1 ? (
+        <Title>트레이너님, 처방 부탁드려요 !</Title>
+      ) : (
+        <Title>처방 권한 승인 대기중입니다</Title>
+      )}
       {isLoading ? (
         <Loading />
       ) : (
@@ -140,14 +153,14 @@ const TrainerAnswer = ({ userObj }) => {
           )}
         </div>
       )}
-      {formShow && (
+      {formShow && userObj.isAvailable === 1 && (
         <FromWrapper>
           <SForm onSubmit={(e) => submit(e)}>
             <TextArea
               placeholder={`어떠한 운동이 필요해 보이시나요?\n필요한 운동을 적어주세요`}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-            ></TextArea>
+            />
             <Submit>처방하기</Submit>
             <Decline onClick={() => setFormShow(false)}>취소하기</Decline>
           </SForm>

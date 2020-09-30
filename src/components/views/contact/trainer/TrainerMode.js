@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
+import { UserEnrollInfo, GoReEnrollButton } from './TrainerMode.styled';
 
 import ErrorContainer from 'components/modules/error';
 import EnrollVideo from './EnrollVideo';
@@ -15,7 +16,10 @@ const TrainerMode = ({ userObj }) => {
     );
     updateType
       .update({
-        isAvailable: 0,
+        introAvailable: false,
+        originSrc: '',
+        src: '',
+        desc: '',
       })
       .then(() => {
         alert('재등록하시기 바랍니다');
@@ -28,7 +32,8 @@ const TrainerMode = ({ userObj }) => {
   };
 
   useEffect(() => {
-    if (userObj.originSrc !== undefined) setExist(true);
+    if (userObj.originSrc !== undefined && userObj.originSrc !== '')
+      setExist(true);
   });
 
   return (
@@ -39,6 +44,7 @@ const TrainerMode = ({ userObj }) => {
             <div>
               <h2>소개 동영상</h2>
               <iframe
+                title={userObj.src}
                 id="ytplayer"
                 type="text/html"
                 width="100%"
@@ -58,9 +64,13 @@ const TrainerMode = ({ userObj }) => {
               {userObj.introAvailable === -1 ? (
                 <>
                   <ErrorContainer txt="등록하신 소개서가 반려되었습니다." />
-                  <div>YouTube URL : {userObj.originSrc}</div>
-                  <div>소개 : {userObj.desc}</div>
-                  <button>다시 신청하기</button>
+                  <UserEnrollInfo>
+                    YouTube URL : {userObj.originSrc}
+                  </UserEnrollInfo>
+                  <UserEnrollInfo>소개 : {userObj.desc}</UserEnrollInfo>
+                  <GoReEnrollButton onClick={restart}>
+                    다시 신청하기
+                  </GoReEnrollButton>
                 </>
               ) : (
                 <ErrorContainer txt="현재 검수 중입니다" />

@@ -129,6 +129,7 @@ export const TextArea = styled.textarea`
   padding: 10px;
   outline: none;
   border: 1px solid #bbb;
+  font-weight: 300;
   border-radius: 5px;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};

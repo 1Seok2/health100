@@ -20,7 +20,7 @@ export default withRouter(({ location: { pathname }, userObj }) => (
     <Wrapper>
       HEALTH100
       {userObj.type && userObj.type !== 2 ? (
-        <UserType>&nbsp;TRAINER</UserType>
+        <UserType>&nbsp;{userObj.tName} TRAINER</UserType>
       ) : null}
       {userObj.type === 2 ? <UserType>&nbsp;ADMIN</UserType> : null}
     </Wrapper>
@@ -38,7 +38,7 @@ export default withRouter(({ location: { pathname }, userObj }) => (
             처방게시판
           </SLink>
           <SLink current={pathname.includes('/contact')} to="contact">
-            트레이너찾기
+            {userObj.type === 0 ? '트레이너찾기' : '자기소개등록'}
           </SLink>
           <LogOut onClick={logOut}>로그아웃</LogOut>
         </MenuWrapper>
