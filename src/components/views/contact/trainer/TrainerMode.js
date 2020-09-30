@@ -88,7 +88,7 @@ const TrainerMode = ({ userObj }) => {
   useEffect(() => {
     if (userObj.originSrc !== undefined && userObj.originSrc !== '')
       setExist(true);
-  });
+  }, []);
 
   return (
     <div>

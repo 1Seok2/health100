@@ -54,10 +54,10 @@ export const STable = styled.table`
 
 export const QuestTitle = styled.h1`
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 300;
-  height: 32px;
-  line-height: 32px;
+  height: 24px;
+  line-height: 24px;
   padding-top: 14px;
   padding-bottom: 10px;
   padding-left: 0.6rem;
@@ -127,7 +127,10 @@ export const Empty = styled.div`
 
 export const DeleteButton = styled.button`
   font-size: 16px;
-  font-weight: 600;
-  color: #c23616;
+  font-weight: 200;
+  color: white;
   float: right;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  background-color: ${NEGATIVE_COLOR};
 `;

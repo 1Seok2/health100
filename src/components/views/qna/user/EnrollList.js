@@ -47,9 +47,6 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
             yet={true}
           >
             신청일 : {quest.createdAt}
-            {`${quest.createdAt}${idx}` === selected.key && (
-              <DeleteButton onClick={() => deleteItem()}>삭제</DeleteButton>
-            )}
           </QuestTitle>
           <TableWrapper>
             <STable current={`${quest.createdAt}${idx}` === selected.key}>
@@ -74,6 +71,9 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
                 })}
               </STbody>
             </STable>
+            {`${quest.createdAt}${idx}` === selected.key && (
+              <DeleteButton onClick={() => deleteItem()}>삭제</DeleteButton>
+            )}
           </TableWrapper>
         </Container>
       ))}

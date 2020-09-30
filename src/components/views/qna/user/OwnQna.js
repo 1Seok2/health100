@@ -34,6 +34,8 @@ const OwnQna = ({ userObj }) => {
             qna: doc.data().qna.split('|'),
             docId: doc.data().docId,
             answer: doc.data().answer,
+            endedAt: doc.data().endedAt,
+            ansTrainer: doc.data().ansTrainer,
           };
           if (doc.data().type === 1) {
             done = [questObj, ...done];

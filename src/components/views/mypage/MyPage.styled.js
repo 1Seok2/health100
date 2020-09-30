@@ -14,6 +14,7 @@ export const Container = styled.div`
   position: relative;
   padding-bottom: 2rem;
 `;
+
 export const Wrapper = styled.div`
   height: 100%;
   padding-top: 1.7rem;

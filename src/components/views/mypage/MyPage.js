@@ -20,6 +20,7 @@ import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
 import Loading from 'components/modules/loading';
 import ErrorContainer from 'components/modules/error';
 import { Table } from './Table';
+import { Link } from 'react-router-dom';
 
 /* can see my exercising data */
 const MyPage = ({ userObj }) => {
@@ -46,19 +47,24 @@ const MyPage = ({ userObj }) => {
 
   /* get data from firestore ...  */
   const getMyData = async () => {
-    const data = await FirebaseStore.collection(`${userObj.uid}`).get();
-    data.forEach((document) => {
-      const listObj = {
-        date: document.data().createdAt,
-        title: document.data().exercise,
-        count: document.data().count,
-        duration: document.data().duration,
-        email: document.data().email,
-      };
-      setMyList((prev) => [listObj, ...prev]);
-      if (!titles.includes(listObj.title)) {
-        setTitles((prev) => [...prev, listObj.title]);
-      }
+    FirebaseStore.collection(`${userObj.uid}`).onSnapshot((snap) => {
+      let list = [];
+      let title = [];
+      snap.docs.map((doc) => {
+        const listObj = {
+          date: doc.data().createdAt,
+          title: doc.data().exercise,
+          count: doc.data().count,
+          duration: doc.data().duration,
+          email: doc.data().email,
+        };
+        list = [listObj, ...list];
+        if (!titles.includes(listObj.title)) {
+          title = [listObj.title, ...title];
+        }
+      });
+      setMyList(list);
+      setTitles(title);
     });
   };
 
@@ -106,11 +112,15 @@ const MyPage = ({ userObj }) => {
       ) : (
         <Wrapper>
           <ButtonWrapper>
+            <Link to="/mypage/add">직접 데이터 기입하기</Link>
             <SButton
               bgColor={makePackage}
               onClick={() => {
                 setCheck({});
                 setMake(!makePackage);
+                if (!makePackage) {
+                  alert('처방을 원하는 항목들을 클릭하세요');
+                }
               }}
             >
               {makePackage ? '선택취소' : '처방받기'}

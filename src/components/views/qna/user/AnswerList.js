@@ -28,7 +28,7 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
             }}
             current={`${quest.createdAt}${idx}` === selected.key}
           >
-            신청일 : {quest.createdAt}
+            신청일/답변일 : {quest.createdAt} / {quest.endedAt}
           </QuestTitle>
           <TableWrapper>
             <STable current={`${quest.createdAt}${idx}` === selected.key}>
@@ -62,6 +62,8 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
               });
             }}
           >
+            답변한 트레이너 : {quest.ansTrainer}
+            <br />
             &#x0003E;&#x0003E; 답변 :{' '}
             {`${quest.createdAt}${idx}` !== selected.key ? (
               <>
