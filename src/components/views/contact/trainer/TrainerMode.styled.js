@@ -7,7 +7,7 @@ import {
 } from 'components/modules/style/Color';
 
 export const UserEnrollInfo = styled.h2`
-  font-weight: 200;
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   margin-top: 1rem;
@@ -20,7 +20,7 @@ export const GoReEnrollButton = styled.button`
   margin-bottom: 4rem;
   background-color: ${(props) => (props.blue ? HEALTH_COLOR : NEGATIVE_COLOR)};
   color: white;
-  font-weight: 200;
+  font-weight: 400;
   margin-right: 12px;
   transition: background-color 0.3s;
   &:hover {
@@ -31,7 +31,7 @@ export const GoReEnrollButton = styled.button`
 `;
 
 export const STitle = styled.h2`
-  font-weight: 300;
+  font-weight: 700;
   font-size: 24px;
   line-height: 36px;
   margin-top: 1rem;
@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-weight: 300;
+  font-weight: 700;
   font-size: 24px;
   line-height: 36px;
 `;
@@ -63,7 +63,7 @@ export const SLabel = styled.label`
 `;
 
 export const SubTitle = styled.h3`
-  font-weight: 200;
+  font-weight: 600;
   font-size: 16px;
   line-height: 24px;
   margin-top: 8px;
@@ -76,7 +76,7 @@ export const STextArea = styled.textarea`
   height: 40%;
   min-height: 160px;
   padding: 1rem;
-  font-weight: 300;
+  font-weight: 400;
   outline: none;
   border: 1px solid #bbb;
   border-radius: 5px;
@@ -86,7 +86,7 @@ export const STextArea = styled.textarea`
 `;
 
 export const StringLength = styled.h5`
-  font-weight: 200;
+  font-weight: 400;
   width: 100%;
   font-size: 16px;
   line-height: 24px;
@@ -98,7 +98,7 @@ export const StringLength = styled.h5`
 export const STextInput = styled.input`
   border: none;
   outline: none;
-  font-weight: 300;
+  font-weight: 500;
   border-bottom: 1px solid #bbb;
   width: 90%;
   padding: 1rem;
@@ -112,7 +112,7 @@ export const STextInput = styled.input`
 export const SButton = styled.button`
   background-color: ${(props) => (props.blue ? HEALTH_COLOR : NEGATIVE_COLOR)};
   color: white;
-  font-weight: 200;
+  font-weight: 400;
   float: right;
   margin-left: 12px;
   transition: background-color 0.3s;

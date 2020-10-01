@@ -18,19 +18,19 @@ export const CamContainer = styled.div`
 `;
 
 export const CamMessage = styled.h4`
-  font-weight: 200;
+  font-weight: 500;
   font-size: 32px;
 `;
 
 export const Count = styled.h2`
   padding-left: 10%;
-  font-weight: 300;
+  font-weight: 500;
   margin-top: 20px;
 `;
 
 export const Status = styled.h3`
   display: ${(props) => (props.display ? 'block' : 'none')};
-  font-weight: 300;
+  font-weight: 500;
   padding-left: 10%;
   margin-top: 20px;
   font-size: ${(props) => (props.fSize ? props.fSize : 28)}px;
@@ -42,7 +42,7 @@ export const ExerciseButton = styled.a`
   margin-top: 2rem;
   width: 180px;
   height: 42px;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 18px;
   line-height: 42px;
   text-align: center;

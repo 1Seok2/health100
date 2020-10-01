@@ -8,7 +8,7 @@ import {
 } from 'components/modules/style/Color';
 
 export const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
 `;
@@ -16,7 +16,7 @@ export const Title = styled.h1`
 export const QuestTitle = styled.h1`
   margin: 0;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
   height: 32px;
   line-height: 32px;
   padding-top: 14px;
@@ -34,7 +34,7 @@ export const QuestTitle = styled.h1`
 
 export const AcceptButton = styled.button`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   color: #c23616;
   float: right;
 `;
@@ -45,6 +45,6 @@ export const ItemWrapper = styled.div`
 
 export const ItemDesc = styled.h4`
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.5rem;
 `;

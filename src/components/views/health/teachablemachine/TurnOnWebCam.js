@@ -47,7 +47,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
     model = await window.tmPose.load(modelURL, metadataURL);
     maxPredictions = model.getTotalClasses();
 
-    const size = 300;
+    const size = 400;
     const flip = true; // whether to flip the webcam
     webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
     await webcam.setup().then(() => setIsLoading(false)); // request access to the webcam
@@ -158,18 +158,18 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
           </>
         )}
       </CamContainer>
-      {start && (
+      {/* {start && (
         <Status fSize={16} display={start} onClick={() => setShow(!showStatus)}>
           상태보기
         </Status>
-      )}
+      )} */}
       <Status display={showStatus && start} id="label-container"></Status>
       <Count style={{ fontSize: 30 }}>운동 횟수 : {count} 회</Count>
       {/* <div style={{ fontSize: 30 }}>{status}</div> */}
       {!start ? (
         <ExerciseButton onClick={() => init()}>운동 시작하기</ExerciseButton>
       ) : (
-        <ExerciseButton bgColor="#8854d0" onClick={() => SaveCounts()}>
+        <ExerciseButton onClick={() => SaveCounts()}>
           결과 저장하기
         </ExerciseButton>
       )}

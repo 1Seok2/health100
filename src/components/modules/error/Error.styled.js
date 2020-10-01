@@ -9,5 +9,5 @@ export const Error = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 32px;
-  font-weight: 300;
+  font-weight: 600;
 `;

@@ -105,7 +105,7 @@ const TrainerMode = ({ userObj }) => {
                 height="360"
                 src={`https://www.youtube.com/embed/${
                   userObj.originSrc.split('?v=')[1]
-                }?autoplay=1&origin=https://www.youtube.com/watch?v=${
+                }?autoplay=0&origin=https://www.youtube.com/watch?v=${
                   userObj.originSrc.split('?v=')[1]
                 }`}
                 frameborder="0"

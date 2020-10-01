@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
 export const Title = styled.div`
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 600;
   margin-bottom: 12px;
 `;
 
@@ -54,7 +54,7 @@ export const Select = styled.select`
   height: 32px;
   width: 140px;
   padding-left: 12px;
-  font-weight: 200;
+  font-weight: 500;
   background-image: url(${Arrow});
   background-size: 16px;
   background-position: 95% center;
@@ -76,7 +76,7 @@ export const SInput = styled.input`
   padding: 4px;
   padding-left: 12px;
   width: 78px;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 12px;
   outline: none;
   border: 1px solid #bbb;
@@ -90,7 +90,7 @@ export const SInput = styled.input`
 export const PlusButton = styled.button`
   height: 32px;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
   color: white;
   border-radius: 16px;
   background-color: ${NEGATIVE_COLOR_DARK};
@@ -106,7 +106,7 @@ export const PlusButton = styled.button`
 `;
 
 export const ListTitle = styled.h1`
-  font-weight: 300;
+  font-weight: 700;
   color: gray;
   font-size: 20px;
   margin-bottom: 8px;
@@ -150,7 +150,7 @@ export const STh = styled.th`
   ${(props) => (props.current ? `color : white;` : null)}
 text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 600;
   min-width: 100px;
 `;
 
@@ -169,7 +169,7 @@ export const STd = styled.td`
   ${(props) => (props.current ? `color : white;` : null)}
   text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 400;
   min-width: 100px;
 `;
 
@@ -186,7 +186,7 @@ export const SButton = styled.button`
   height: 42px;
   padding: 12px;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 400;
   background-color: ${(props) =>
     props.bgColor ? NEGATIVE_COLOR : HEALTH_COLOR};
   color: white;

@@ -13,7 +13,7 @@ export const ButtonWrapper = styled.div`
 
 export const TypeButton = styled.button`
   color: #aaa;
-  font-weight: 200;
+  font-weight: 400;
   transition: background-color 0.3s;
   &:hover {
     background-color: ${HEALTH_COLOR_LIGHT};
@@ -25,7 +25,7 @@ export const TypeButton = styled.button`
 `;
 
 export const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
 `;
@@ -33,11 +33,15 @@ export const Title = styled.h1`
 export const Container = styled.div`
   transition: background-color 0.3s;
   border-radius: 5px;
+  ${(props) =>
+    props.current
+      ? null
+      : `
   &:hover {
     transition: background-color 0.3s;
     background-color: ${HEALTH_COLOR_LIGHT};
     cursor: pointer;
-  }
+  }`}
 `;
 
 export const TableWrapper = styled.div`
@@ -57,7 +61,7 @@ export const STable = styled.table`
 export const QuestTitle = styled.h1`
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 600;
   height: 24px;
   line-height: 24px;
   padding-top: 14px;
@@ -89,7 +93,7 @@ export const STh = styled.th`
   ${(props) => (props.current ? `color : white;` : null)}
 text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 600;
   min-width: 100px;
 `;
 
@@ -108,14 +112,14 @@ export const STd = styled.td`
   ${(props) => (props.current ? `color : white;` : null)}
   text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 400;
   min-width: 100px;
 `;
 
 export const Answer = styled.div`
   margin: 0;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 32px;
   padding-top: 14px;
   padding-bottom: 10px;
@@ -129,7 +133,7 @@ export const Empty = styled.div`
 
 export const DeleteButton = styled.button`
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   color: white;
   float: right;
   margin-right: 1rem;

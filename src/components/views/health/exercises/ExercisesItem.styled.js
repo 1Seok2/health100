@@ -14,15 +14,15 @@ import {
 export const Container = styled.div`
   display: inline-block;
   width: ${(props) => (props.show ? '44%' : '156px')};
-  height: 156px;
-  margin: 12px;
+  height: 136px;
+  margin: 6px;
   z-index: 0;
   box-shadow: 0px 2px 3px 2px rgba(0.5, 0.5, 0.5, 0.1);
   border-radius: 3rem;
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    props.current ? NEGATIVE_COLOR : `rgba(46, 152, 217, ${props.opacity})`};
+    props.current ? NEGATIVE_COLOR : `rgba(105, 154, 227, ${props.opacity})`};
   &:hover {
     cursor: pointer;
     background-color: HEALTH_COLOR_LIGHT;
@@ -60,7 +60,7 @@ export const DescWrapper = styled.div`
 export const BranchName = styled.div`
   display: block;
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 700;
   color: ${(props) => (!props.current ? 'black' : 'white')};
   @media (max-width: 440px) {
     font-size: 18px;
@@ -71,7 +71,7 @@ export const UnitName = styled.div`
   display: inline-block;
   margin-bottom: 12px;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 500;
 `;
 
 export const ShowDetail = styled.div`
@@ -86,7 +86,7 @@ export const UnitDesc = styled.div`
   display: block;
   margin-bottom: 8px;
   font-size: 12px;
-  font-weight: 200;
+  font-weight: 400;
 `;
 
 export const UnitDate = styled.div`

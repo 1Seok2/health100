@@ -18,7 +18,7 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
   return (
     <>
       {isDone.map((quest, idx) => (
-        <Container>
+        <Container current={`${quest.createdAt}${idx}` === selected.key}>
           <QuestTitle
             onClick={() => {
               setSelected({

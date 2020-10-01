@@ -35,7 +35,7 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.div`
-  font-weight: 100;
+  font-weight: 700;
   text-align: center;
   font-size: 24px;
   margin-bottom: 1rem;
@@ -43,7 +43,7 @@ export const Title = styled.div`
 
 export const CheckWrapper = styled.div`
   width: 100%;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 14px;
   line-height: 14px;
   text-align: right;
@@ -52,7 +52,7 @@ export const CheckWrapper = styled.div`
 
 export const Notice = styled.div`
   font-size: 10px;
-  font-weight: 100;
+  font-weight: 300;
   color: #c23616;
   margin-top: 4px;
 `;
@@ -101,7 +101,7 @@ export const Submit = styled.input`
 
 export const ErrorMessage = styled.div`
   color: #c0392b;
-  font-weight: 200;
+  font-weight: 600;
   text-align: left;
   line-height: 16px;
   font-size: 12px;
@@ -117,7 +117,7 @@ export const AuthSwitch = styled.div`
   margin-top: 0.6rem;
   color: #666;
   font-size: 12px;
-  font-weight: 200;
+  font-weight: 400;
   &:hover {
     cursor: pointer;
     color: #999;
@@ -142,7 +142,7 @@ export const AuthButton = styled.button`
     transition: all 0.3s;
   }
   text-align: right;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 12px;
   background-image: url(${GoogleLogo});
   background-size: 20px;

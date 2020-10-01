@@ -35,7 +35,10 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
   return (
     <>
       {isYet.map((quest, idx) => (
-        <Container key={quest.docId}>
+        <Container
+          key={quest.docId}
+          current={`${quest.createdAt}${idx}` === selected.key}
+        >
           <QuestTitle
             onClick={() => {
               setSelected({

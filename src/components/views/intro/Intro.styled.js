@@ -41,7 +41,7 @@ export const IntroTitle = styled.h1`
   padding-left: 8%;
   padding-bottom: 8rem;
   font-size: 28px;
-  font-weight: 200;
+  font-weight: 600;
   line-height: 48px;
   color: #666666;
 `;
@@ -199,7 +199,7 @@ export const LoginButton = styled(Link)`
   line-height: 48px;
   color: white;
   font-size: 22px;
-  font-weight: 300;
+  font-weight: 400;
   transition: background-color 0.3s;
   &:hover {
     background-color: #3fbbed;

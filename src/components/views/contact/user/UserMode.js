@@ -35,7 +35,7 @@ const UserMode = () => {
   useEffect(() => {
     getTrainerIntro().then(() => setLoading(false));
   }, []);
-
+  console.log(trainerList);
   return (
     <>
       {isLoading ? (
@@ -56,7 +56,7 @@ const UserMode = () => {
                   // type="text/html"
                   // width="100%"
                   // height="360"
-                  src={`https://www.youtube.com/embed/${trainer.src}?autoplay=1&origin=https://www.youtube.com/watch?v=${trainer.src}`}
+                  src={`https://www.youtube.com/embed/${trainer.src}?autoplay=0&origin=https://www.youtube.com/watch?v=${trainer.src}`}
                   frameborder="0"
                 />
               </VideoWrapper>

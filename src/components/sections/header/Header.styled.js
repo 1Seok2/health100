@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { SmallTabletWidth } from 'components/modules/style/Width';
 import {
   HEALTH_COLOR,
   HEALTH_COLOR_LIGHT,
@@ -18,13 +19,16 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (min-width: ${SmallTabletWidth}) {
+    display: ${(props) => (props.mode ? 'flex' : 'none')};
+  }
 `;
 
 export const Wrapper = styled.div`
   width: 1080px;
   padding-left: 32px;
   font-size: 36px;
-  font-weight: 300;
+  font-weight: 600;
   @media (max-width: 360px) {
     font-size: 32px;
   }
@@ -51,7 +55,7 @@ export const SLink = styled(Link)`
   height: 100%;
   border-radius: 3px;
   background-color: ${(props) => (props.current ? HEALTH_COLOR : 'white')};
-  font-weight: ${(props) => (props.current ? 300 : 200)};
+  font-weight: ${(props) => (props.current ? 500 : 400)};
   transition: background-color 0.3s;
   &:last-child {
     margin-right: 2rem;
@@ -70,7 +74,7 @@ export const SLink = styled(Link)`
 export const LogOut = styled.a`
   width: 115px;
   height: 100%;
-  font-weight: 200;
+  font-weight: 400;
   font-size: 16px;
   line-height: 4rem;
   padding-left: 1.1rem;
@@ -81,7 +85,7 @@ export const LogOut = styled.a`
 
 export const UserType = styled.span`
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
 
   @media (max-width: 360px) {
     font-size: 10px;

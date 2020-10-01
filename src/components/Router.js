@@ -10,6 +10,7 @@ import { OuterContainer } from './App.styled';
 
 /* common sections ... */
 import Header from './sections/header';
+import Sidebar from './sections/sidebar';
 
 /* admin page ... */
 import Admin from 'components/views/admin';
@@ -76,13 +77,14 @@ const AppRouter = ({
   return (
     <Router>
       {isLoggedIn && <Header userObj={UserObj} />}
+      {isLoggedIn && <Sidebar userObj={UserObj} />}
       {/* {isSigned && <Header userObj={userObj} setSigned={setSigned} />} */}
       <Switch>
         {isLoggedIn ? (
           // {/* {isSigned ? ( */}
           <>
             {UserObj.type === 2 ? (
-              <OuterContainer>
+              <OuterContainer admin={true}>
                 <Route
                   exact
                   path="/admin"

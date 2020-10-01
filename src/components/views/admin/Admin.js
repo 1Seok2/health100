@@ -46,6 +46,7 @@ const Admin = ({ userObj }) => {
               : doc.data().originSrc.split('.be/')[1],
             desc: doc.data().desc,
           };
+          console.log('zz', obj);
           listIntro = [...listIntro, obj];
         }
       });

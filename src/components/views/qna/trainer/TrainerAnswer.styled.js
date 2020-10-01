@@ -8,7 +8,7 @@ import {
 } from 'components/modules/style/Color';
 
 export const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
 `;
@@ -17,7 +17,7 @@ export const EnrollDay = styled.div`
   display: inline-block;
   float: right;
   padding-right: 1rem;
-  font-weight: 200;
+  font-weight: 500;
   font-size: 14px;
   ${(props) => (props.current ? `color : white;` : null)}
   @media (max-width: 450px) {
@@ -45,7 +45,7 @@ export const STable = styled.table`
 export const QuestTitle = styled.h1`
   margin: 0;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 700;
   height: 28px;
   line-height: 32px;
   padding-top: 14px;
@@ -82,7 +82,7 @@ export const STh = styled.th`
   ${(props) => (props.current ? `color : white;` : null)}
 text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 600;
   min-width: 100px;
 `;
 
@@ -101,7 +101,7 @@ export const STd = styled.td`
   ${(props) => (props.current ? `color : white;` : null)}
   text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 500;
   min-width: 100px;
 `;
 
@@ -129,7 +129,7 @@ export const TextArea = styled.textarea`
   padding: 10px;
   outline: none;
   border: 1px solid #bbb;
-  font-weight: 300;
+  font-weight: 400;
   border-radius: 5px;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};
@@ -140,7 +140,7 @@ export const Submit = styled.button`
   width: 120px;
   height: 36px;
   font-size: 18px;
-  font-weight: 200;
+  font-weight: 400;
   border-radius: 6px;
   color: white;
   background-color: ${HEALTH_COLOR};
@@ -160,7 +160,7 @@ export const Decline = styled.a`
   font-size: 18px;
   line-height: 36px;
   border-radius: 6px;
-  font-weight: 200;
+  font-weight: 400;
   color: white;
   background-color: ${NEGATIVE_COLOR};
   float: right;

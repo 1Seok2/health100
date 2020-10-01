@@ -8,7 +8,7 @@ import {
 } from 'components/modules/style/Color';
 
 export const Title = styled.h1`
-  font-weight: 200;
+  font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
 `;
@@ -33,7 +33,7 @@ export const STable = styled.table`
 export const QuestTitle = styled.h1`
   margin: 0;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 600;
   height: 32px;
   line-height: 32px;
   padding-top: 14px;
@@ -69,7 +69,7 @@ export const STh = styled.th`
   ${(props) => (props.current ? `color : white;` : null)}
   text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 500;
   min-width: 100px;
 `;
 
@@ -88,13 +88,13 @@ export const STd = styled.td`
   ${(props) => (props.current ? `color : white;` : null)}
     text-align: center;
   line-height: 42px;
-  font-weight: 200;
+  font-weight: 400;
   min-width: 150px;
 `;
 
 export const AcceptButton = styled.button`
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   color: #c23616;
   float: right;
 `;

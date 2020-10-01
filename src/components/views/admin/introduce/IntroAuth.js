@@ -40,7 +40,7 @@ const IntroAuth = ({ needIntro, setSelected, selected, accept, reject }) => {
               type="text/html"
               width="100%"
               height="360"
-              src={`https://www.youtube.com/embed/${trainer.src}?autoplay=1&origin=https://www.youtube.com/watch?v=${trainer.src}`}
+              src={`https://www.youtube.com/embed/${trainer.src}?autoplay=0&origin=https://www.youtube.com/watch?v=${trainer.src}`}
               frameborder="0"
             ></iframe>
             <ItemDesc>신청인 : {trainer.name}</ItemDesc>

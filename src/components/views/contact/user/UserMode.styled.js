@@ -8,15 +8,19 @@ export const Container = styled.div`
   margin-bottom: 12px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  ${(props) =>
+    props.current
+      ? null
+      : `
   &:hover {
     background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
-  }
+  }`}
 `;
 
 export const Title = styled.h1`
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 700;
   margin-bottom: 8px;
 `;
 
@@ -40,7 +44,7 @@ export const DescWrapper = styled.div`
 export const ItemDesc = styled.h4`
   margin-top: 8px;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 1.5rem;
 `;
 

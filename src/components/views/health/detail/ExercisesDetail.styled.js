@@ -1,18 +1,24 @@
 import styled from 'styled-components';
+import {
+  DeskTopWidth,
+  TabletWidth,
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 
 export const Container = styled.div`
   display: absolute;
   float: right;
   position: sticky;
-  top: 0rem;
+  top: 0;
   box-shadow: 2px 0px 6px 3px rgba(1, 1, 1, 0.1);
   width: 52%;
-  height: ${window.innerHeight - 280}px;
+  height: ${window.innerHeight - 300}px;
   background-color: #f9f9f9;
   padding: 24px;
   padding-top: 60px;
   padding-bottom: 190px;
-  overflow: scroll;
+  overflow: hidden;
   z-index: 5;
 
   @media (max-width: 960px) {
@@ -27,7 +33,7 @@ export const Container = styled.div`
 
 export const CloseButton = styled.a`
   font-size: 24px;
-  font-weight: 200;
+  font-weight: 600;
   position: absolute;
   right: 16px;
   top: 16px;

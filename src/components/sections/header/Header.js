@@ -1,4 +1,5 @@
 import React from 'react';
+import { FirebaseAuth } from 'config/fbConfig';
 import { withRouter } from 'react-router-dom';
 import {
   Container,
@@ -10,13 +11,12 @@ import {
 } from './Header.styled';
 import 'assets/style/css/Menu.css';
 import Navigation from '../navigation/Navigation';
-import { FirebaseAuth } from 'config/fbConfig';
 
 const logOut = () => FirebaseAuth.signOut();
 
 /* header title & navbar */
 export default withRouter(({ location: { pathname }, userObj }) => (
-  <Container>
+  <Container mode={userObj.type === 2}>
     <Wrapper>
       HEALTH100
       {userObj.type && userObj.type !== 2 ? (
