@@ -15,14 +15,18 @@ export const UserEnrollInfo = styled.h2`
 
 export const GoReEnrollButton = styled.button`
   margin: 0 auto;
+  float: right;
   margin-top: 1rem;
   margin-bottom: 4rem;
   background-color: ${(props) => (props.blue ? HEALTH_COLOR : NEGATIVE_COLOR)};
   color: white;
+  font-weight: 200;
   margin-right: 12px;
+  transition: background-color 0.3s;
   &:hover {
     background-color: ${(props) =>
       props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
+    transition: background-color 0.3s;
   }
 `;
 
@@ -46,7 +50,7 @@ export const Title = styled.h1`
   line-height: 36px;
 `;
 
-export const SForm = styled.form`
+export const SForm = styled.div`
   width: 100%;
   height: 100%;
 `;
@@ -106,11 +110,15 @@ export const STextInput = styled.input`
 `;
 
 export const SButton = styled.button`
-  background-color: ${HEALTH_COLOR};
+  background-color: ${(props) => (props.blue ? HEALTH_COLOR : NEGATIVE_COLOR)};
   color: white;
   font-weight: 200;
   float: right;
+  margin-left: 12px;
+  transition: background-color 0.3s;
   &:hover {
-    background-color: ${HEALTH_COLOR_LIGHT};
+    background-color: ${(props) =>
+      props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
+    transition: background-color 0.3s;
   }
 `;

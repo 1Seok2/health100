@@ -147,8 +147,10 @@ export const Submit = styled.button`
   float: right;
   margin-right: 1.5rem;
   margin-top: 1rem;
+  transition: background-color 0.3s;
   &:hover {
     background-color: ${HEALTH_COLOR_LIGHT};
+    transition: background-color 0.3s;
   }
 `;
 
@@ -164,8 +166,10 @@ export const Decline = styled.a`
   float: right;
   margin-right: 1rem;
   margin-top: 1rem;
+  transition: background-color 0.3s;
   &:hover {
     background-color: ${NEGATIVE_COLOR_LIGHT};
+    transition: background-color 0.3s;
   }
 `;
 

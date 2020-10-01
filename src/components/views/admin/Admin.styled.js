@@ -27,8 +27,10 @@ export const Wrapper = styled.div`
 export const TypeButton = styled.button`
   color: #aaa;
   font-weight: 200;
+  transition: background-color 0.3s;
   &:hover {
     background-color: ${HEALTH_COLOR_LIGHT};
+    transition: background-color 0.3s;
   }
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)};
   ${(props) => (props.current ? `color : white;` : null)};

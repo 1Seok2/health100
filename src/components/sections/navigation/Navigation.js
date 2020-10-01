@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuList from './Menu';
 import { FirebaseAuth } from 'config/fbConfig';
 
-const Navigation = ({ pathname }) => {
+const Navigation = ({ pathname, userObj }) => {
   const [clicked, setClicked] = useState('none');
   const [aboutClicked, setAboutClicked] = useState('none');
 
@@ -20,7 +20,7 @@ const Navigation = ({ pathname }) => {
       path: '/qna',
     },
     {
-      name: '트레이너 찾기',
+      name: userObj.type === true ? '자기소개등록' : '트레이너찾기',
       path: '/contact',
     },
   ];

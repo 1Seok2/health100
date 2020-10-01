@@ -21,7 +21,6 @@ import Login from 'components/views/login';
 /* already login ... */
 import Health from 'components/views/health';
 import MyPage from 'components/views/mypage';
-import AddData from 'components/views/mypage/add';
 import Qna from 'components/views/qna';
 import ContactTrainer from 'components/views/contact';
 
@@ -107,11 +106,6 @@ const AppRouter = ({
                   render={() => (
                     <MyPage userObj={UserObj} refreshUser={refreshUser} />
                   )}
-                />
-                <Route
-                  exact
-                  path="/mypage/add"
-                  render={() => <AddData userObj={UserObj} />}
                 />
                 {/* can consultant about my data */}
                 <Route

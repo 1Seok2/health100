@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FirebaseStore } from 'config/fbConfig';
+import { FirebaseStore, FirebaseAuth } from 'config/fbConfig';
 import moment from 'moment';
 import { Containter, Wrapper, TypeButton, Empty } from './Admin.styled';
 
@@ -143,6 +143,9 @@ const Admin = ({ userObj }) => {
               current={!type}
             >
               소개 승인 대기 ({needIntro.length})
+            </TypeButton>
+            <TypeButton onClick={() => FirebaseAuth.signOut()}>
+              로그아웃
             </TypeButton>
           </div>
           {type ? (

@@ -23,10 +23,10 @@ const UpdateVideo = ({ userObj }) => {
       target: { name, value },
     } = e;
     if (name === 'description') {
-      if (description.length < 2001) setDesc(value);
+      if (description.length < 501) setDesc(value);
       else {
-        alert('최대 2000자 입니다');
-        setDesc((prev) => prev.substring(0, 1999));
+        alert('최대 500자 입니다');
+        setDesc((prev) => prev.substring(0, 499));
         return;
       }
     } else if (name === 'src') setOriginSrc(value);
@@ -50,10 +50,25 @@ const UpdateVideo = ({ userObj }) => {
         alert('등록에 실패하였습니다');
       });
   };
+
+  const decline = async (e) => {
+    e.preventDefault();
+    const updateUser = await FirebaseStore.collection('users').doc(
+      `${userObj.createdAt}`,
+    );
+    updateUser
+      .update({
+        introAvailable: 1,
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('취소 실패하였습니다');
+      });
+  };
   return (
     <Wrapper>
       <Title>소개 수정 페이지입니다</Title>
-      <SForm onSubmit={onSubmit}>
+      <SForm>
         <SLabel>
           <SubTitle>자기소개</SubTitle>
           <STextArea
@@ -63,7 +78,7 @@ const UpdateVideo = ({ userObj }) => {
             onChange={onChange}
             placeholder={'안녕하세요? 저는 이런 사람입니다'}
           />
-          <StringLength>{description.length} / 2,000 자</StringLength>
+          <StringLength>{description.length} / 500 자</StringLength>
         </SLabel>
         <SLabel row={true}>
           <SubTitle inline={true}>동영상(YouTube) 링크</SubTitle>
@@ -75,7 +90,10 @@ const UpdateVideo = ({ userObj }) => {
             placeholder="형식 : https://youtu.be/N02RTnEDVhs"
           />
         </SLabel>
-        <SButton>등록하기</SButton>
+        <SButton blue={true} onClick={onSubmit}>
+          등록하기
+        </SButton>
+        <SButton onClick={decline}>취소하기</SButton>
       </SForm>
     </Wrapper>
   );

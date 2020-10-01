@@ -23,10 +23,10 @@ const EnrollVideo = ({ userObj }) => {
       target: { name, value },
     } = e;
     if (name === 'description') {
-      if (description.length < 2001) setDesc(value);
+      if (description.length < 501) setDesc(value);
       else {
-        alert('최대 2000자 입니다');
-        setDesc((prev) => prev.substring(0, 1999));
+        alert('최대 500자 입니다');
+        setDesc((prev) => prev.substring(0, 499));
         return;
       }
     } else if (name === 'src') setSrc(value);
@@ -64,7 +64,7 @@ const EnrollVideo = ({ userObj }) => {
             onChange={onChange}
             placeholder={'안녕하세요? 저는 이런 사람입니다'}
           />
-          <StringLength>{description.length} / 2,000 자</StringLength>
+          <StringLength>{description.length} / 500 자</StringLength>
         </SLabel>
         <SLabel row={true}>
           <SubTitle inline={true}>동영상(YouTube) 링크</SubTitle>
@@ -73,10 +73,10 @@ const EnrollVideo = ({ userObj }) => {
             name="src"
             value={src}
             onChange={onChange}
-            placeholder="형식 : https://youtu.be/N02RTnEDVhs"
+            placeholder="형식 : https://youtu.be/N0501RTnEDVhs"
           />
         </SLabel>
-        <SButton>등록하기</SButton>
+        <SButton onClick={onSubmit}>등록하기</SButton>
       </SForm>
     </Wrapper>
   );

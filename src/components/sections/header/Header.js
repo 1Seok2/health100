@@ -38,7 +38,7 @@ export default withRouter(({ location: { pathname }, userObj }) => (
             처방게시판
           </SLink>
           <SLink current={pathname.includes('/contact')} to="contact">
-            {userObj.type !== false ? '자기소개등록' : '트레이너찾기'}
+            {userObj.type === true ? '자기소개등록' : '트레이너찾기'}
           </SLink>
           <LogOut onClick={logOut}>로그아웃</LogOut>
         </MenuWrapper>
