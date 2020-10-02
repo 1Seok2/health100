@@ -9,6 +9,8 @@ import {
   ItemDesc,
   Empty,
 } from './UserMode.styled';
+import 'assets/style/font/mainFont.css';
+import 'assets/style/font/descFont.css';
 
 import Loading from 'components/modules/loading/Loading';
 
@@ -64,7 +66,12 @@ const UserMode = () => {
               <ItemDesc>이름 : {trainer.tName}</ItemDesc>
               <ItemDesc>
                 이메일 :{' '}
-                <a href={`mailto:${trainer.userEmail}`}>{trainer.userEmail}</a>
+                <a
+                  style={{ fontFamily: 'Poor Story' }}
+                  href={`mailto:${trainer.userEmail}`}
+                >
+                  {trainer.userEmail}
+                </a>
               </ItemDesc>
               <ItemDesc>
                 {trainer.src === selected

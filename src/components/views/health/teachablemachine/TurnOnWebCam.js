@@ -11,6 +11,8 @@ import {
   Status,
   ExerciseButton,
 } from './TurnOnWebCam.styled';
+import 'assets/style/font/mainFont.css';
+
 import Loading from 'components/modules/loading';
 import { FirebaseStore } from 'config/fbConfig';
 

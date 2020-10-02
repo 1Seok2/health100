@@ -12,6 +12,7 @@ import {
   Answer,
   Empty,
 } from './OwnQna.styled';
+import 'assets/style/font/mainFont.css';
 
 /* question list which have answer */
 const AnswerList = ({ selected, setSelected, isDone }) => {
@@ -46,8 +47,8 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
                   return (
                     <STr>
                       <STd>{item[0]}</STd>
-                      <STd>{item[1]}</STd>
                       <STd>{item[2]}</STd>
+                      <STd>{item[1]}</STd>
                     </STr>
                   );
                 })}

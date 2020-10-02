@@ -1,7 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Logo from 'assets/img/logo.png';
-import { SmallTabletWidth } from 'components/modules/style/Width';
+import {
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 
 const ShowMenu = keyframes`
 0%{
@@ -35,7 +38,7 @@ export const Container = styled.div`
   box-shadow: 6px 0px 9px -3px rgba(100, 100, 100, 1);
   /* ${(props) => (props.extend ? 'width : 12rem;' : null)} */
   animation: ${(props) => (props.extend ? ShowMenu : HideMenu)} 0.5s;
-  @media (max-width: ${SmallTabletWidth}) {
+  @media (max-width: ${SmartPhoneWidth}) {
     display: none;
   }
 `;
@@ -63,6 +66,7 @@ export const LogoImg = styled.div`
   position: absolute;
   top: 2.2rem;
   text-align: right;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const LogOut = styled.button`
@@ -74,6 +78,7 @@ export const LogOut = styled.button`
   bottom: 0;
   padding: 0;
   padding-left: 12px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const ItemWrapper = styled.div`
@@ -96,12 +101,14 @@ export const Item = styled(Link)`
   justify-content: center;
   border: 0.6rem;
   border-radius: 5px;
+  transition: background-color 0.3s;
   &:last-child {
     margin-bottom: 100%;
   }
   ${(props) =>
     props.extend &&
     `
+    padding-left : .6rem;
   width : 90%;
   flex-direction : row;
   justify-content: space-between;
@@ -113,11 +120,13 @@ export const Item = styled(Link)`
   ${(props) => (props.current ? 'background-color: #efefef;' : null)}
   &:hover {
     background-color: rgb(105, 154, 227);
+    transition: background-color 0.3s;
   }
 `;
 
 export const ItemDesc = styled.h2`
   color: white;
+  font-family: 'Jua', sans-serif;
   ${(props) => (props.current ? 'color: #092c6f;' : null)}
   ${(props) =>
     props.extend
@@ -143,6 +152,7 @@ export const Extends = styled.button`
   color: white;
   font-weight: 400;
   font-size: 2.5rem;
+  outline: none;
   ${(props) =>
     props.extend &&
     `

@@ -4,7 +4,8 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { CloseButton, Container } from './ExercisesDetail.styled';
+import { CloseButton, Container, Title } from './ExercisesDetail.styled';
+import 'assets/style/font/mainFont.css';
 
 import TurnOnWebCam from '../teachablemachine';
 
@@ -25,7 +26,7 @@ const ExercisesDetail = ({ userObj, showDetail, setShow }) => {
   return (
     <Container show={showDetail.show}>
       <CloseButton onClick={() => closeDetail()}>&#215;</CloseButton>
-      <div>{showDetail.title}</div>
+      <Title>{showDetail.title}</Title>
       {showDetail.title === '스쿼트' ||
       showDetail.title === '다른' ||
       showDetail.title === '다른1' ? (

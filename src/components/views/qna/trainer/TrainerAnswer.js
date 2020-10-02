@@ -20,10 +20,9 @@ import {
   Decline,
   Empty,
 } from './TrainerAnswer.styled';
+import 'assets/style/font/mainFont.css';
 
 import Loading from 'components/modules/loading/Loading';
-
-var Infinite = require('react-infinite');
 
 /* trainer can answer for questions */
 const TrainerAnswer = ({ userObj }) => {
@@ -140,8 +139,8 @@ const TrainerAnswer = ({ userObj }) => {
                           return (
                             <STr key={item[0]}>
                               <STd>{item[0]}</STd>
-                              <STd>{item[1]}</STd>
                               <STd>{item[2]}</STd>
+                              <STd>{item[1]}</STd>
                             </STr>
                           );
                         })}

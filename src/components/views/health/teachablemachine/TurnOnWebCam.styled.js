@@ -20,12 +20,14 @@ export const CamContainer = styled.div`
 export const CamMessage = styled.h4`
   font-weight: 500;
   font-size: 32px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Count = styled.h2`
   padding-left: 10%;
   font-weight: 500;
   margin-top: 20px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Status = styled.h3`
@@ -34,6 +36,7 @@ export const Status = styled.h3`
   padding-left: 10%;
   margin-top: 20px;
   font-size: ${(props) => (props.fSize ? props.fSize : 28)}px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const ExerciseButton = styled.a`
@@ -52,6 +55,7 @@ export const ExerciseButton = styled.a`
   border-radius: 21px;
   box-shadow: 0px 6px 10px -6px rgb(100, 100, 100);
   transition: background-color 0.3s;
+  font-family: 'Jua', sans-serif;
   &:hover {
     cursor: pointer;
     background-color: ${(props) =>

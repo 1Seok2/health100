@@ -22,12 +22,14 @@ export const TypeButton = styled.button`
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)};
   ${(props) => (props.current ? `color : white;` : null)};
   margin-right: 8px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Container = styled.div`
@@ -68,6 +70,7 @@ export const QuestTitle = styled.h1`
   padding-bottom: 10px;
   padding-left: 0.6rem;
   border-radius: 5px;
+  font-family: 'Jua', sans-serif;
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)}
   ${(props) => (props.current ? `color : white;` : null)}
   ${(props) => (props.yet ? 'border-bottom : 1px solid #cfcfcf;' : null)}
@@ -95,6 +98,7 @@ text-align: center;
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const STr = styled.tr`
@@ -114,6 +118,7 @@ export const STd = styled.td`
   line-height: 42px;
   font-weight: 400;
   min-width: 100px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Answer = styled.div`
@@ -125,6 +130,7 @@ export const Answer = styled.div`
   padding-bottom: 10px;
   padding-left: 1rem;
   border-bottom: 1px solid #cfcfcf;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Empty = styled.div`
@@ -139,4 +145,5 @@ export const DeleteButton = styled.button`
   margin-right: 1rem;
   margin-bottom: 1rem;
   background-color: ${NEGATIVE_COLOR};
+  font-family: 'Jua', sans-serif;
 `;

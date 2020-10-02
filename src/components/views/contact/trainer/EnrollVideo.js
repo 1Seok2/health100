@@ -11,10 +11,12 @@ import {
   StringLength,
   SButton,
 } from './TrainerMode.styled';
+import UploadVideo from 'components/modules/upload';
 
 const EnrollVideo = ({ userObj }) => {
   const [description, setDesc] = useState('');
   const [src, setSrc] = useState('');
+  const [video, setVideo] = useState([]);
 
   const [isError, setError] = useState(false);
 
@@ -76,6 +78,8 @@ const EnrollVideo = ({ userObj }) => {
             placeholder="형식 : https://youtu.be/N0501RTnEDVhs"
           />
         </SLabel>
+        <SubTitle inline={true}>동영상 파일 업로드</SubTitle>
+        <UploadVideo video={video} setVideo={setVideo} />
         <SButton onClick={onSubmit}>등록하기</SButton>
       </SForm>
     </Wrapper>

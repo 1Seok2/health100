@@ -39,6 +39,7 @@ export const Title = styled.div`
   text-align: center;
   font-size: 24px;
   margin-bottom: 1rem;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const CheckWrapper = styled.div`
@@ -55,6 +56,7 @@ export const Notice = styled.div`
   font-weight: 300;
   color: #c23616;
   margin-top: 4px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const SLabel = styled.label``;
@@ -73,6 +75,7 @@ export const TextInput = styled.input`
   font-size: 12px;
   color: black;
   box-sizing: content-box;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Submit = styled.input`
@@ -90,6 +93,7 @@ export const Submit = styled.input`
   font-size: 12px;
   font-weight: 400;
   transition: all 0.3s;
+  font-family: 'Jua', sans-serif;
   &:hover {
     cursor: pointer;
     background-color: ${(props) =>
@@ -105,6 +109,7 @@ export const ErrorMessage = styled.div`
   text-align: left;
   line-height: 16px;
   font-size: 12px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const AuthSwitch = styled.div`
@@ -118,6 +123,7 @@ export const AuthSwitch = styled.div`
   color: #666;
   font-size: 12px;
   font-weight: 400;
+  font-family: 'Jua', sans-serif;
   &:hover {
     cursor: pointer;
     color: #999;
@@ -144,6 +150,7 @@ export const AuthButton = styled.button`
   text-align: right;
   font-weight: 400;
   font-size: 12px;
+  font-family: 'Jua', sans-serif;
   background-image: url(${GoogleLogo});
   background-size: 20px;
   background-position: 16px center;

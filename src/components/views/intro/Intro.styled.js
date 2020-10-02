@@ -44,6 +44,7 @@ export const IntroTitle = styled.h1`
   font-weight: 600;
   line-height: 48px;
   color: #666666;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const IntroImgWrapper = styled.div`
@@ -139,6 +140,7 @@ export const Desc = styled.div`
   text-align: center;
   line-height: normal;
   display: inline-block;
+  font-family: 'Jua', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     width: 56%;
   }
@@ -158,6 +160,7 @@ export const Contents = styled.div`
   line-height: 48px;
   font-weight: 300;
   transition: all 0.4s;
+  font-family: 'Jua', sans-serif;
   &:hover {
     margin-top: 22%;
     width: 76%;

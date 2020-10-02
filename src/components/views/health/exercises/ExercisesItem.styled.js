@@ -60,8 +60,9 @@ export const DescWrapper = styled.div`
 export const BranchName = styled.div`
   display: block;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 500;
   color: ${(props) => (!props.current ? 'black' : 'white')};
+  font-family: 'Jua', sans-serif;
   @media (max-width: 440px) {
     font-size: 18px;
   }

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { SmallTabletWidth } from 'components/modules/style/Width';
+import {
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 import {
   HEALTH_COLOR,
   HEALTH_COLOR_LIGHT,
@@ -19,7 +22,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media (min-width: ${SmallTabletWidth}) {
+  @media (min-width: ${SmartPhoneWidth}) {
     display: ${(props) => (props.mode ? 'flex' : 'none')};
   }
 `;
@@ -27,10 +30,11 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   width: 1080px;
   padding-left: 32px;
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 500;
   @media (max-width: 360px) {
-    font-size: 32px;
+    font-size: 24px;
+    padding-left: 1rem;
   }
 `;
 
@@ -87,7 +91,7 @@ export const UserType = styled.span`
   font-size: 18px;
   font-weight: 400;
 
-  @media (max-width: 360px) {
+  @media (max-width: ${SmartPhoneWidth}) {
     font-size: 10px;
   }
 `;

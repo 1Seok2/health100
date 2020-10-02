@@ -49,7 +49,7 @@ export default withRouter(({ location: { pathname }, userObj }) => {
     <Container extend={extend}>
       <Wrapper>
         <LogoImg extend={extend}>
-          {extend && userObj.tName && userObj.tName}
+          {extend && userObj.tName && userObj.tName} <br />
           {extend && userObj.email}
           {extend && (
             <LogOut onClick={() => FirebaseAuth.signOut()}>로그아웃</LogOut>

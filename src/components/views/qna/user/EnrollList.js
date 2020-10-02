@@ -67,8 +67,8 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
                   return (
                     <STr key={item[0]}>
                       <STd>{item[0]}</STd>
-                      <STd>{item[1]}</STd>
                       <STd>{item[2]}</STd>
+                      <STd>{item[1]}</STd>
                     </STr>
                   );
                 })}

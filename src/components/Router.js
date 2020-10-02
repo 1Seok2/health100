@@ -54,8 +54,8 @@ const AppRouter = ({
       setUserObj({
         ...userObj,
         /**
-         * 0 : user
-         * 1 : trainer
+         * false : user
+         * true : trainer
          * 2 : admin
          */
         type: trainer === undefined ? 0 : trainer,

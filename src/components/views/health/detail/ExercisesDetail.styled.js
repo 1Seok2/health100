@@ -46,3 +46,9 @@ export const CloseButton = styled.a`
     cursor: pointer;
   }
 `;
+
+export const Title = styled.h1`
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-family: 'Jua', sans-serif;
+`;

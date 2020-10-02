@@ -9,8 +9,9 @@ import {
 
 export const Title = styled.h1`
   font-weight: 700;
-  font-size: 20px;
+  font-size: 28px;
   margin-bottom: 1rem;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const EnrollDay = styled.div`
@@ -19,6 +20,7 @@ export const EnrollDay = styled.div`
   padding-right: 1rem;
   font-weight: 500;
   font-size: 14px;
+  font-family: 'Jua', sans-serif;
   ${(props) => (props.current ? `color : white;` : null)}
   @media (max-width: 450px) {
     display: none;
@@ -54,6 +56,7 @@ export const QuestTitle = styled.h1`
   border-bottom: 1px solid #cfcfcf;
   transition: background-color 0.3s;
   border-radius: 5px;
+  font-family: 'Jua', sans-serif;
   &:hover {
     transition: background-color 0.3s;
     background-color: ${HEALTH_COLOR_LIGHT};
@@ -84,6 +87,7 @@ text-align: center;
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const STr = styled.tr`
@@ -103,13 +107,14 @@ export const STd = styled.td`
   line-height: 42px;
   font-weight: 500;
   min-width: 100px;
+  font-family: 'Jua', sans-serif;
 `;
 
 export const FromWrapper = styled.div`
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
+  width: calc(100vw - 5.6rem);
   height: 190px;
   background-color: white;
   box-shadow: 0px -6px 12px -8px rgba(100, 100, 100, 0.5);
@@ -131,6 +136,7 @@ export const TextArea = styled.textarea`
   border: 1px solid #bbb;
   font-weight: 400;
   border-radius: 5px;
+  font-family: 'Jua', sans-serif;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};
   }
@@ -152,6 +158,7 @@ export const Submit = styled.button`
     background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Decline = styled.a`
@@ -171,6 +178,7 @@ export const Decline = styled.a`
     background-color: ${NEGATIVE_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  font-family: 'Jua', sans-serif;
 `;
 
 export const Empty = styled.div`
