@@ -28,7 +28,7 @@ const ValidAuth = ({ needAdmin, setSelected, selected, accept }) => {
             }}
             current={trainer.createdAt === selected.key}
           >
-            신청일 : {moment(trainer.createdAt).format('YY.MM.DD')}
+            {trainer.name}
             {trainer.createdAt === selected.key && (
               <AcceptButton onClick={(e) => accept(e)}>승인</AcceptButton>
             )}

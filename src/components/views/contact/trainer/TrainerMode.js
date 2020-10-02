@@ -20,29 +20,6 @@ import UpdateVideo from './UpdateVideo';
 const TrainerMode = ({ userObj }) => {
   const [isExist, setExist] = useState(false);
 
-  /* 수정하기 클릭 시 */
-  const needUpdate = async (e) => {
-    e.preventDefault();
-    const updateType = await FirebaseStore.collection('users').doc(
-      `${userObj.createdAt}`,
-    );
-    updateType
-      .update({
-        introAvailable: 2,
-        originSrc: userObj.originSrc,
-        src: '',
-        desc: userObj.desc,
-      })
-      .then(() => {
-        alert('다시 작성해주세요');
-      })
-      .catch(function (error) {
-        // The document probably doesn't exist.
-        console.error('Error updating document: ', error);
-        alert('실패하였습니다');
-      });
-  };
-
   /* 반려처리에서 재 등록 원할 시 */
   const restart = async (e) => {
     e.preventDefault();
@@ -53,7 +30,6 @@ const TrainerMode = ({ userObj }) => {
       .update({
         introAvailable: 2,
         originSrc: userObj.originSrc,
-        src: '',
         desc: userObj.desc,
       })
       .catch(function (error) {
@@ -74,9 +50,6 @@ const TrainerMode = ({ userObj }) => {
       updateType
         .update({
           introAvailable: 0,
-          originSrc: '',
-          src: '',
-          desc: '',
         })
         .catch(function (error) {
           // The document probably doesn't exist.

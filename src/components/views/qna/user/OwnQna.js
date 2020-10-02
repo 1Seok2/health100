@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import { FirebaseStore } from 'config/fbConfig';
 import { Empty, TypeButton, ButtonWrapper } from './OwnQna.styled';
 
@@ -38,6 +39,26 @@ const OwnQna = ({ userObj }) => {
             ansTrainer: doc.data().ansTrainer,
           };
           if (doc.data().type === 1) {
+            const lastIdx = done.length - 1;
+            if (done.length === 0) {
+              done = [questObj, ...done];
+            } else if (
+              moment(done[lastIdx].endedAt).isBefore(questObj.endedAt)
+            ) {
+              done = [questObj, ...done];
+            } else if (moment(done[lastIdx].endedAt).isSame(questObj.endedAt)) {
+              if (
+                moment(done[lastIdx].createdAt).isBefore(questObj.createdAt)
+              ) {
+                done = [questObj, ...done];
+              } else {
+                done = [...done, questObj];
+              }
+            } else if (
+              moment(done[lastIdx].endedAt).isAfter(questObj.endedAt)
+            ) {
+              done = [...done, questObj];
+            }
             done = [questObj, ...done];
           } else if (doc.data().type === 0) {
             notYet = [questObj, ...notYet];
