@@ -6,6 +6,7 @@ import { Empty, TypeButton, ButtonWrapper } from './OwnQna.styled';
 import Loading from 'components/modules/loading/Loading';
 import AnswerList from './AnswerList';
 import EnrollList from './EnrollList';
+import OtherPeople from './OtherPeople';
 
 const OwnQna = ({ userObj }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,8 +15,13 @@ const OwnQna = ({ userObj }) => {
   const [isDone, setDone] = useState([]);
   const [isYet, setYet] = useState([]);
 
-  /* show HAS-ANSWER list OR NON-ANSWER list */
-  const [showAnswer, setAnswer] = useState(true);
+  /**
+   *  show list
+   *  HAS-ANSWER : 0
+   *  NON-ANSWER : 1
+   *  OTHER-PEOPLE : 2
+   **/
+  const [showAnswer, setAnswer] = useState(0);
 
   /* object of selected in list */
   const [selected, setSelected] = useState({});
@@ -82,36 +88,51 @@ const OwnQna = ({ userObj }) => {
         <>
           <ButtonWrapper>
             <TypeButton
-              current={showAnswer}
+              current={showAnswer === 0}
               onClick={() => {
                 setSelected({});
-                setAnswer(true);
+                setAnswer(0);
               }}
             >
               처방 완료 목록 ({isDone.length})
             </TypeButton>
             <TypeButton
-              current={!showAnswer}
+              current={showAnswer === 1}
               onClick={() => {
                 setSelected({});
-                setAnswer(false);
+                setAnswer(1);
               }}
             >
               처방 대기 목록 ({isYet.length})
             </TypeButton>
+            <TypeButton
+              current={showAnswer === 2}
+              onClick={() => {
+                setSelected({});
+                setAnswer(2);
+              }}
+            >
+              나이대별 처방 목록 조회
+            </TypeButton>
           </ButtonWrapper>
-          {showAnswer ? (
+          {showAnswer === 0 ? (
             <AnswerList
               isDone={isDone}
               setSelected={setSelected}
               selected={selected}
             />
           ) : (
-            <EnrollList
-              isYet={isYet}
-              setSelected={setSelected}
-              selected={selected}
-            />
+            <>
+              {showAnswer === 1 ? (
+                <EnrollList
+                  isYet={isYet}
+                  setSelected={setSelected}
+                  selected={selected}
+                />
+              ) : (
+                <OtherPeople />
+              )}
+            </>
           )}
         </>
       )}

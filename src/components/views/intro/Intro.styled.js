@@ -204,6 +204,7 @@ export const LoginButton = styled(Link)`
   font-size: 22px;
   font-weight: 400;
   transition: background-color 0.3s;
+  font-family: 'Jua', sans-serif;
   &:hover {
     background-color: #3fbbed;
     transition: background-color 0.3s;

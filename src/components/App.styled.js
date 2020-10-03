@@ -10,7 +10,7 @@ export const OuterContainer = styled.div`
   margin: 0 auto;
   padding-top: 4rem;
   @media (min-width: ${SmartPhoneWidth}) {
-    padding-left: 6.5rem;
+    padding-left: 6rem;
     padding-top: 2rem;
     ${(props) => (props.admin ? 'padding-top : 4rem;' : null)}
   }
