@@ -10,6 +10,7 @@ import {
   LogOut,
 } from './Header.styled';
 import 'assets/style/css/Menu.css';
+import 'assets/style/font/mainFont.css';
 import Navigation from '../navigation/Navigation';
 
 const logOut = () => FirebaseAuth.signOut();

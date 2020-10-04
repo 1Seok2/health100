@@ -1,23 +1,64 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Container,
-  TableWrapper,
-  QuestTitle,
-  STable,
-  SThead,
-  STbody,
-  STh,
-  STr,
-  STd,
-  Empty,
-  DeleteButton,
+  FormWrapper,
+  ListTitle,
+  SForm,
+  SInput,
+  SetButton,
 } from './OwnQna.styled';
+import IsNumber from 'components/modules/check/IsNumber';
+
+import Loading from 'components/modules/loading';
+import OtherPeopleTable from './OtherPeopleTable';
 
 /* CSV data ... */
 const OTHER_PEOPLE_CSV_202008 = require('../../../../assets/data/OTHER_PEOPLE_CSV_202008.csv');
 
 const OtherPeople = () => {
+  const [isLoading, setLoading] = useState(true);
   const [people, setPeople] = useState([]);
+  const [range, setRange] = useState({
+    start: '',
+    end: '',
+  });
+
+  const [search, setSearch] = useState({
+    start: '',
+    end: '',
+  });
+
+  const searchData = () => {
+    if (range.start === '' || range.end === '') {
+      alert('나이를 입력해주세요');
+      return;
+    } else if (range.start > range.end) {
+      alert('올바른 범위를 설정해주세요');
+      return;
+    }
+    setSearch({
+      start: range.start,
+      end: range.end,
+    });
+  };
+
+  const onChange = (e) => {
+    const {
+      target: { name, value },
+    } = e;
+    if (IsNumber(value)) {
+      if (name === 'start') {
+        setRange({
+          ...range,
+          start: value,
+        });
+      } else if (name === 'end') {
+        setRange({
+          ...range,
+          end: value,
+        });
+      }
+    }
+  };
 
   const readTextFile = async (file) => {
     let personList = [];
@@ -46,28 +87,37 @@ const OtherPeople = () => {
   };
 
   useEffect(() => {
-    readTextFile(OTHER_PEOPLE_CSV_202008);
+    readTextFile(OTHER_PEOPLE_CSV_202008).then(() => setLoading(false));
   }, []);
   return (
     <>
-      <table>
-        <thead>
-          <th>구분</th>
-          <th>나이</th>
-          <th>처방받은 운동</th>
-          <th>수상여부</th>
-        </thead>
-        <tbody>
-          {people.map((person) => (
-            <tr>
-              <td>{person.AGE_GBN}</td>
-              <td>{person.TEST_AGE}</td>
-              <td>{person.PRES_NOTE}</td>
-              <td>{person.CERT_GBN}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <FormWrapper>
+            <ListTitle>나이 기준 조회</ListTitle>
+            <SForm>
+              <SInput
+                type="start"
+                name="start"
+                value={range.start}
+                onChange={onChange}
+                placeholder="시작 나이"
+              />
+              <SInput
+                type="end"
+                name="end"
+                value={range.end}
+                onChange={onChange}
+                placeholder="끝 나이"
+              />
+              <SetButton onClick={() => searchData()}>조회</SetButton>
+            </SForm>
+          </FormWrapper>
+          <OtherPeopleTable search={search} people={people} />
+        </>
+      )}
     </>
   );
 };

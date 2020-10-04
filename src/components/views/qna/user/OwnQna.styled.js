@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 import {
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
+import {
   HEALTH_COLOR_DARK,
   HEALTH_COLOR,
   HEALTH_COLOR_LIGHT,
+  NEGATIVE_COLOR_DARK,
   NEGATIVE_COLOR,
   NEGATIVE_COLOR_LIGHT,
 } from 'components/modules/style/Color';
+const Arrow = require('../../../../assets/img/arrow_bottom.png');
 
 export const ButtonWrapper = styled.div`
   margin-bottom: 12px;
@@ -22,6 +28,7 @@ export const TypeButton = styled.button`
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)};
   ${(props) => (props.current ? `color : white;` : null)};
   margin-right: 8px;
+  margin-top: 8px;
   font-family: 'Jua', sans-serif;
 `;
 
@@ -52,12 +59,9 @@ export const TableWrapper = styled.div`
 `;
 
 export const STable = styled.table`
-  margin: 0;
-  margin: 12px;
-  width: 90%;
   min-width: 320px;
   overflow: scroll;
-  display: ${(props) => (props.current ? 'block' : 'none')};
+  display: ${(props) => (props.set ? 'block' : 'none')};
 `;
 
 export const QuestTitle = styled.h1`
@@ -89,12 +93,7 @@ export const STbody = styled.tbody`
 export const STh = styled.th`
   margin: 0;
   border: 3px solid #ffffff;
-  background-color: ${(props) =>
-    props.title ? NEGATIVE_COLOR_LIGHT : '#efefef'};
-  ${(props) =>
-    props.current ? `background-color : ${HEALTH_COLOR_DARK};` : null}
-  ${(props) => (props.current ? `color : white;` : null)}
-text-align: center;
+  background-color: ${NEGATIVE_COLOR_LIGHT};
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
@@ -146,4 +145,65 @@ export const DeleteButton = styled.button`
   margin-bottom: 1rem;
   background-color: ${NEGATIVE_COLOR};
   font-family: 'Jua', sans-serif;
+`;
+
+/* other people ... */
+
+export const FormWrapper = styled.div`
+  width: 100%;
+`;
+
+export const ListTitle = styled.h1`
+  font-weight: 700;
+  color: gray;
+  font-size: 20px;
+  margin-bottom: 8px;
+  margin-top: 48px;
+  font-family: 'Jua', sans-serif;
+`;
+
+export const SForm = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #dfdfdf;
+`;
+
+export const SInput = styled.input`
+  border: none;
+  border-radius: 5px;
+  height: 24px;
+  padding: 4px;
+  padding-left: 12px;
+  width: 78px;
+  font-weight: 400;
+  font-size: 12px;
+  outline: none;
+  border: 1px solid #bbb;
+  margin-right: 0.6rem;
+  margin-bottom: 12px;
+  font-family: 'Jua', sans-serif;
+  @media (max-width: ${SmallTabletWidth}) {
+    display: block;
+  }
+`;
+
+export const SetButton = styled.button`
+  height: 32px;
+  min-width: 72px;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  border-radius: 16px;
+  background-color: ${NEGATIVE_COLOR_DARK};
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: ${NEGATIVE_COLOR};
+    transition: background-color 0.3s;
+  }
+  margin-bottom: 12px;
+  font-family: 'Jua', sans-serif;
+  @media (max-width: ${SmallTabletWidth}) {
+    display: block;
+  }
 `;

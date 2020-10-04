@@ -1,5 +1,8 @@
 import styled from 'styled-components';
-import { SmallTabletWidth, SmartPhoneWidth } from '../../modules/style/Width';
+import {
+  SmallTabletWidth,
+  SmartPhoneWidth,
+} from 'components/modules/style/Width';
 import {
   HEALTH_COLOR_DARK,
   HEALTH_COLOR,

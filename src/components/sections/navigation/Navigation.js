@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MenuList from './Menu';
 import { FirebaseAuth } from 'config/fbConfig';
+import 'assets/style/font/mainFont.css';
 
 const Navigation = ({ pathname, userObj }) => {
   const [clicked, setClicked] = useState('none');
@@ -58,7 +59,11 @@ const Navigation = ({ pathname, userObj }) => {
 
           <li className="nav-list">
             <a
-              style={{ marginTop: '4rem', textAlign: 'right' }}
+              style={{
+                marginTop: '4rem',
+                textAlign: 'right',
+                fontFamily: 'Jua',
+              }}
               href="#"
               onClick={logOut}
             >

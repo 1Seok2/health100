@@ -32,6 +32,7 @@ export const Wrapper = styled.div`
   padding-left: 32px;
   font-size: 28px;
   font-weight: 500;
+  font-family: 'Jua', sans-serif;
   @media (max-width: 360px) {
     font-size: 24px;
     padding-left: 1rem;
