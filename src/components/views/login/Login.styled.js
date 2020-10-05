@@ -147,6 +147,9 @@ export const AuthButton = styled.button`
     box-shadow: 0px 4px 6px -6px rgb(100, 100, 100);
     transition: all 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
   text-align: right;
   font-weight: 400;
   font-size: 12px;

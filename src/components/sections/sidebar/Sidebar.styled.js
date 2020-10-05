@@ -79,6 +79,9 @@ export const LogOut = styled.button`
   padding: 0;
   padding-left: 12px;
   font-family: 'Jua', sans-serif;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const ItemWrapper = styled.div`
@@ -159,4 +162,8 @@ export const Extends = styled.button`
   width : 80%;
   text-align : right;
   `}
+
+  &:focus {
+    outline: none;
+  }
 `;

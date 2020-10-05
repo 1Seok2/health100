@@ -31,6 +31,9 @@ export const GoReEnrollButton = styled.button`
       props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const STitle = styled.h2`
@@ -130,5 +133,8 @@ export const SButton = styled.button`
     background-color: ${(props) =>
       props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
     transition: background-color 0.3s;
+  }
+  &:focus {
+    outline: none;
   }
 `;

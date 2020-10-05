@@ -47,4 +47,7 @@ export const Delete = styled.button`
     background-color: ${NEGATIVE_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
 `;

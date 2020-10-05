@@ -36,6 +36,9 @@ export const TypeButton = styled.button`
   ${(props) => (props.current ? `color : white;` : null)};
   margin-right: 8px;
   margin-bottom: 1rem;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const Empty = styled.div`

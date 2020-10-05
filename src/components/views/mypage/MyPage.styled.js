@@ -105,6 +105,9 @@ export const PlusButton = styled.button`
     background-color: ${NEGATIVE_COLOR};
     transition: background-color 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
   margin-bottom: 12px;
   font-family: 'Jua', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
@@ -208,5 +211,8 @@ export const SButton = styled.button`
     background-color: ${(props) =>
       props.bgColor ? NEGATIVE_COLOR_LIGHT : HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
+  }
+  &:focus {
+    outline: none;
   }
 `;

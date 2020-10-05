@@ -158,6 +158,9 @@ export const Submit = styled.button`
     background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
   font-family: 'Jua', sans-serif;
 `;
 

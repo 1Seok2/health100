@@ -25,6 +25,9 @@ export const TypeButton = styled.button`
     background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
+  &:focus {
+    outline: none;
+  }
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)};
   ${(props) => (props.current ? `color : white;` : null)};
   margin-right: 8px;
@@ -145,6 +148,9 @@ export const DeleteButton = styled.button`
   margin-bottom: 1rem;
   background-color: ${NEGATIVE_COLOR};
   font-family: 'Jua', sans-serif;
+  &:focus {
+    outline: none;
+  }
 `;
 
 /* other people ... */
@@ -200,6 +206,9 @@ export const SetButton = styled.button`
   &:hover {
     background-color: ${NEGATIVE_COLOR};
     transition: background-color 0.3s;
+  }
+  &:focus {
+    outline: none;
   }
   margin-bottom: 12px;
   font-family: 'Jua', sans-serif;

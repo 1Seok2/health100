@@ -97,4 +97,7 @@ export const AcceptButton = styled.button`
   font-weight: 400;
   color: #c23616;
   float: right;
+  &:focus {
+    outline: none;
+  }
 `;

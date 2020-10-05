@@ -13,8 +13,8 @@ const OtherPeopleTable = memo(({ search, people }) => {
       <STbody>
         {people.map((person) => {
           if (
-            search.start <= person.TEST_AGE &&
-            person.TEST_AGE <= search.end
+            parseInt(search.start) <= parseInt(person.TEST_AGE) &&
+            parseInt(person.TEST_AGE) <= parseInt(search.end)
           ) {
             return (
               <STr>
