@@ -63,7 +63,6 @@ export const TableWrapper = styled.div`
 
 export const STable = styled.table`
   min-width: 320px;
-  overflow: scroll;
   display: ${(props) => (props.set ? 'block' : 'none')};
 `;
 

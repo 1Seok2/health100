@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Wrapper, Container } from './Health.styled';
-import { list } from './exercises/List';
+import { adultlist } from './exercises/List';
 
 import ExercisesItem from './exercises';
 import ExercisesDetail from './detail';
@@ -15,7 +15,7 @@ const Health = ({ userObj }) => {
   return (
     <Container>
       <Wrapper show={showDetail.show}>
-        {list.map((item) => (
+        {adultlist.map((item) => (
           <ExercisesItem
             key={item.title}
             item={item}

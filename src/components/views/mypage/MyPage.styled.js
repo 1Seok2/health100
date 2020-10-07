@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   padding-top: 1.7rem;
   padding-left: 1.7rem;
   padding-right: 1.7rem;
-  overflow: scroll;
+  overflow-y: scroll;
   position: relative;
 `;
 
@@ -126,7 +126,7 @@ export const ListTitle = styled.h1`
 
 export const TableWrapper = styled.div`
   width: 100%;
-  height: 150px;
+  height: 170px;
   padding-top: 8px;
   overflow-x: scroll;
   border-bottom: 1px solid #dfdfdf;
@@ -135,7 +135,6 @@ export const TableWrapper = styled.div`
 export const STable = styled.table`
   margin: 0;
   width: 100%;
-  overflow: scroll;
   &:hover {
     ${(props) => (props.active ? 'cursor: pointer;' : null)}
   }

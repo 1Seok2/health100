@@ -13,6 +13,6 @@ export const Wrapper = styled.div`
   padding-top: 1.7rem;
   padding-left: 1.7rem;
   padding-right: 1.7rem;
-  overflow: scroll;
+  overflow-y: scroll;
   position: relative;
 `;

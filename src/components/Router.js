@@ -21,6 +21,7 @@ import Login from 'components/views/login';
 
 /* already login ... */
 import Health from 'components/views/health';
+import Type from './views/health/type';
 import MyPage from 'components/views/mypage';
 import Qna from 'components/views/qna';
 import ContactTrainer from 'components/views/contact';
@@ -96,11 +97,21 @@ const AppRouter = ({
               <OuterContainer>
                 {/* if user already logged in ... */}
                 {/* main is self health */}
+                {/* <Route
+                  exact
+                  path="/health/type"
+                  render={() => <Type userObj={UserObj} />}
+                /> */}
                 <Route
                   exact
                   path="/health"
                   render={() => <Health userObj={UserObj} />}
                 />
+                {/* <Route
+                  exact
+                  path="/health/senior"
+                  render={() => <Health userObj={UserObj} />}
+                /> */}
                 {/* can see my data */}
                 <Route
                   exact

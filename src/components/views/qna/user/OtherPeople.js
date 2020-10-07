@@ -28,10 +28,10 @@ const OtherPeople = () => {
   });
 
   const searchData = () => {
-    if (range.start === '' || range.end === '') {
+    if (parseInt(range.start) === '' || parseInt(range.end) === '') {
       alert('나이를 입력해주세요');
       return;
-    } else if (range.start > range.end) {
+    } else if (parseInt(range.start) > parseInt(range.end)) {
       alert('올바른 범위를 설정해주세요');
       return;
     }

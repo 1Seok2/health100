@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: calc(100vh - 4rem);
-  overflow: scroll;
+  overflow-y: scroll;
   position: relative;
 `;
 
@@ -12,7 +12,6 @@ export const Wrapper = styled.div`
   display: ${(props) => (props.show ? 'inline-block' : 'block')};
   padding-top: 1.7rem;
   margin-bottom: 1rem;
-  overflow: scroll;
   text-align: center;
   @media (max-width: 960px) {
     width: ${(props) => (props.show ? '30%' : '100%')};

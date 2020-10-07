@@ -37,7 +37,6 @@ export const STable = styled.table`
   margin: 12px;
   width: 90%;
   min-width: 500px;
-  overflow: scroll;
   &:hover {
     ${(props) => (props.active ? 'cursor: pointer;' : null)}
   }
