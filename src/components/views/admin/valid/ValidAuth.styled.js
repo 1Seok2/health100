@@ -15,7 +15,7 @@ export const Title = styled.h1`
 
 export const TableWrapper = styled.div`
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
 `;
 
 export const STable = styled.table`

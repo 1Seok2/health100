@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-export const Containter = styled.div`
+export const Container = styled.div`
   width: 100%;
   height: calc(100vh - 6rem);
   overflow: hidden;
@@ -13,6 +12,13 @@ export const Wrapper = styled.div`
   padding-top: 1.7rem;
   padding-left: 1.7rem;
   padding-right: 1.7rem;
-  overflow-y: auto;
+  overflow-y: scroll;
   position: relative;
+`;
+
+export const Title = styled.div`
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: 'Jua', sans-serif;
 `;

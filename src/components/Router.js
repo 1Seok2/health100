@@ -23,6 +23,7 @@ import Login from 'components/views/login';
 import Health from 'components/views/health';
 import Type from './views/health/type';
 import MyPage from 'components/views/mypage';
+import Graph from './views/mypage/graph/Graph';
 import Qna from 'components/views/qna';
 import ContactTrainer from 'components/views/contact';
 
@@ -118,6 +119,14 @@ const AppRouter = ({
                   path="/mypage"
                   render={() => (
                     <MyPage userObj={UserObj} refreshUser={refreshUser} />
+                  )}
+                />
+
+                <Route
+                  exact
+                  path="/mypage/graph"
+                  render={() => (
+                    <Graph userObj={UserObj} refreshUser={refreshUser} />
                   )}
                 />
                 {/* can consultant about my data */}

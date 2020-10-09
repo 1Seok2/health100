@@ -169,7 +169,19 @@ const MyPage = ({ userObj }) => {
         <Loading />
       ) : (
         <Wrapper>
-          <Title>나의 기록</Title>
+          <Title>
+            나의 기록
+            <Link
+              to="/mypage/graph"
+              style={{
+                marginLeft: 12,
+                fontSize: 14,
+                color: '#092c6f',
+              }}
+            >
+              | &nbsp;&nbsp;그래프로 보기
+            </Link>
+          </Title>
           {makePackage && <SButton onClick={submitPackage}>제출하기</SButton>}
           <SButton
             bgColor={makePackage}

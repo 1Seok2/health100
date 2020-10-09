@@ -6,6 +6,8 @@ import { FirebaseAuth } from 'config/fbConfig';
 import AiScript from 'assets/script/AiScript';
 import Loading from './modules/loading';
 
+import 'assets/style/css/Scroll.css';
+
 const App = () => {
   const [init, setInit] = useState(false);
   const [userObj, setUserObj] = useState(null);

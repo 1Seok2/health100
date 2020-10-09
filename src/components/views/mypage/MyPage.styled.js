@@ -39,7 +39,7 @@ export const Title = styled.div`
 `;
 
 export const SForm = styled.form`
-  display: block;
+  display: flex;
   margin-bottom: 12px;
   border-bottom: 1px solid #dfdfdf;
   @media (max-width: ${SmallTabletWidth}) {
@@ -128,7 +128,7 @@ export const TableWrapper = styled.div`
   width: 100%;
   height: 170px;
   padding-top: 8px;
-  overflow-x: scroll;
+  overflow-x: auto;
   border-bottom: 1px solid #dfdfdf;
 `;
 

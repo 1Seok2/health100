@@ -58,12 +58,12 @@ export const Container = styled.div`
 
 export const TableWrapper = styled.div`
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
 `;
 
 export const STable = styled.table`
   min-width: 320px;
-  display: ${(props) => (props.set ? 'block' : 'none')};
+  display: ${(props) => (props.current ? 'block' : 'none')};
 `;
 
 export const QuestTitle = styled.h1`
