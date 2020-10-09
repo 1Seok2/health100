@@ -7,7 +7,10 @@ import {
   SmallTabletWidth,
   SmartPhoneWidth,
 } from 'components/modules/style/Width';
-import { HEALTH_COLOR } from 'components/modules/style/Color';
+import {
+  HEALTH_COLOR,
+  HEALTH_COLOR_LIGHT,
+} from 'components/modules/style/Color';
 
 const ScrollFade = keyframes`
 0% {
@@ -206,7 +209,7 @@ export const LoginButton = styled(Link)`
   transition: background-color 0.3s;
   font-family: 'Jua', sans-serif;
   &:hover {
-    background-color: #3fbbed;
+    background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
 `;

@@ -33,12 +33,15 @@ const Intro = () => {
           스스로 체력 측정하고
           <br /> 필요한 운동 처방받자
         </IntroTitle>
-        <IntroDesc>
+        {/* <IntroDesc>
           scroll to continue
           <Scroll>
             &#x025BE; <br /> &#x025BE;
           </Scroll>
-        </IntroDesc>
+        </IntroDesc> */}
+        <ButtonWrapper>
+          <LoginButton to="/login">시작하기</LoginButton>
+        </ButtonWrapper>
       </IntroImgWrapper>
       <ItemWrapper>
         {IntroItemList.map((item, idx) => (
