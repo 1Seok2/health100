@@ -29,22 +29,25 @@ const Health = ({ userObj }) => {
           </ModeButton>
         </Title>
         {isAdult
-          ? adultlist.map((item) => (
+          ? adultlist.map((item, idx) => (
               <ExercisesItem
+                idx={`adult-${idx}`}
                 key={item.title}
                 item={item}
                 showDetail={showDetail}
                 setShow={setShow}
               />
             ))
-          : grandlist.map((item) => (
+          : grandlist.map((item, idx) => (
               <ExercisesItem
+                idx={`grand-${idx}`}
                 key={item.title}
                 item={item}
                 showDetail={showDetail}
                 setShow={setShow}
               />
             ))}
+        <div style={{ height: 40 }} />
       </Wrapper>
       {showDetail.show && (
         <ExercisesDetail

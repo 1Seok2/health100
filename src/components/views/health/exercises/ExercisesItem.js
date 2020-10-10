@@ -1,9 +1,16 @@
 import React from 'react';
-import { Container, DescWrapper, BranchName } from './ExercisesItem.styled';
+import {
+  Container,
+  DescWrapper,
+  BranchName,
+  ImgContainer,
+  DescTitle,
+} from './ExercisesItem.styled';
 import GetRandomColor from 'components/modules/style/RandomColor';
+import './Descript.css';
 
 /* show flat list about applied exercises */
-const ExercisesItem = ({ showDetail, setShow, item }) => {
+const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
   const clickList = () => {
     setShow({
       ...showDetail,
@@ -12,6 +19,7 @@ const ExercisesItem = ({ showDetail, setShow, item }) => {
       imgSrc: item.imgSrc,
     });
   };
+  console.log(idx);
 
   return (
     <Container
@@ -19,12 +27,37 @@ const ExercisesItem = ({ showDetail, setShow, item }) => {
       show={showDetail.show}
       current={showDetail.title === item.title}
       opacity={Math.random() * 0.3 + 0.1}
+      idx={idx}
     >
       <DescWrapper>
         <BranchName current={showDetail.title === item.title}>
           {item.title}
         </BranchName>
       </DescWrapper>
+      <div className={idx}>
+        <DescTitle>{item.title}</DescTitle>
+        <ImgContainer
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            height: '180px',
+          }}
+        >
+          {item.imgSrc.map((src) => (
+            <img
+              src={src}
+              alt={src}
+              width="30%"
+              height="140px"
+              style={{
+                border: '1px solid gray',
+              }}
+            />
+          ))}
+        </ImgContainer>
+        {item.desc}
+      </div>
     </Container>
   );
 };

@@ -13,7 +13,8 @@ import {
 
 export const Container = styled.div`
   display: inline-block;
-  width: ${(props) => (props.show ? '44%' : '156px')};
+  /* width: ${(props) => (props.show ? '44%' : '156px')}; */
+  width: 156px;
   height: 136px;
   margin: 6px;
   z-index: 0;
@@ -28,10 +29,23 @@ export const Container = styled.div`
     background-color: HEALTH_COLOR_LIGHT;
     transition: all 0.3s;
     box-shadow: 0px 4px 5px 2px rgba(100, 100, 100, 0.5);
+    ${(props) =>
+      props.idx
+        ? `
+    .${props.idx} {
+      opacity : 1;
+      transition : opacity .3s;
+    } 
+    `
+        : null}
   }
   @media (max-width: 960px) {
-    width: ${(props) => (props.show ? '80%' : '44%')};
+    /* width: ${(props) => (props.show ? '80%' : '44%')}; */
+    width: 80%;
     height: 120px;
+  }
+  @media (max-width: 800px) {
+    width: 90%;
   }
   @media (max-width: 440px) {
     width: 90%;
@@ -68,13 +82,6 @@ export const BranchName = styled.div`
   }
 `;
 
-export const UnitName = styled.div`
-  display: inline-block;
-  margin-bottom: 12px;
-  font-size: 14px;
-  font-weight: 500;
-`;
-
 export const ShowDetail = styled.div`
   position: absolute;
   right: 0;
@@ -83,15 +90,16 @@ export const ShowDetail = styled.div`
   font-size: 12px;
 `;
 
-export const UnitDesc = styled.div`
-  display: block;
-  margin-bottom: 8px;
-  font-size: 12px;
-  font-weight: 400;
+export const DescTitle = styled.h1`
+  margin-top: 10px;
+  margin-bottom: 6px;
+  font-size: 20px;
 `;
 
-export const UnitDate = styled.div`
-  position: absolute;
-  bottom: 0;
-  right: 0;
+export const ImgContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  margin-bottom: 12px;
 `;

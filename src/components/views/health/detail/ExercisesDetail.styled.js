@@ -7,13 +7,12 @@ import {
 } from 'components/modules/style/Width';
 
 export const Container = styled.div`
-  display: absolute;
   float: right;
   position: sticky;
   top: 0;
   box-shadow: 2px 0px 6px 3px rgba(1, 1, 1, 0.1);
   width: 52%;
-  height: ${window.innerHeight - 300}px;
+  height: 100%;
   background-color: #f9f9f9;
   padding: 24px;
   padding-top: 60px;
@@ -24,10 +23,16 @@ export const Container = styled.div`
   @media (max-width: 960px) {
     width: 62%;
   }
-  @media (max-width: 690px) {
-    position: fixed;
-    top: 4rem;
+  @media (max-width: 800px) {
     width: 90%;
+    position: absolute;
+    right: 0;
+    display: block;
+    overflow-y: scroll;
+  }
+  @media (max-width: 690px) {
+    width: 90%;
+    height: 80%;
   }
 `;
 

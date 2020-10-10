@@ -1,0 +1,107 @@
+.adult-0 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+.adult-1 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+.adult-2 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+.adult-3 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+.adult-4 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+.adult-5 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+}
+
+@media (max-width: 960px) {
+  .adult-0 {
+    width: 63%;
+  }
+}
+
+@media (max-width: 800px) {
+  .adult-0,
+  .adult-1,
+  .adult-2,
+  .adult-3,
+  .adult-4,
+  .adult-5 {
+    display: none;
+  }
+}
