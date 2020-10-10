@@ -44,7 +44,7 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
                   const item = qna.split(',');
                   if (item[0].length < 3) return;
                   return (
-                    <STr>
+                    <STr key={qna}>
                       <STd>{item[0]}</STd>
                       <STd>{item[2]}</STd>
                       <STd>{item[1]}</STd>

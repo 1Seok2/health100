@@ -5,6 +5,7 @@ import {
   SForm,
   SInput,
   SetButton,
+  Select,
 } from './OwnQna.styled';
 import IsNumber from 'components/modules/check/IsNumber';
 
@@ -17,27 +18,17 @@ const OTHER_PEOPLE_CSV_202008 = require('../../../../assets/data/OTHER_PEOPLE_CS
 const OtherPeople = () => {
   const [isLoading, setLoading] = useState(true);
   const [people, setPeople] = useState([]);
-  const [range, setRange] = useState({
-    start: '',
-    end: '',
-  });
 
   const [search, setSearch] = useState({
-    start: '',
-    end: '',
+    submit: false,
+    age: '청소년',
+    reward: '금상',
   });
 
   const searchData = () => {
-    if (parseInt(range.start) === '' || parseInt(range.end) === '') {
-      alert('나이를 입력해주세요');
-      return;
-    } else if (parseInt(range.start) > parseInt(range.end)) {
-      alert('올바른 범위를 설정해주세요');
-      return;
-    }
     setSearch({
-      start: range.start,
-      end: range.end,
+      ...search,
+      submit: true,
     });
   };
 
@@ -45,19 +36,11 @@ const OtherPeople = () => {
     const {
       target: { name, value },
     } = e;
-    if (IsNumber(value)) {
-      if (name === 'start') {
-        setRange({
-          ...range,
-          start: value,
-        });
-      } else if (name === 'end') {
-        setRange({
-          ...range,
-          end: value,
-        });
-      }
-    }
+    setSearch({
+      ...search,
+      submit: false,
+      [name]: value,
+    });
   };
 
   const readTextFile = async (file) => {
@@ -98,24 +81,33 @@ const OtherPeople = () => {
           <FormWrapper>
             <ListTitle>나이 기준 조회</ListTitle>
             <SForm>
-              <SInput
-                type="start"
-                name="start"
-                value={range.start}
+              <Select
+                id="age"
+                name="age"
+                defaultValue="청소년"
                 onChange={onChange}
-                placeholder="시작 나이"
-              />
-              <SInput
-                type="end"
-                name="end"
-                value={range.end}
+              >
+                <option value="청소년">청소년</option>
+                <option value="성인">성인</option>
+                <option value="노인">노인</option>
+              </Select>
+              <Select
+                id="reward"
+                name="reward"
+                defaultValue="금상"
                 onChange={onChange}
-                placeholder="끝 나이"
-              />
+              >
+                <option value="금상">금상</option>
+                <option value="은상">은상</option>
+                <option value="동상">동상</option>
+                <option value="참가상">참가상</option>
+              </Select>
               <SetButton onClick={() => searchData()}>조회</SetButton>
             </SForm>
           </FormWrapper>
-          <OtherPeopleTable search={search} people={people} />
+          {search.submit && (
+            <OtherPeopleTable search={search} people={people} />
+          )}
         </>
       )}
     </>

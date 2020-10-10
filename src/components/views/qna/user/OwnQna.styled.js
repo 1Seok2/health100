@@ -58,11 +58,13 @@ export const Container = styled.div`
 
 export const TableWrapper = styled.div`
   width: 100%;
+  height: auto;
   overflow-x: auto;
 `;
 
 export const STable = styled.table`
   min-width: 320px;
+  height: auto;
   display: ${(props) => (props.current ? 'block' : 'none')};
 `;
 
@@ -211,6 +213,34 @@ export const SetButton = styled.button`
   }
   margin-bottom: 12px;
   font-family: 'Jua', sans-serif;
+  @media (max-width: ${SmallTabletWidth}) {
+    display: block;
+  }
+`;
+
+export const Select = styled.select`
+  -webkit-appearance: none; /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
+  padding: 4px;
+  outline: none;
+  border: 1px solid ${HEALTH_COLOR};
+  border-radius: 5px;
+  height: 32px;
+  width: 140px;
+  min-width: 140px;
+  padding-left: 12px;
+  font-weight: 500;
+  font-family: 'Jua', sans-serif;
+  background-image: url(${Arrow});
+  background-size: 16px;
+  background-position: 95% center;
+  background-repeat: no-repeat;
+  margin-right: 0.6rem;
+  margin-bottom: 12px;
+  &:focus {
+    border: 1px solid ${NEGATIVE_COLOR_DARK};
+  }
   @media (max-width: ${SmallTabletWidth}) {
     display: block;
   }
