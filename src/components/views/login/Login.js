@@ -4,7 +4,6 @@
  */
 
 import React, { useState } from 'react';
-import 'assets/style/font/mainFont.css';
 import { FirebaseAuth, FirebaseInstance, FirebaseStore } from 'config/fbConfig';
 import {
   Container,
@@ -224,6 +223,7 @@ const Login = ({ setSigned }) => {
                 value={tall}
                 onChange={onChange}
                 className="authInput"
+                style={{ marginRight: 12 }}
               />
               <TextInput
                 name="weight"
@@ -242,6 +242,7 @@ const Login = ({ setSigned }) => {
                 value={age}
                 className="authInput"
                 onChange={onChange}
+                style={{ marginLeft: 12 }}
               />
             </div>
           )}

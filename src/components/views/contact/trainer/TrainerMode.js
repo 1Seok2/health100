@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
 import { UserEnrollInfo, GoReEnrollButton, STitle } from './TrainerMode.styled';
-import 'assets/style/font/mainFont.css';
 
 import ErrorContainer from 'components/modules/error';
 import EnrollVideo from './EnrollVideo';

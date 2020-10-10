@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import 'assets/style/font/mainFont.css';
 
 /* AOS scroll animation */
 import AOS from 'aos';
@@ -32,8 +31,8 @@ const Intro = () => {
     <Container>
       <IntroImgWrapper>
         <IntroTitle>
-          스스로 체력 측정하고
-          <br /> 필요한 운동 처방받자
+          스스로 체력 <strong>측정</strong>하고
+          <br /> 필요한 운동 <strong>처방</strong>받자
         </IntroTitle>
         <Logo>
           <img src={introLogo} alt="health100" width="100%" />

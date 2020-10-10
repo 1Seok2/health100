@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import MenuList from './Menu';
 import { FirebaseAuth } from 'config/fbConfig';
-import 'assets/style/font/mainFont.css';
 
 const Navigation = ({ pathname, userObj }) => {
   const [clicked, setClicked] = useState('none');

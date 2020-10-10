@@ -5,7 +5,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { CloseButton, Container, Title } from './ExercisesDetail.styled';
-import 'assets/style/font/mainFont.css';
 
 import TurnOnWebCam from '../teachablemachine';
 

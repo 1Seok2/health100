@@ -59,10 +59,9 @@ export const IntroTitle = styled.h1`
   padding-left: 8%;
   padding-bottom: 8rem;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 48px;
   color: #666666;
-  font-family: 'Jua', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     font-size: 18px;
     line-height: 32px;
@@ -164,7 +163,6 @@ export const Desc = styled.div`
   text-align: center;
   line-height: normal;
   display: inline-block;
-  font-family: 'Jua', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     width: 56%;
   }
@@ -184,9 +182,8 @@ export const Contents = styled.div`
   text-align: ${(props) => props.direct};
   font-size: 30px;
   line-height: 48px;
-  font-weight: 300;
+  font-weight: 500;
   transition: all 0.4s;
-  font-family: 'Jua', sans-serif;
   &:hover {
     margin-top: 22%;
     width: 76%;
@@ -230,7 +227,6 @@ export const LoginButton = styled(Link)`
   font-size: 22px;
   font-weight: 400;
   transition: background-color 0.3s;
-  font-family: 'Jua', sans-serif;
   &:hover {
     background-color: ${HEALTH_COLOR_LIGHT};
     transition: background-color 0.3s;

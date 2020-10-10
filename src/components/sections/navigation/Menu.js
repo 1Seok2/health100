@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { SLink, Entity } from './Menu.styled';
-import 'assets/style/font/mainFont.css';
 
 const MenuList = ({ name, path, onClickHBG, pathname }) => {
   return (

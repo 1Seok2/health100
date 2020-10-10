@@ -11,8 +11,6 @@ import {
   StringLength,
   SButton,
 } from './TrainerMode.styled';
-import 'assets/style/font/mainFont.css';
-import 'assets/style/font/descFont.css';
 
 import UploadVideo from 'components/modules/upload';
 

@@ -20,7 +20,6 @@ import {
   Decline,
   Empty,
 } from './TrainerAnswer.styled';
-import 'assets/style/font/mainFont.css';
 
 import Loading from 'components/modules/loading/Loading';
 

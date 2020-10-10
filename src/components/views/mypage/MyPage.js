@@ -19,7 +19,6 @@ import {
   ButtonWrapper,
   SButton,
 } from './MyPage.styled';
-import 'assets/style/font/mainFont.css';
 
 import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
 

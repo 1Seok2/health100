@@ -9,8 +9,6 @@ import {
   ItemDesc,
   Empty,
 } from './UserMode.styled';
-import 'assets/style/font/mainFont.css';
-import 'assets/style/font/descFont.css';
 
 import Loading from 'components/modules/loading/Loading';
 

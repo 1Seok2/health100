@@ -12,7 +12,6 @@ import {
   Answer,
   Empty,
 } from './OwnQna.styled';
-import 'assets/style/font/mainFont.css';
 
 /* question list which have answer */
 const AnswerList = ({ selected, setSelected, isDone }) => {
