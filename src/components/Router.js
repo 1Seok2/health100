@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import { OuterContainer } from './App.styled';
 
+import Loading from './modules/loading';
+
 /* common sections ... */
 import Header from './sections/header';
 import Sidebar from './sections/sidebar';
@@ -34,13 +36,22 @@ const AppRouter = ({
   userObj,
   // setSigned,
 }) => {
+  const [isLoading, setLoading] = useState(true);
   const [UserObj, setUserObj] = useState({});
 
   const setType = async () => {
     FirebaseStore.collection('users').onSnapshot((snap) => {
       let trainer;
       let isAvailable = 0;
-      let email, createdAt, originSrc, desc, introAvailable, tName;
+      let email;
+      let createdAt;
+      let originSrc;
+      let desc;
+      let introAvailable;
+      let tName;
+      let age;
+      let tall;
+      let weight;
       snap.docs.map((doc) => {
         if (userObj.uid === doc.data().userId) {
           trainer = doc.data().isTrainer;
@@ -51,6 +62,9 @@ const AppRouter = ({
           desc = doc.data().desc;
           introAvailable = doc.data().introAvailable;
           tName = doc.data().tName;
+          age = doc.data().age;
+          weight = doc.data().weight;
+          tall = doc.data().tall;
         }
       });
       setUserObj({
@@ -69,12 +83,15 @@ const AppRouter = ({
         desc: desc,
         introAvailable: introAvailable,
         tName: tName,
+        age: age,
+        weight: weight,
+        tall: tall,
       });
     });
   };
 
   useEffect(() => {
-    if (userObj !== null) setType();
+    if (userObj !== null) setType().then(() => setLoading(false));
   }, [userObj]);
   return (
     <Router>
@@ -95,54 +112,55 @@ const AppRouter = ({
                 <Redirect path="*" to="/admin" />
               </OuterContainer>
             ) : (
-              <OuterContainer>
-                {/* if user already logged in ... */}
-                {/* main is self health */}
-                {/* <Route
-                  exact
-                  path="/health/type"
-                  render={() => <Type userObj={UserObj} />}
-                /> */}
-                <Route
-                  exact
-                  path="/health"
-                  render={() => <Health userObj={UserObj} />}
-                />
-                {/* <Route
+              <>
+                {isLoading ? (
+                  <Loading />
+                ) : (
+                  <OuterContainer>
+                    {/* if user already logged in ... */}
+                    {/* main is self health */}
+                    <Route
+                      exact
+                      path="/health"
+                      render={() => <Health userObj={UserObj} />}
+                    />
+                    {/* <Route
                   exact
                   path="/health/senior"
                   render={() => <Health userObj={UserObj} />}
                 /> */}
-                {/* can see my data */}
-                <Route
-                  exact
-                  path="/mypage"
-                  render={() => (
-                    <MyPage userObj={UserObj} refreshUser={refreshUser} />
-                  )}
-                />
+                    {/* can see my data */}
+                    <Route
+                      exact
+                      path="/mypage"
+                      render={() => (
+                        <MyPage userObj={UserObj} refreshUser={refreshUser} />
+                      )}
+                    />
 
-                <Route
-                  exact
-                  path="/mypage/graph"
-                  render={() => (
-                    <Graph userObj={UserObj} refreshUser={refreshUser} />
-                  )}
-                />
-                {/* can consultant about my data */}
-                <Route
-                  exact
-                  path="/qna"
-                  render={() => <Qna userObj={UserObj} />}
-                />
-                {/* can contact with trainer */}
-                <Route
-                  exact
-                  path="/contact"
-                  render={() => <ContactTrainer userObj={UserObj} />}
-                />
-                <Redirect path="*" to="/health" />
-              </OuterContainer>
+                    <Route
+                      exact
+                      path="/mypage/graph"
+                      render={() => (
+                        <Graph userObj={UserObj} refreshUser={refreshUser} />
+                      )}
+                    />
+                    {/* can consultant about my data */}
+                    <Route
+                      exact
+                      path="/qna"
+                      render={() => <Qna userObj={UserObj} />}
+                    />
+                    {/* can contact with trainer */}
+                    <Route
+                      exact
+                      path="/contact"
+                      render={() => <ContactTrainer userObj={UserObj} />}
+                    />
+                    <Redirect path="*" to="/health" />
+                  </OuterContainer>
+                )}
+              </>
             )}
           </>
         ) : (

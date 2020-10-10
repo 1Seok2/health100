@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Wrapper, Container, Title, ModeButton } from './Health.styled';
 import { adultlist, grandlist } from './exercises/List';
 
@@ -14,16 +14,18 @@ const Health = ({ userObj }) => {
     // unit : unit,
   });
 
+  useEffect(() => {
+    if (parseInt(userObj.age) >= 65) setAdult(false);
+  }, []);
+
   return (
     <Container>
       <Wrapper show={showDetail.show}>
         <Title>
           셀프 헬스
-          <ModeButton onClick={() => setAdult(!isAdult)} style={{}}>
+          <ModeButton>
             | &nbsp;&nbsp;
             {isAdult ? '청년모드' : '노년모드'}
-            &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-            {isAdult ? '노년모드로 전환' : '청년모드로 전환'}
           </ModeButton>
         </Title>
         {isAdult

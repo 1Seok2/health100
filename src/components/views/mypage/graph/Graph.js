@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FirebaseStore } from 'config/fbConfig';
-import { Container, Wrapper, Title } from './Graph.styled';
+import {
+  Container,
+  Wrapper,
+  Title,
+  SubTitle,
+  GraphWrapper,
+} from './Graph.styled';
 import {
   XYPlot,
   XAxis,
@@ -30,20 +36,19 @@ const Graph = ({ userObj }) => {
         };
         // list = [listObj, ...list];
         if (!title.includes(listObj.title)) {
-          title = [listObj.title, ...title];
+          title = [...title, listObj.title];
           list = [...list, [listObj]];
         } else {
           const idx = title.indexOf(listObj.title);
           list[idx] = [...list[idx], listObj];
         }
       });
-      console.log('zz', list);
 
       setData(list);
       setTitles(title);
     });
   };
-
+  console.log(data);
   useEffect(() => {
     getMyData();
   }, []);
@@ -64,18 +69,10 @@ const Graph = ({ userObj }) => {
             | &nbsp;&nbsp;표로 보기
           </Link>
         </Title>
+        <SubTitle>x축은 운동 회차, y축은 운동 횟수를 의미합니다.</SubTitle>
         <div style={styles.chart}>
           {data.map((title, idx) => (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                padding: 6,
-                borderRadius: 3,
-                margin: 8,
-                border: '1px solid #dfdfdf',
-              }}
-            >
+            <GraphWrapper>
               <h1 style={styles.chartTitle}>{titles[idx]}</h1>
               <XYPlot yPadding={0} width={240} height={210}>
                 <HorizontalGridLines />
@@ -91,7 +88,7 @@ const Graph = ({ userObj }) => {
                   })}
                 />
               </XYPlot>
-            </div>
+            </GraphWrapper>
           ))}
         </div>
       </Wrapper>

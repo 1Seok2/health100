@@ -27,6 +27,7 @@ import Loading from 'components/modules/loading';
 import ErrorContainer from 'components/modules/error';
 import { Table } from './Table';
 import { Link } from 'react-router-dom';
+import Caliper from '../../modules/caliper/Caliper';
 
 /* can see my exercising data */
 const MyPage = ({ userObj }) => {
@@ -37,6 +38,8 @@ const MyPage = ({ userObj }) => {
   const [title, setTitle] = useState(EXERCISE_LIST[0]);
   const [count, setCount] = useState('');
   const [second, setSecond] = useState('');
+  const [caliper, setCaliper] = useState('');
+  const [gender, setGender] = useState('남성');
 
   const [makePackage, setMake] = useState(false);
   const [checkPackage, setCheck] = useState({});
@@ -134,29 +137,50 @@ const MyPage = ({ userObj }) => {
         case 'second':
           setSecond(value);
           break;
+        case 'caliper':
+          if (isNumber(value)) {
+            setCaliper(value);
+          }
+          break;
         default:
       }
     }
   };
-  console.log(userObj);
 
   const directEnroll = async (e) => {
     e.preventDefault();
-    if (count === '' || second === '') {
+    if (
+      (title !== '캘리퍼' && (count === '' || second === '')) ||
+      (title === '캘리퍼' && caliper === '')
+    ) {
       alert('시간과 횟수 모두 작성해주세요');
       return;
     }
     const date = Date.now();
-    await FirebaseStore.collection(userObj.uid)
-      .doc(`${date}`)
-      .set({
-        count: count,
-        createdAt: date,
-        duration: parseInt(second) * 1000,
-        email: userObj.email,
-        exercise: title,
-        userId: userObj.uid,
-      });
+    if (title !== '캘리퍼') {
+      await FirebaseStore.collection(userObj.uid)
+        .doc(`${date}`)
+        .set({
+          count: count,
+          createdAt: date,
+          duration: parseInt(second) * 1000,
+          email: userObj.email,
+          exercise: title,
+          userId: userObj.uid,
+        });
+    } else {
+      const calc = Caliper(caliper * 1, userObj.age * 1, gender);
+      await FirebaseStore.collection(userObj.uid)
+        .doc(`${date}`)
+        .set({
+          count: calc,
+          createdAt: date,
+          duration: parseInt(caliper) * 1000,
+          email: userObj.email,
+          exercise: title,
+          userId: userObj.uid,
+        });
+    }
   };
 
   useEffect(() => {
@@ -204,23 +228,49 @@ const MyPage = ({ userObj }) => {
                 onChange={onSelect}
               >
                 {EXERCISE_LIST.map((title) => (
-                  <option value={title}>{title}</option>
+                  <option key={title} value={title}>
+                    {title}
+                  </option>
                 ))}
               </Select>
-              <SInput
-                type="count"
-                name="count"
-                value={count}
-                onChange={onChange}
-                placeholder="운동 횟수(개)"
-              />
-              <SInput
-                type="second"
-                name="second"
-                value={second}
-                onChange={onChange}
-                placeholder="걸린 시간(초)"
-              />
+              {/* 캘리퍼가 선택됐다면 */}
+              {title === '캘리퍼' ? (
+                <>
+                  <Select
+                    id="title"
+                    defaultValue="남성"
+                    onChange={(e) => setGender(e.target.value)}
+                  >
+                    <option value="남성">남성</option>
+                    <option value="여성">여성</option>
+                  </Select>
+                  <SInput
+                    type="caliper"
+                    name="caliper"
+                    value={caliper}
+                    onChange={onChange}
+                    placeholder="스킨폴드(mm)"
+                  />
+                </>
+              ) : (
+                <>
+                  <SInput
+                    type="count"
+                    name="count"
+                    value={count}
+                    onChange={onChange}
+                    placeholder="운동 횟수(개)"
+                  />
+                  <SInput
+                    type="second"
+                    name="second"
+                    value={second}
+                    onChange={onChange}
+                    placeholder="걸린 시간(초)"
+                  />
+                </>
+              )}
+
               <PlusButton>추가</PlusButton>
             </SForm>
           </ButtonWrapper>

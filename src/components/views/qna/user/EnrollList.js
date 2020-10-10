@@ -32,8 +32,6 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
     setSelected({});
   };
 
-  console.log(isYet);
-  console.log(selected);
   return (
     <>
       {isYet.map((quest, idx) => (

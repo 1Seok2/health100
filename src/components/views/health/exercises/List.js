@@ -2,10 +2,6 @@ import EXERCISE_LIST from 'components/modules/list/ExerciseTitleList';
 
 export const adultlist = [
   {
-    title: EXERCISE_LIST[0],
-    imgSrc: 'hihi',
-  },
-  {
     title: EXERCISE_LIST[1],
     imgSrc: 'hihi',
   },
@@ -32,10 +28,6 @@ export const adultlist = [
 ];
 
 export const grandlist = [
-  {
-    title: EXERCISE_LIST[0],
-    imgSrc: 'hihi',
-  },
   {
     title: EXERCISE_LIST[7],
     imgSrc: 'hihi',

@@ -37,7 +37,6 @@ const UserMode = () => {
   useEffect(() => {
     getTrainerIntro().then(() => setLoading(false));
   }, []);
-  console.log(trainerList);
   return (
     <>
       {isLoading ? (

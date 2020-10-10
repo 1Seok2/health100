@@ -54,7 +54,9 @@ export const Table = ({
           </SThead>
           <STbody>
             <STr>
-              <STh title={false}>횟수</STh>
+              <STh title={false}>
+                {title === '캘리퍼' ? '체지방률' : '횟수'}
+              </STh>
               {myList.map(
                 (row) =>
                   row.title === title && (
@@ -82,7 +84,9 @@ export const Table = ({
               )}
             </STr>
             <STr>
-              <STh title={false}>운동시간</STh>
+              <STh title={false}>
+                {title === '캘리퍼' ? '스킨폴드(mm)' : '운동시간'}
+              </STh>
               {myList.map(
                 (row) =>
                   row.title === title && (

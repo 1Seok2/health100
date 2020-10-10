@@ -57,12 +57,6 @@ const TrainerAnswer = ({ userObj }) => {
       alert('승인되지 않은 트레이너입니다');
       return;
     }
-    console.log({
-      answer: input,
-      type: 1,
-      ansTrainer: `${userObj.tName} / ${userObj.email}`,
-      endedAt: Date.now(),
-    });
     const updateType = await FirebaseStore.collection('qna').doc(
       selected.docId,
     );

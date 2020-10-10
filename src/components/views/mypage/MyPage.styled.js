@@ -43,7 +43,7 @@ export const SForm = styled.form`
   margin-bottom: 12px;
   border-bottom: 1px solid #dfdfdf;
   @media (max-width: ${SmallTabletWidth}) {
-    height: 186px;
+    flex-direction: column;
   }
 `;
 
@@ -57,6 +57,7 @@ export const Select = styled.select`
   border-radius: 5px;
   height: 32px;
   width: 140px;
+  min-width: 140px;
   padding-left: 12px;
   font-weight: 500;
   font-family: 'Jua', sans-serif;
@@ -95,7 +96,8 @@ export const SInput = styled.input`
 
 export const PlusButton = styled.button`
   height: 32px;
-  font-size: 16px;
+  min-width: 56px;
+  font-size: 13px;
   font-weight: 400;
   color: white;
   border-radius: 16px;
@@ -187,9 +189,6 @@ export const STd = styled.td`
 
 export const ButtonWrapper = styled.div`
   width: 100%;
-  @media (max-width: ${SmallTabletWidth}) {
-    height: 200px;
-  }
 `;
 
 export const SButton = styled.button`

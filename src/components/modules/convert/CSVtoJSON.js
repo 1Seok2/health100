@@ -1,6 +1,5 @@
 //var csv is the CSV file with headers
 const csvJSON = (csv) => {
-  console.log(csv);
   var lines = csv.split('\n');
 
   var result = [];
@@ -22,7 +21,6 @@ const csvJSON = (csv) => {
     result.push(obj);
   }
 
-  console.log('res', JSON.stringify(result));
   //return result; //JavaScript object
   return JSON.stringify(result); //JSON
 };
@@ -36,7 +34,6 @@ const ReadCSV = (csv) => {
   //     res = csvJSON(data);
   //   };
   freader.readAsText(csv);
-  console.log('read ...', csv);
   return res;
 };
 

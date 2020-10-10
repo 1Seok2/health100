@@ -16,9 +16,26 @@ export const Wrapper = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h1`
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 12px;
   font-family: 'Jua', sans-serif;
+`;
+
+export const SubTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-family: 'Jua', sans-serif;
+  color: #999;
+`;
+
+export const GraphWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  border-radius: 3px;
+  margin: 4px;
+  border: 1px solid #dfdfdf;
 `;
