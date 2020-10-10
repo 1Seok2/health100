@@ -25,13 +25,24 @@ import {
 
 const Login = ({ setSigned }) => {
   // const [isLoggedIn, setLoggedIn] = useState(false);
+
+  /* common info */
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  /* trainer info */
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+
+  /* user info */
+  const [tall, setTall] = useState('');
+  const [weight, setWeight] = useState('');
+  const [age, setAge] = useState('');
+
   const [newAccount, setNewAccount] = useState(false);
   const [error, setError] = useState('');
   const [isTrainer, setIsTrainer] = useState(false);
+
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -44,6 +55,12 @@ const Login = ({ setSigned }) => {
       setPhone(value);
     } else if (name === 'name') {
       setName(value);
+    } else if (name === 'tall') {
+      setTall(value);
+    } else if (name === 'weight') {
+      setWeight(value);
+    } else if (name === 'age') {
+      setAge(value);
     }
   };
   const onSubmit = async (event) => {
@@ -94,6 +111,9 @@ const Login = ({ setSigned }) => {
             userEmail: email,
             createdAt: dateId,
             isTrainer: isTrainer,
+            age: age,
+            weight: weight,
+            tall: tall,
             // below are trainer info ...
             tName: name,
             tPhone: phone,
@@ -194,6 +214,37 @@ const Login = ({ setSigned }) => {
             className="authInput"
             onChange={onChange}
           />
+          {!isTrainer && newAccount && (
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <TextInput
+                name="tall"
+                type="tall"
+                placeholder="키 (cm)"
+                required
+                value={tall}
+                onChange={onChange}
+                className="authInput"
+              />
+              <TextInput
+                name="weight"
+                type="weight"
+                placeholder="몸무게 (kg)"
+                required
+                value={weight}
+                className="authInput"
+                onChange={onChange}
+              />
+              <TextInput
+                name="age"
+                type="age"
+                placeholder="나이"
+                required
+                value={age}
+                className="authInput"
+                onChange={onChange}
+              />
+            </div>
+          )}
           {error && <ErrorMessage className="authError">{error}</ErrorMessage>}
           <AuthSwitch onClick={toggleAccount} className="authSwitch">
             {newAccount ? '계정이 이미 있으신가요?' : '회원가입'}

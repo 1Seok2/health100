@@ -63,7 +63,6 @@ export const SLabel = styled.label``;
 
 export const TextInput = styled.input`
   display: block;
-  min-width: 240px;
   width: calc(100% - 22px);
   padding: 10px;
   border: none;
@@ -76,6 +75,9 @@ export const TextInput = styled.input`
   color: black;
   box-sizing: content-box;
   font-family: 'Jua', sans-serif;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const Submit = styled.input`
@@ -100,6 +102,9 @@ export const Submit = styled.input`
       props.newAccount ? NEGATIVE_COLOR_LIGHT : HEALTH_COLOR_LIGHT};
     transition: all 0.3s;
     box-shadow: 0px 6px 10px -5px rgb(100, 100, 100);
+  }
+  &:focus {
+    outline: none;
   }
 `;
 

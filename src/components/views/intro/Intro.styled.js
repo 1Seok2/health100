@@ -30,6 +30,7 @@ const ScrollFade = keyframes`
 export const Container = styled.div`
   width: 100vw;
   position: relative;
+  overflow-x: hidden;
 `;
 
 export const IntroTitle = styled.h1`
