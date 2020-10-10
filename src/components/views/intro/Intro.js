@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 
 import {
   Container,
+  Logo,
   IntroTitle,
   IntroImgWrapper,
   IntroDesc,
@@ -20,6 +21,7 @@ import {
   LoginButton,
 } from './Intro.styled';
 import { IntroItemList } from './IntroDesc';
+import introLogo from 'assets/img/health100logo.png';
 
 const Intro = () => {
   useEffect(() => {
@@ -33,15 +35,9 @@ const Intro = () => {
           스스로 체력 측정하고
           <br /> 필요한 운동 처방받자
         </IntroTitle>
-        {/* <IntroDesc>
-          scroll to continue
-          <Scroll>
-            &#x025BE; <br /> &#x025BE;
-          </Scroll>
-        </IntroDesc> */}
-        <ButtonWrapper>
-          <LoginButton to="/login">시작하기</LoginButton>
-        </ButtonWrapper>
+        <Logo>
+          <img src={introLogo} alt="health100" width="100%" />
+        </Logo>
       </IntroImgWrapper>
       <ItemWrapper>
         {IntroItemList.map((item, idx) => (

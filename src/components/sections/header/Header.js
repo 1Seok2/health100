@@ -19,7 +19,7 @@ const logOut = () => FirebaseAuth.signOut();
 export default withRouter(({ location: { pathname }, userObj }) => (
   <Container mode={userObj.type === 2}>
     <Wrapper>
-      비대면체력측정
+      비대면 국민체력100
       {userObj.type && userObj.type !== 2 ? (
         <UserType>&nbsp;{userObj.tName} TRAINER</UserType>
       ) : null}

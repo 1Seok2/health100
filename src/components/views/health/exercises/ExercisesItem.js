@@ -18,7 +18,7 @@ const ExercisesItem = ({ showDetail, setShow, item }) => {
       onClick={() => clickList()}
       show={showDetail.show}
       current={showDetail.title === item.title}
-      opacity={Math.random() * 0.5 + 0.1}
+      opacity={Math.random() * 0.3 + 0.1}
     >
       <DescWrapper>
         <BranchName current={showDetail.title === item.title}>

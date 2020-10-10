@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 import {
   CamContainer,
   CamMessage,
@@ -30,19 +31,74 @@ const userPose = {
 };
 
 const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
-  const [start, setStart] = useState(false);
+  const [start, setStart] = useState({
+    is: false,
+    time: 0,
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [showStatus, setShow] = useState(false);
   const [times, setTimes] = useState({
     start: 0,
     end: 0,
   });
+
+  // timer
+  const [time, setTime] = useState(moment.duration(0));
+  const [timeTick, setTimeTick] = useState(null);
+  const [countDown, setDown] = useState(10);
+
+  const startTimer = () => {
+    document.getElementsByClassName('countdown')[0].innerHTML = 'zz';
+    const tick = () =>
+      setTime((prevTime) => prevTime.clone().add(1, 'seconds'));
+    const timeTick = setInterval(() => {
+      tick();
+    }, 1000);
+    setTimeTick(timeTick);
+  };
+  const pauseTimer = () => {
+    if (timeTick) {
+      clearInterval(timeTick);
+    }
+  };
+
+  const stopTimer = () => {
+    pauseTimer();
+    setTime(moment.duration(0));
+  };
+
+  const Timer = () => {
+    var duration = moment.duration({
+      seconds: 6,
+    });
+
+    var timestamp = new Date(0, 0, 0, 0, 0, 6);
+    var interval = 1;
+    var timer = setInterval(function () {
+      timestamp = new Date(timestamp.getTime() - interval * 1000);
+
+      duration = moment.duration(duration.asSeconds() - interval, 'seconds');
+      console.log(duration.asSeconds());
+      setDown(Math.round(duration.asSeconds()));
+      //.asSeconds()
+      if (duration.asSeconds() === 0) {
+        clearInterval(timer);
+        SaveCounts();
+      }
+    }, 1000);
+  };
+
   useEffect(() => {
     setCount(0);
   }, [title]);
 
   const init = async () => {
-    setStart(true);
+    setStart({
+      ...start,
+      is: true,
+      time: Date.now(),
+    });
+    console.log(Date.now());
     const modelURL = URL + 'model.json';
     const metadataURL = URL + 'metadata.json';
 
@@ -53,12 +109,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
     const flip = true; // whether to flip the webcam
     webcam = new window.tmPose.Webcam(size, size, flip); // width, height, flip
     await webcam.setup().then(() => setIsLoading(false)); // request access to the webcam
-    await webcam.play().then(() =>
-      setTimes({
-        ...times,
-        start: Date.now(),
-      }),
-    );
+    await webcam.play();
     window.requestAnimationFrame(loop);
 
     // append/get elements to the DOM
@@ -116,7 +167,10 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   };
 
   const stop = () => {
-    setStart(false);
+    setStart({
+      ...start,
+      is: false,
+    });
     webcam.stop();
   };
 
@@ -135,6 +189,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   /* save counts in firebaseStore */
   const SaveCounts = async () => {
     stop();
+    console.log(start.time, Date.now());
     await FirebaseStore.collection(`${userObj.uid}`)
       .doc(`${Date.now()}`)
       .set({
@@ -143,7 +198,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
         exercise: title,
         count: count,
         createdAt: Date.now(),
-        duration: Date.now() - times.start,
+        duration: Date.now() - start.time,
       });
     setCount(0);
   };
@@ -151,7 +206,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   return (
     <>
       <CamContainer>
-        {!start ? (
+        {!start.is ? (
           <CamMessage>캠을 켜주세요</CamMessage>
         ) : (
           <>
@@ -165,11 +220,28 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
           상태보기
         </Status>
       )} */}
+
+      <div>{countDown} 초</div>
+      {/* <div className="App">
+        <h1>타이머</h1>
+        <p>{moment(time.asSeconds(), 's').format('HH:mm:ss')}</p>
+        <button type="button" onClick={() => startTimer()}>
+          시작
+        </button>
+        <button type="button" onClick={() => pauseTimer()}>
+          일시정지
+        </button>
+        <button type="button" onClick={() => stopTimer()}>
+          정지
+        </button>
+      </div> */}
       <Status display={showStatus && start} id="label-container"></Status>
       <Count style={{ fontSize: 30 }}>운동 횟수 : {count} 회</Count>
       {/* <div style={{ fontSize: 30 }}>{status}</div> */}
-      {!start ? (
-        <ExerciseButton onClick={() => init()}>운동 시작하기</ExerciseButton>
+      {!start.is ? (
+        <ExerciseButton onClick={() => init().then(() => Timer())}>
+          운동 시작하기
+        </ExerciseButton>
       ) : (
         <ExerciseButton onClick={() => SaveCounts()}>
           결과 저장하기

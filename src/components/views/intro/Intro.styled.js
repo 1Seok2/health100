@@ -1,6 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import introImg from 'assets/img/intro_background.jpg';
+import introLogo from 'assets/img/health100logo.png';
+
 import {
   DeskTopWidth,
   TabletWidth,
@@ -30,7 +32,19 @@ const ScrollFade = keyframes`
 export const Container = styled.div`
   width: 100vw;
   position: relative;
-  overflow-x: hidden;
+`;
+
+export const Logo = styled.div`
+  position: absolute;
+  top: 4rem;
+  right: 3rem;
+  width: 100px;
+  height: 100px;
+  @media (max-width: ${SmallTabletWidth}) {
+    width: 60px;
+    height: 60px;
+    right: 1rem;
+  }
 `;
 
 export const IntroTitle = styled.h1`
@@ -49,10 +63,13 @@ export const IntroTitle = styled.h1`
   line-height: 48px;
   color: #666666;
   font-family: 'Jua', sans-serif;
+  @media (max-width: ${SmallTabletWidth}) {
+    font-size: 18px;
+    line-height: 32px;
+  }
 `;
 
 export const IntroImgWrapper = styled.div`
-  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -96,6 +113,7 @@ export const IntroItem = styled.div`
   justify-content: center;
   align-items: center;
   background-position: fixed;
+  position: relative;
   @media (max-width: ${TabletWidth}) {
     height: 50vh;
   }
@@ -124,6 +142,8 @@ export const ImgWrapper = styled.div`
     width: 100vw;
     display: block;
     height: 60%;
+    position: absolute;
+    top: 0;
   }
 `;
 
@@ -152,6 +172,8 @@ export const Desc = styled.div`
     width: 100vw;
     display: block;
     height: 40%;
+    position: absolute;
+    bottom: 0;
   }
 `;
 
