@@ -41,6 +41,13 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
         >
           <QuestTitle
             onClick={() => {
+              if (selected.key === quest.createdAt + idx) {
+                setSelected({
+                  key: '',
+                  docId: '',
+                });
+                return;
+              }
               setSelected({
                 key: quest.createdAt + idx,
                 docId: quest.docId,
@@ -50,6 +57,11 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
             yet={true}
           >
             신청일 : {quest.createdAt}
+            {quest.createdAt + idx === selected.key && (
+              <span style={{ float: 'right', color: 'white' }}>
+                접기 &nbsp;&nbsp;
+              </span>
+            )}
           </QuestTitle>
           <TableWrapper>
             <STable current={`${quest.createdAt}${idx}` === selected.key}>

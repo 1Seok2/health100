@@ -12,6 +12,14 @@ import {
 
 import Loading from 'components/modules/loading/Loading';
 
+import movie1 from '../../../../assets/movie/health100_video_1.mp4';
+
+{
+  /* <video src={movie1} controls>
+Your browser does not support the video tag.
+</video> */
+}
+
 const UserMode = () => {
   const [trainerList, setList] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -31,7 +39,6 @@ const UserMode = () => {
       setList(list);
     });
   };
-
   useEffect(() => {
     getTrainerIntro().then(() => setLoading(false));
   }, []);
