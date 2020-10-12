@@ -39,13 +39,14 @@ export const Title = styled.div`
   text-align: center;
   font-size: 24px;
   margin-bottom: 1rem;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const CheckWrapper = styled.div`
   width: 100%;
   font-weight: 400;
   font-size: 14px;
+  font-family: 'Nanum Gothic', sans-serif;
   line-height: 14px;
   text-align: right;
   margin-bottom: 1.2rem;
@@ -56,7 +57,7 @@ export const Notice = styled.div`
   font-weight: 300;
   color: #c23616;
   margin-top: 4px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const SLabel = styled.label``;
@@ -74,7 +75,7 @@ export const TextInput = styled.input`
   font-size: 12px;
   color: black;
   box-sizing: content-box;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     outline: none;
   }
@@ -95,7 +96,7 @@ export const Submit = styled.input`
   font-size: 12px;
   font-weight: 400;
   transition: all 0.3s;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     cursor: pointer;
     background-color: ${(props) =>
@@ -114,7 +115,7 @@ export const ErrorMessage = styled.div`
   text-align: left;
   line-height: 16px;
   font-size: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const AuthSwitch = styled.div`
@@ -128,7 +129,7 @@ export const AuthSwitch = styled.div`
   color: #666;
   font-size: 12px;
   font-weight: 400;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     cursor: pointer;
     color: #999;
@@ -158,7 +159,7 @@ export const AuthButton = styled.button`
   text-align: right;
   font-weight: 400;
   font-size: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   background-image: url(${GoogleLogo});
   background-size: 20px;
   background-position: 16px center;

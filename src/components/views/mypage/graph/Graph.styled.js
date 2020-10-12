@@ -20,14 +20,14 @@ export const Title = styled.h1`
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const SubTitle = styled.h3`
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 8px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   color: #999;
 `;
 

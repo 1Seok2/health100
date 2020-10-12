@@ -71,7 +71,7 @@ const UserMode = () => {
               <ItemDesc>
                 이메일 :{' '}
                 <a
-                  style={{ fontFamily: 'Poor Story' }}
+                  style={{ fontFamily: 'Nanum Gothic' }}
                   href={`mailto:${trainer.userEmail}`}
                 >
                   {trainer.userEmail}

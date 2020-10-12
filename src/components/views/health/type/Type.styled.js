@@ -49,5 +49,5 @@ export const Desc = styled.span`
   color: white;
   font-size: 32px;
   line-height: 48px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;

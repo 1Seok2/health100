@@ -32,7 +32,7 @@ export const Wrapper = styled.div`
   padding-left: 32px;
   font-size: 28px;
   font-weight: 500;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: 360px) {
     font-size: 24px;
     padding-left: 1rem;
@@ -74,6 +74,7 @@ export const SLink = styled(Link)`
   text-align: center;
   line-height: 4rem;
   color: ${(props) => (props.current ? 'white' : 'black')};
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const LogOut = styled.a`
@@ -86,11 +87,13 @@ export const LogOut = styled.a`
   &:hover {
     cursor: pointer;
   }
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const UserType = styled.span`
   font-size: 18px;
   font-weight: 400;
+  font-family: 'Nanum Gothic', sans-serif;
 
   @media (max-width: ${SmartPhoneWidth}) {
     font-size: 10px;

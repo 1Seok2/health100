@@ -11,6 +11,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const QuestTitle = styled.h1`
@@ -24,6 +25,7 @@ export const QuestTitle = styled.h1`
   padding-left: 0.6rem;
   border-bottom: 1px solid #cfcfcf;
   transition: background-color 0.3s;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     transition: background-color 0.3s;
     background-color: ${HEALTH_COLOR_LIGHT};
@@ -35,6 +37,7 @@ export const QuestTitle = styled.h1`
 export const AcceptButton = styled.button`
   font-size: 16px;
   font-weight: 400;
+  font-family: 'Nanum Gothic', sans-serif;
   color: #c23616;
   float: right;
   &:focus {
@@ -50,4 +53,5 @@ export const ItemDesc = styled.h4`
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5rem;
+  font-family: 'Nanum Gothic', sans-serif;
 `;

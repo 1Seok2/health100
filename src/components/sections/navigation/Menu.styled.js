@@ -10,11 +10,11 @@ export const SLink = styled(Link)`
   margin-left: 1rem;
   margin-right: 1rem;
   border-radius: 3px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Entity = styled.span`
   color: ${(props) => (props.current ? 'white' : '#666')};
   float: right;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;

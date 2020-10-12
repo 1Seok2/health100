@@ -19,8 +19,6 @@ const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
       imgSrc: item.imgSrc,
     });
   };
-  console.log(idx);
-
   return (
     <Container
       onClick={() => clickList()}
@@ -35,7 +33,7 @@ const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
         </BranchName>
       </DescWrapper>
       <div className={idx}>
-        <DescTitle>{item.title}</DescTitle>
+        <DescTitle>{item.title} 운동방법</DescTitle>
         <ImgContainer
           style={{
             display: 'flex',
@@ -48,7 +46,7 @@ const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
             <img
               src={src}
               alt={src}
-              width="30%"
+              width="31%"
               height="140px"
               style={{
                 border: '1px solid gray',

@@ -35,7 +35,7 @@ export const Title = styled.div`
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const SForm = styled.form`
@@ -60,7 +60,7 @@ export const Select = styled.select`
   min-width: 140px;
   padding-left: 12px;
   font-weight: 500;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   background-image: url(${Arrow});
   background-size: 16px;
   background-position: 95% center;
@@ -88,7 +88,7 @@ export const SInput = styled.input`
   border: 1px solid #bbb;
   margin-right: 0.6rem;
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     display: block;
   }
@@ -98,6 +98,7 @@ export const PlusButton = styled.button`
   height: 32px;
   min-width: 56px;
   font-size: 13px;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   color: white;
   border-radius: 16px;
@@ -111,7 +112,7 @@ export const PlusButton = styled.button`
     outline: none;
   }
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     display: block;
   }
@@ -123,7 +124,7 @@ export const ListTitle = styled.h1`
   font-size: 20px;
   margin-bottom: 8px;
   margin-top: 48px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const TableWrapper = styled.div`
@@ -164,7 +165,7 @@ text-align: center;
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const STr = styled.tr`
@@ -184,7 +185,7 @@ export const STd = styled.td`
   line-height: 42px;
   font-weight: 400;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -203,7 +204,7 @@ export const SButton = styled.button`
   color: white;
   margin-left: 1.5rem;
   transition: background-color 0.3s;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     cursor: pointer;
     background-color: ${(props) =>

@@ -66,7 +66,7 @@ export const LogoImg = styled.div`
   position: absolute;
   top: 2.2rem;
   text-align: right;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const LogOut = styled.button`
@@ -78,7 +78,7 @@ export const LogOut = styled.button`
   bottom: 0;
   padding: 0;
   padding-left: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     outline: none;
   }
@@ -129,7 +129,7 @@ export const Item = styled(Link)`
 
 export const ItemDesc = styled.h2`
   color: white;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   ${(props) => (props.current ? 'color: #092c6f;' : null)}
   ${(props) =>
     props.extend
@@ -156,6 +156,7 @@ export const Extends = styled.button`
   font-weight: 400;
   font-size: 2.5rem;
   outline: none;
+  font-family: 'Nanum Gothic', sans-serif;
   ${(props) =>
     props.extend &&
     `

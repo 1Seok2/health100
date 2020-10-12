@@ -71,11 +71,13 @@ export default withRouter(({ location: { pathname }, userObj }) => {
                         fontSize: '2rem',
                         margin: 0,
                         color: '#092c6f',
+                        fontFamily: 'Nanum Gothic',
                       }
                     : {
                         fontSize: '1.8rem',
                         margin: 0,
                         color: '#efefef',
+                        fontFamily: 'Nanum Gothic',
                       }
                 }
               />
@@ -88,7 +90,12 @@ export default withRouter(({ location: { pathname }, userObj }) => {
         <Extends onClick={() => setExtend(!extend)} extend={extend}>
           <i
             className={!extend ? 'icon-right-open' : 'icon-left-open'}
-            style={{ fontSize: '1.6rem', margin: 0, color: 'white' }}
+            style={{
+              fontSize: '1.6rem',
+              margin: 0,
+              color: 'white',
+              fontFamily: 'Nanum Gothic',
+            }}
           />
         </Extends>
       </Wrapper>

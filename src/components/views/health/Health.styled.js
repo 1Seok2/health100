@@ -30,7 +30,7 @@ export const Title = styled.div`
   font-weight: 600;
   margin-bottom: 12px;
   padding-left: 24px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   text-align: left;
 `;
 
@@ -38,4 +38,5 @@ export const ModeButton = styled.a`
   margin-left: 12px;
   font-size: 14px;
   color: #092c6f;
+  font-family: 'Nanum Gothic', sans-serif;
 `;

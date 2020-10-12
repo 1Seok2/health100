@@ -32,14 +32,14 @@ export const TypeButton = styled.button`
   ${(props) => (props.current ? `color : white;` : null)};
   margin-right: 8px;
   margin-top: 8px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Title = styled.h1`
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Container = styled.div`
@@ -78,7 +78,7 @@ export const QuestTitle = styled.h1`
   padding-bottom: 10px;
   padding-left: 0.6rem;
   border-radius: 5px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   ${(props) => (props.current ? `background-color : ${HEALTH_COLOR};` : null)}
   ${(props) => (props.current ? `color : white;` : null)}
   ${(props) => (props.yet ? 'border-bottom : 1px solid #cfcfcf;' : null)}
@@ -101,7 +101,7 @@ export const STh = styled.th`
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const STr = styled.tr`
@@ -121,7 +121,7 @@ export const STd = styled.td`
   line-height: 42px;
   font-weight: 400;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Answer = styled.div`
@@ -133,7 +133,7 @@ export const Answer = styled.div`
   padding-bottom: 10px;
   padding-left: 1rem;
   border-bottom: 1px solid #cfcfcf;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Empty = styled.div`
@@ -148,7 +148,7 @@ export const DeleteButton = styled.button`
   margin-right: 1rem;
   margin-bottom: 1rem;
   background-color: ${NEGATIVE_COLOR};
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     outline: none;
   }
@@ -166,7 +166,7 @@ export const ListTitle = styled.h1`
   font-size: 20px;
   margin-bottom: 8px;
   margin-top: 48px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const SForm = styled.div`
@@ -189,7 +189,7 @@ export const SInput = styled.input`
   border: 1px solid #bbb;
   margin-right: 0.6rem;
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     display: block;
   }
@@ -212,7 +212,7 @@ export const SetButton = styled.button`
     outline: none;
   }
   margin-bottom: 12px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: ${SmallTabletWidth}) {
     display: block;
   }
@@ -231,7 +231,7 @@ export const Select = styled.select`
   min-width: 140px;
   padding-left: 12px;
   font-weight: 500;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   background-image: url(${Arrow});
   background-size: 16px;
   background-position: 95% center;

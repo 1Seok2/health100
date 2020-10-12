@@ -11,6 +11,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 1rem;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const TableWrapper = styled.div`
@@ -32,6 +33,7 @@ export const STable = styled.table`
 export const QuestTitle = styled.h1`
   margin: 0;
   font-size: 1.2rem;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   height: 32px;
   line-height: 32px;
@@ -93,6 +95,7 @@ export const STd = styled.td`
 
 export const AcceptButton = styled.button`
   font-size: 16px;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   color: #c23616;
   float: right;

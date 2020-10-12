@@ -6,14 +6,18 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import {
+  Container,
+  Assist,
   CamContainer,
   CamMessage,
   Count,
   Status,
   ExerciseButton,
+  TimeInput,
 } from './TurnOnWebCam.styled';
 
 import Loading from 'components/modules/loading';
+import IsNumber from 'components/modules/check/IsNumber';
 import { FirebaseStore } from 'config/fbConfig';
 
 let model,
@@ -44,45 +48,45 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   // timer
   const [time, setTime] = useState(moment.duration(0));
   const [timeTick, setTimeTick] = useState(null);
-  const [countDown, setDown] = useState(10);
+  const [readyDown, setReadyDown] = useState('');
+  const [countDown, setCountDown] = useState('');
 
-  const startTimer = () => {
-    document.getElementsByClassName('countdown')[0].innerHTML = 'zz';
-    const tick = () =>
-      setTime((prevTime) => prevTime.clone().add(1, 'seconds'));
-    const timeTick = setInterval(() => {
-      tick();
-    }, 1000);
-    setTimeTick(timeTick);
-  };
-  const pauseTimer = () => {
-    if (timeTick) {
-      clearInterval(timeTick);
-    }
-  };
-
-  const stopTimer = () => {
-    pauseTimer();
-    setTime(moment.duration(0));
-  };
-
-  const Timer = () => {
+  const startTimer = (times) => {
     var duration = moment.duration({
-      seconds: 6,
+      seconds: countDown,
     });
 
-    var timestamp = new Date(0, 0, 0, 0, 0, 6);
+    var timestamp = new Date(0, 0, 0, 0, 0, countDown);
     var interval = 1;
     var timer = setInterval(function () {
       timestamp = new Date(timestamp.getTime() - interval * 1000);
 
       duration = moment.duration(duration.asSeconds() - interval, 'seconds');
-      console.log(duration.asSeconds());
-      setDown(Math.round(duration.asSeconds()));
+      setCountDown(Math.round(duration.asSeconds()));
       //.asSeconds()
       if (duration.asSeconds() === 0) {
         clearInterval(timer);
-        SaveCounts();
+        SaveCounts(times);
+      }
+    }, 1000);
+  };
+
+  const readyTimer = (times) => {
+    var duration = moment.duration({
+      seconds: readyDown,
+    });
+
+    var timestamp = new Date(0, 0, 0, 0, 0, readyDown);
+    var interval = 1;
+    var timer = setInterval(function () {
+      timestamp = new Date(timestamp.getTime() - interval * 1000);
+
+      duration = moment.duration(duration.asSeconds() - interval, 'seconds');
+      setReadyDown(Math.round(duration.asSeconds()));
+      //.asSeconds()
+      if (duration.asSeconds() === 0) {
+        clearInterval(timer);
+        startTimer(times);
       }
     }, 1000);
   };
@@ -97,7 +101,7 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
       is: true,
       time: Date.now(),
     });
-    console.log(Date.now());
+    readyTimer(Date.now());
     const modelURL = URL + 'model.json';
     const metadataURL = URL + 'metadata.json';
 
@@ -186,10 +190,9 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
   };
 
   /* save counts in firebaseStore */
-  const SaveCounts = async () => {
+  const SaveCounts = (times) => {
     stop();
-    console.log(start.time, Date.now());
-    await FirebaseStore.collection(`${userObj.uid}`)
+    FirebaseStore.collection(`${userObj.uid}`)
       .doc(`${Date.now()}`)
       .set({
         userId: userObj.uid,
@@ -197,48 +200,112 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
         exercise: title,
         count: count,
         createdAt: Date.now(),
-        duration: Date.now() - start.time,
+        duration: Date.now() - times - readyDown * 1000 - 1000,
       });
     setCount(0);
   };
 
+  const onChange = (e) => {
+    const {
+      target: { name, value },
+    } = e;
+    if (IsNumber(value)) {
+      if (name === 'count') {
+        setCountDown(value);
+      }
+      if (name === 'ready') {
+        setReadyDown(value);
+      }
+    }
+  };
+
   return (
     <>
-      <CamContainer>
-        {!start.is ? (
-          <CamMessage>캠을 켜주세요</CamMessage>
-        ) : (
-          <>
-            <canvas id="canvas"></canvas>
-            {isLoading && <Loading />}
-          </>
-        )}
-      </CamContainer>
-      {/* {start && (
-        <Status fSize={16} display={start} onClick={() => setShow(!showStatus)}>
-          상태보기
-        </Status>
-      )} */}
+      <Container>
+        <CamContainer>
+          {!start.is ? (
+            <CamMessage>캠을 켜주세요</CamMessage>
+          ) : (
+            <>
+              <canvas id="canvas"></canvas>
+              {isLoading && <Loading />}
+            </>
+          )}
+        </CamContainer>
+        <Assist>
+          {!start.is && (
+            <div>
+              <h5>목표시간설정</h5>
 
-      <div>{countDown} 초</div>
-      {/* <div className="App">
-        <h1>타이머</h1>
-        <p>{moment(time.asSeconds(), 's').format('HH:mm:ss')}</p>
-        <button type="button" onClick={() => startTimer()}>
-          시작
-        </button>
-        <button type="button" onClick={() => pauseTimer()}>
-          일시정지
-        </button>
-        <button type="button" onClick={() => stopTimer()}>
-          정지
-        </button>
-      </div> */}
-      <Status display={showStatus && start} id="label-container"></Status>
-      <Count style={{ fontSize: 30 }}>운동 횟수 : {count} 회</Count>
-      {/* <div style={{ fontSize: 30 }}>{status}</div> */}
+              <div
+                style={{
+                  fontSize: 10,
+                  fontFamily: 'Nanum Gothic',
+                  marginTop: 8,
+                  lineHeight: '14px',
+                }}
+              >
+                웹캠이 켜지는 시간과 운동 준비를 마칠 권장 시간은 10초 입니다.
+                <br />
+                준비시간이 끝난 후 운동시간이 측정됩니다.
+              </div>
+              <TimeInput
+                type="ready"
+                name="ready"
+                value={readyDown}
+                onChange={onChange}
+                placeholder="준비시간(초)"
+              />
+
+              <TimeInput
+                type="count"
+                name="count"
+                value={countDown}
+                onChange={onChange}
+                placeholder="운동시간(초)"
+              />
+            </div>
+          )}
+          {start.is && (
+            <div
+              style={{
+                marginBottom: 24,
+                fontSize: 28,
+                color: '#555',
+                fontFamily: 'Nanum Gothic',
+              }}
+            >
+              {readyDown === 0 ? '남은 운동' : '남은 준비'} 시간 :{' '}
+              {readyDown === 0 ? countDown : readyDown} 초
+              <br />
+            </div>
+          )}
+          {start.is && (
+            <Count style={{ fontSize: 18, fontFamily: 'Nanum Gothic' }}>
+              운동 횟수 :{' '}
+              <span style={{ fontSize: 38, fontFamily: 'Nanum Gothic' }}>
+                {count}
+              </span>{' '}
+              회
+            </Count>
+          )}
+          <Status display={showStatus && start} id="label-container"></Status>
+        </Assist>
+      </Container>
       {!start.is ? (
-        <ExerciseButton onClick={() => init().then(() => Timer())}>
+        <ExerciseButton
+          onClick={() => {
+            if (Number(readyDown) < 10) {
+              alert('준비시간은 최소 10초입니다.');
+              return;
+            }
+            if (Number(countDown) < 5) {
+              alert('운동시간은 최소 5초입니다.');
+              return;
+            }
+            init();
+          }}
+        >
           운동 시작하기
         </ExerciseButton>
       ) : (

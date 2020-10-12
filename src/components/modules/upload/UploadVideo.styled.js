@@ -36,6 +36,7 @@ export const SLabel = styled.label`
   border: 1px solid #ebebeb;
   border-bottom-color: #e2e2e2;
   border-radius: 0.25em;
+  fontfamily: 'Nanum Gothic';
 `;
 
 export const Delete = styled.button`

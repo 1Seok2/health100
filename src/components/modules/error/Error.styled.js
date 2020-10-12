@@ -10,4 +10,5 @@ export const Error = styled.div`
   justify-content: center;
   font-size: 32px;
   font-weight: 600;
+  fontfamily: 'Nanum Gothic';
 `;

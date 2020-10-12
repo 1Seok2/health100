@@ -24,7 +24,6 @@ const findColIdx = (age) => {
 };
 
 const Caliper = (skinfold, age, gender) => {
-  console.log(skinfold, age, gender);
   const row = findRowIdx(skinfold);
   const col = findColIdx(age);
 

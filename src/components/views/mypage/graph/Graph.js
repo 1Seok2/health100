@@ -48,7 +48,6 @@ const Graph = ({ userObj }) => {
       setTitles(title);
     });
   };
-  console.log(data);
   useEffect(() => {
     getMyData();
   }, []);
@@ -63,6 +62,7 @@ const Graph = ({ userObj }) => {
             style={{
               marginLeft: 12,
               fontSize: 14,
+              fontFamily: 'Nanum Gothic',
               color: '#092c6f',
             }}
           >
@@ -77,8 +77,8 @@ const Graph = ({ userObj }) => {
               <XYPlot yPadding={0} width={240} height={210}>
                 <HorizontalGridLines />
                 <VerticalGridLines />
-                <XAxis style={{ fontSize: 10 }} />
-                <YAxis style={{ fontFamily: 'Jua', fontSize: 10 }} />
+                <XAxis style={{ fontSize: 10, fontFamily: 'Poor Story' }} />
+                <YAxis style={{ fontFamily: 'Nanum Gothic', fontSize: 10 }} />
                 <LineSeries
                   stroke={'#092c6f'}
                   strokeStyle="solid"
@@ -107,7 +107,7 @@ const styles = {
   chartTitle: {
     marginTop: 8,
     marginBottom: 4,
-    fontFamily: 'Jua',
+    fontFamily: 'Nanum Gothic',
     textAlign: 'center',
   },
 };

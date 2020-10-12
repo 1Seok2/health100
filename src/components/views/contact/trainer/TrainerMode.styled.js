@@ -11,8 +11,7 @@ export const UserEnrollInfo = styled.h2`
   font-size: 18px;
   line-height: 24px;
   margin-top: 1rem;
-  /* font-family: 'Jua', sans-serif; */
-  font-family: 'Poor Story', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const GoReEnrollButton = styled.button`
@@ -25,7 +24,7 @@ export const GoReEnrollButton = styled.button`
   font-weight: 400;
   margin-right: 12px;
   transition: background-color 0.3s;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     background-color: ${(props) =>
       props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};
@@ -41,7 +40,7 @@ export const STitle = styled.h2`
   font-size: 24px;
   line-height: 36px;
   margin-top: 1rem;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 /* enroll style */
@@ -55,7 +54,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 24px;
   line-height: 36px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const SForm = styled.div`
@@ -77,7 +76,7 @@ export const SubTitle = styled.h3`
   margin-top: 8px;
   margin-bottom: 12px;
   width: 100%;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const STextArea = styled.textarea`
@@ -89,7 +88,7 @@ export const STextArea = styled.textarea`
   outline: none;
   border: 1px solid #bbb;
   border-radius: 5px;
-  font-family: 'Poor Story', cursive;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};
   }
@@ -103,7 +102,7 @@ export const StringLength = styled.h5`
   margin-top: 4px;
   margin-bottom: 12px;
   text-align: right;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const STextInput = styled.input`
@@ -115,7 +114,7 @@ export const STextInput = styled.input`
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 5px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};
   }
@@ -128,7 +127,7 @@ export const SButton = styled.button`
   float: right;
   margin-left: 12px;
   transition: background-color 0.3s;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     background-color: ${(props) =>
       props.blue ? HEALTH_COLOR_LIGHT : NEGATIVE_COLOR_LIGHT};

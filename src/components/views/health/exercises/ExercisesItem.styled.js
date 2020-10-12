@@ -8,7 +8,9 @@ import {
 import {
   HEALTH_COLOR,
   NEGATIVE_COLOR,
+  NEGATIVE_COLOR_DARK,
   HEALTH_COLOR_LIGHT,
+  HEALTH_COLOR_DARK,
 } from 'components/modules/style/Color';
 
 export const Container = styled.div`
@@ -23,7 +25,9 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${(props) =>
-    props.current ? NEGATIVE_COLOR : `rgba(105, 154, 227, ${props.opacity})`};
+    props.current
+      ? HEALTH_COLOR_DARK
+      : `rgba(105, 154, 227, ${props.opacity})`};
   &:hover {
     cursor: pointer;
     background-color: HEALTH_COLOR_LIGHT;
@@ -76,7 +80,7 @@ export const BranchName = styled.div`
   font-size: 24px;
   font-weight: 500;
   color: ${(props) => (!props.current ? 'black' : 'white')};
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   @media (max-width: 440px) {
     font-size: 18px;
   }
@@ -88,12 +92,14 @@ export const ShowDetail = styled.div`
   top: 0;
   color: #888;
   font-size: 12px;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const DescTitle = styled.h1`
   margin-top: 10px;
   margin-bottom: 6px;
   font-size: 20px;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const ImgContainer = styled.div`

@@ -61,7 +61,7 @@ const Navigation = ({ pathname, userObj }) => {
               style={{
                 marginTop: '4rem',
                 textAlign: 'right',
-                fontFamily: 'Jua',
+                fontFamily: 'Nanum Gothic',
               }}
               href="#"
               onClick={logOut}

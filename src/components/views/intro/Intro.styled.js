@@ -59,6 +59,7 @@ export const IntroTitle = styled.h1`
   padding-left: 8%;
   padding-bottom: 8rem;
   font-size: 28px;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 700;
   line-height: 48px;
   color: #666666;
@@ -85,12 +86,14 @@ export const IntroDesc = styled.div`
   position: absolute;
   bottom: 0;
   font-size: 18px;
+  font-family: 'Nanum Gothic', sans-serif;
   color: white;
   animation: ${ScrollFade} 2s infinite;
 `;
 export const Scroll = styled.div`
   text-align: center;
   font-size: 32px;
+  font-family: 'Nanum Gothic', sans-serif;
   line-height: 28px;
   color: white;
   animation: ${ScrollFade} 2s infinite;
@@ -181,6 +184,7 @@ export const Contents = styled.div`
   margin-top: 25%;
   text-align: ${(props) => props.direct};
   font-size: 30px;
+  font-family: 'Nanum Gothic', sans-serif;
   line-height: 48px;
   font-weight: 500;
   transition: all 0.4s;
@@ -192,10 +196,12 @@ export const Contents = styled.div`
   }
   @media (max-width: ${TabletWidth}) {
     font-size: 24px;
+    font-family: 'Nanum Gothic', sans-serif;
     line-height: 36px;
   }
   @media (max-width: ${SmartPhoneWidth}) {
     font-size: 16px;
+    font-family: 'Nanum Gothic', sans-serif;
     margin-top: 13%;
     line-height: 28px;
     &:hover {
@@ -225,6 +231,7 @@ export const LoginButton = styled(Link)`
   line-height: 48px;
   color: white;
   font-size: 22px;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   transition: background-color 0.3s;
   &:hover {

@@ -11,7 +11,7 @@ export const Title = styled.h1`
   font-weight: 700;
   font-size: 28px;
   margin-bottom: 1rem;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const EnrollDay = styled.div`
@@ -20,7 +20,7 @@ export const EnrollDay = styled.div`
   padding-right: 1rem;
   font-weight: 500;
   font-size: 14px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   ${(props) => (props.current ? `color : white;` : null)}
   @media (max-width: 450px) {
     display: none;
@@ -55,7 +55,7 @@ export const QuestTitle = styled.h1`
   border-bottom: 1px solid #cfcfcf;
   transition: background-color 0.3s;
   border-radius: 5px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     transition: background-color 0.3s;
     background-color: ${HEALTH_COLOR_LIGHT};
@@ -86,7 +86,7 @@ text-align: center;
   line-height: 42px;
   font-weight: 600;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const STr = styled.tr`
@@ -106,7 +106,7 @@ export const STd = styled.td`
   line-height: 42px;
   font-weight: 500;
   min-width: 100px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const FromWrapper = styled.div`
@@ -135,7 +135,7 @@ export const TextArea = styled.textarea`
   border: 1px solid #bbb;
   font-weight: 400;
   border-radius: 5px;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   &:focus {
     border: 1px solid ${NEGATIVE_COLOR_LIGHT};
   }
@@ -145,6 +145,7 @@ export const Submit = styled.button`
   width: 120px;
   height: 36px;
   font-size: 18px;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   border-radius: 6px;
   color: white;
@@ -160,7 +161,7 @@ export const Submit = styled.button`
   &:focus {
     outline: none;
   }
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Decline = styled.a`
@@ -180,7 +181,7 @@ export const Decline = styled.a`
     background-color: ${NEGATIVE_COLOR_LIGHT};
     transition: background-color 0.3s;
   }
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
 
 export const Empty = styled.div`

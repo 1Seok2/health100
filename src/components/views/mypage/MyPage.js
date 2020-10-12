@@ -200,6 +200,7 @@ const MyPage = ({ userObj }) => {
                 marginLeft: 12,
                 fontSize: 14,
                 color: '#092c6f',
+                fontFamily: 'Nanum Gothic',
               }}
             >
               | &nbsp;&nbsp;그래프로 보기

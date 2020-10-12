@@ -14,8 +14,8 @@ export const Container = styled.div`
   width: 52%;
   height: 100%;
   background-color: #f9f9f9;
-  padding: 24px;
-  padding-top: 60px;
+  padding: 16px;
+  padding-top: 20px;
   padding-bottom: 190px;
   overflow: hidden;
   z-index: 5;
@@ -47,13 +47,14 @@ export const CloseButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Nanum Gothic', sans-serif;
   &:hover {
     cursor: pointer;
   }
 `;
 
 export const Title = styled.h1`
-  font-size: 24px;
+  font-size: 16px;
   margin-bottom: 1rem;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
 `;
