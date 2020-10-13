@@ -23,7 +23,6 @@ export const STable = styled.table`
   margin: 0;
   margin: 12px;
   width: 90%;
-  min-width: 500px;
   &:hover {
     ${(props) => (props.active ? 'cursor: pointer;' : null)}
   }

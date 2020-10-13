@@ -36,7 +36,6 @@ export const STable = styled.table`
   margin: 0;
   margin: 12px;
   width: 90%;
-  min-width: 500px;
   &:hover {
     ${(props) => (props.active ? 'cursor: pointer;' : null)}
   }
@@ -117,6 +116,9 @@ export const FromWrapper = styled.div`
   height: 190px;
   background-color: white;
   box-shadow: 0px -6px 12px -8px rgba(100, 100, 100, 0.5);
+  @media (max-width: 479px) {
+    width: 100vw;
+  }
 `;
 
 export const SForm = styled.form`

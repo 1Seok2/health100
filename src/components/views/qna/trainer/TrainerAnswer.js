@@ -85,7 +85,7 @@ const TrainerAnswer = ({ userObj }) => {
   return (
     <div>
       {userObj.isAvailable === 1 ? (
-        <Title>트레이너님, 처방 부탁드려요 !</Title>
+        <Title>처방 부탁드려요 !</Title>
       ) : (
         <Title>처방 권한 승인 대기중입니다</Title>
       )}

@@ -119,24 +119,31 @@ const AppRouter = ({
                   <OuterContainer>
                     {/* if user already logged in ... */}
                     {/* main is self health */}
-                    <Route
-                      exact
-                      path="/health"
-                      render={() => <Health userObj={UserObj} />}
-                    />
-                    {/* <Route
+                    {(UserObj.type === 0 || UserObj.type === false) && (
+                      <>
+                        <Route
+                          exact
+                          path="/health"
+                          render={() => <Health userObj={UserObj} />}
+                        />
+                        {/* <Route
                   exact
                   path="/health/senior"
                   render={() => <Health userObj={UserObj} />}
                 /> */}
-                    {/* can see my data */}
-                    <Route
-                      exact
-                      path="/mypage"
-                      render={() => (
-                        <MyPage userObj={UserObj} refreshUser={refreshUser} />
-                      )}
-                    />
+                        {/* can see my data */}
+                        <Route
+                          exact
+                          path="/mypage"
+                          render={() => (
+                            <MyPage
+                              userObj={UserObj}
+                              refreshUser={refreshUser}
+                            />
+                          )}
+                        />
+                      </>
+                    )}
 
                     <Route
                       exact
@@ -157,7 +164,11 @@ const AppRouter = ({
                       path="/contact"
                       render={() => <ContactTrainer userObj={UserObj} />}
                     />
-                    <Redirect path="*" to="/health" />
+                    {UserObj.type === false ? (
+                      <Redirect path="*" to="/health" />
+                    ) : (
+                      <Redirect path="*" to="/qna" />
+                    )}
                   </OuterContainer>
                 )}
               </>

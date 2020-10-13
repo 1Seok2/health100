@@ -102,7 +102,6 @@ const styles = {
   chart: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center',
   },
   chartTitle: {
     marginTop: 8,

@@ -248,6 +248,8 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
                 웹캠이 켜지는 시간과 운동 준비를 마칠 권장 시간은 10초 입니다.
                 <br />
                 준비시간이 끝난 후 운동시간이 측정됩니다.
+                <br />
+                운동이 끝나면, 자동으로 "내 기록보기" 메뉴에 저장됩니다.
               </div>
               <TimeInput
                 type="ready"

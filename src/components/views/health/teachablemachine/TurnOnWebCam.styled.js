@@ -8,6 +8,9 @@ import {
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 665px) {
+    display: block;
+  }
 `;
 
 export const Assist = styled.div`

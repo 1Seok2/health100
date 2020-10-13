@@ -46,15 +46,21 @@ const Navigation = ({ pathname, userObj }) => {
       </header>
       <nav className="nav-wrapper">
         <ul className="nav">
-          {MenuValueList.map((value) => (
-            <MenuList
-              key={value.name + value.path}
-              name={value.name}
-              path={value.path}
-              onClickHBG={onClickHBG}
-              pathname={pathname}
-            />
-          ))}
+          {MenuValueList.map((value, idx) => {
+            if (idx < 2 && (userObj.type === true || userObj.type === 1)) {
+              return null;
+            }
+            console.log(userObj);
+            return (
+              <MenuList
+                key={value.name + value.path}
+                name={value.name}
+                path={value.path}
+                onClickHBG={onClickHBG}
+                pathname={pathname}
+              />
+            );
+          })}
 
           <li className="nav-list">
             <a

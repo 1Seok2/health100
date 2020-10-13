@@ -157,7 +157,7 @@ const Login = ({ setSigned }) => {
     <Container>
       <FormWrapper>
         <Form onSubmit={onSubmit} className="container">
-          <Title>국민체력 100</Title>
+          <Title>비대면 국민체력 100</Title>
           <CheckWrapper>
             {newAccount && (
               <SLabel>

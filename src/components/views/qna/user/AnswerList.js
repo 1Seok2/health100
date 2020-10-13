@@ -36,11 +36,6 @@ const AnswerList = ({ selected, setSelected, isDone }) => {
             current={`${quest.createdAt}${idx}` === selected.key}
           >
             신청일/답변일 : {quest.createdAt} / {quest.endedAt}
-            {quest.createdAt + idx === selected.key && (
-              <span style={{ float: 'right', color: 'white' }}>
-                접기 &nbsp;&nbsp;
-              </span>
-            )}
           </QuestTitle>
           <TableWrapper>
             <STable current={`${quest.createdAt}${idx}` === selected.key}>

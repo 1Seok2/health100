@@ -37,8 +37,8 @@ export const Form = styled.form`
 export const Title = styled.div`
   font-weight: 700;
   text-align: center;
-  font-size: 24px;
-  margin-bottom: 1rem;
+  font-size: 22px;
+  margin-bottom: 3rem;
   font-family: 'Nanum Gothic', sans-serif;
 `;
 

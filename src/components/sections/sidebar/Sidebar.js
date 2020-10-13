@@ -56,36 +56,44 @@ export default withRouter(({ location: { pathname }, userObj }) => {
           )}
         </LogoImg>
         <ItemWrapper>
-          {MenuValueList.map((menu) => (
-            <Item
-              to={menu.path}
-              key={menu.path}
-              current={pathname.includes(menu.path)}
-              extend={extend}
-            >
-              <i
-                className={menu.name}
-                style={
-                  pathname.includes(menu.path)
-                    ? {
-                        fontSize: '2rem',
-                        margin: 0,
-                        color: '#092c6f',
-                        fontFamily: 'Nanum Gothic',
-                      }
-                    : {
-                        fontSize: '1.8rem',
-                        margin: 0,
-                        color: '#efefef',
-                        fontFamily: 'Nanum Gothic',
-                      }
-                }
-              />
-              <ItemDesc current={pathname.includes(menu.path)} extend={extend}>
-                {menu.title}
-              </ItemDesc>
-            </Item>
-          ))}
+          {MenuValueList.map((menu, idx) => {
+            if (userObj.type === true && idx < 2) {
+              return null;
+            }
+            return (
+              <Item
+                to={menu.path}
+                key={menu.path}
+                current={pathname.includes(menu.path)}
+                extend={extend}
+              >
+                <i
+                  className={menu.name}
+                  style={
+                    pathname.includes(menu.path)
+                      ? {
+                          fontSize: '2rem',
+                          margin: 0,
+                          color: '#092c6f',
+                          fontFamily: 'Nanum Gothic',
+                        }
+                      : {
+                          fontSize: '1.8rem',
+                          margin: 0,
+                          color: '#efefef',
+                          fontFamily: 'Nanum Gothic',
+                        }
+                  }
+                />
+                <ItemDesc
+                  current={pathname.includes(menu.path)}
+                  extend={extend}
+                >
+                  {menu.title}
+                </ItemDesc>
+              </Item>
+            );
+          })}
         </ItemWrapper>
         <Extends onClick={() => setExtend(!extend)} extend={extend}>
           <i

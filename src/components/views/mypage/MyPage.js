@@ -220,7 +220,7 @@ const MyPage = ({ userObj }) => {
             {makePackage ? '선택취소' : '처방받기'}
           </SButton>
           <ButtonWrapper>
-            <ListTitle>기록 직접 추가</ListTitle>
+            <ListTitle style={{ marginTop: 70 }}>기록 직접 추가</ListTitle>
             <SForm onSubmit={directEnroll}>
               <Select
                 id="title"

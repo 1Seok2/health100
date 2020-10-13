@@ -96,7 +96,12 @@
 }
 
 @media (max-width: 960px) {
-  .adult-0 {
+  .adult-0,
+  .adult-1,
+  .adult-2,
+  .adult-3,
+  .adult-4,
+  .adult-5 {
     width: 63%;
   }
 }

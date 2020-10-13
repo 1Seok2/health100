@@ -77,7 +77,7 @@ export const DescWrapper = styled.div`
 
 export const BranchName = styled.div`
   display: block;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   color: ${(props) => (!props.current ? 'black' : 'white')};
   font-family: 'Nanum Gothic', sans-serif;

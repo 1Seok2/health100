@@ -37,6 +37,12 @@ const Intro = () => {
         <Logo>
           <img src={introLogo} alt="health100" width="100%" />
         </Logo>
+        <IntroDesc>
+          scroll to continue
+          <Scroll>
+            &#x025BE; <br /> &#x025BE;
+          </Scroll>
+        </IntroDesc>
       </IntroImgWrapper>
       <ItemWrapper>
         {IntroItemList.map((item, idx) => (

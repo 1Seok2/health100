@@ -57,11 +57,6 @@ const EnrollList = ({ selected, setSelected, isYet }) => {
             yet={true}
           >
             신청일 : {quest.createdAt}
-            {quest.createdAt + idx === selected.key && (
-              <span style={{ float: 'right', color: 'white' }}>
-                접기 &nbsp;&nbsp;
-              </span>
-            )}
           </QuestTitle>
           <TableWrapper>
             <STable current={`${quest.createdAt}${idx}` === selected.key}>
