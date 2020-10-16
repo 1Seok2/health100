@@ -20,7 +20,7 @@ import {
   LoginButton,
 } from './Intro.styled';
 import { IntroItemList } from './IntroDesc';
-import introLogo from 'assets/img/health100logo.png';
+import introLogo from 'assets/img/health100intrologo-removebg-preview.png';
 
 const Intro = () => {
   useEffect(() => {

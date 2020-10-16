@@ -22,7 +22,8 @@ import {
 
 import Loading from 'components/modules/loading/Loading';
 
-import movie1 from '../../../../assets/movie/health100_video_1.mp4';
+import movie1 from 'assets/movie/health100_video_1.mp4';
+import movie2 from 'assets/movie/health100_video_2.mp4';
 
 {
   /* <video src={movie1} controls>
@@ -59,7 +60,7 @@ const UserMode = () => {
       ) : (
         <>
           <Title>트레이너와 컨택하세요 !</Title>
-          {trainerList.map((trainer) => (
+          {trainerList.map((trainer, idx) => (
             <Container
               key={trainer.src}
               current={trainer.src === selected}
@@ -74,7 +75,11 @@ const UserMode = () => {
               {trainer.src === selected && (
                 <Row>
                   <VideoWrapper current={trainer.src === selected}>
-                    <Video src={movie1} autoplay={false} controls>
+                    <Video
+                      src={idx % 2 === 1 ? movie1 : movie2}
+                      autoplay={false}
+                      controls
+                    >
                       Your browser does not support the video tag.
                     </Video>
                   </VideoWrapper>

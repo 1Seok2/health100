@@ -5,6 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
+import { FirebaseStore } from 'config/fbConfig';
 import {
   Container,
   Assist,
@@ -18,7 +19,31 @@ import {
 
 import Loading from 'components/modules/loading';
 import IsNumber from 'components/modules/check/IsNumber';
-import { FirebaseStore } from 'config/fbConfig';
+
+import audio1 from 'assets/audio/1.mp3';
+import audio2 from 'assets/audio/2.mp3';
+import audio3 from 'assets/audio/3.mp3';
+import audio4 from 'assets/audio/4.mp3';
+import audio5 from 'assets/audio/5.mp3';
+import audio6 from 'assets/audio/6.mp3';
+import audio7 from 'assets/audio/7.mp3';
+import audio8 from 'assets/audio/8.mp3';
+import audio9 from 'assets/audio/9.mp3';
+import audio0 from 'assets/audio/0.mp3';
+import audioWrong from 'assets/audio/wrong.mp3';
+
+const audioList = [
+  audio1,
+  audio2,
+  audio3,
+  audio4,
+  audio5,
+  audio6,
+  audio7,
+  audio8,
+  audio9,
+  audio0,
+];
 
 let model,
   webcam,
@@ -33,7 +58,8 @@ const userPose = {
   wrong: 'wrong',
 };
 
-const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
+const TurnOnWebCam = ({ userObj, title, URL }) => {
+  const [count, setCount] = useState(0);
   const [start, setStart] = useState({
     is: false,
     time: 0,
@@ -140,23 +166,32 @@ const TurnOnWebCam = ({ userObj, title, URL, count, setCount }) => {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
-    /* if squat ... */
-    if (prediction[0].probability.toFixed(2) > 0.9) {
-      if (status === userPose.correct) {
-        setCount((prev) => prev + 1);
-        /* audio ... ? */
+    if (Date.now() >= start.time + readyDown * 1000) {
+      /* if squat ... */
+      if (prediction[0].probability.toFixed(2) > 0.9) {
+        if (status === userPose.correct) {
+          /* audio ... ? */
+
+          setCount((prev) => {
+            const audio = new Audio(audioList[prev % 10]);
+            audio.play();
+            return prev + 1;
+          });
+        }
+        status = userPose.default;
+      } else if (prediction[1].probability.toFixed(2) > 0.9) {
+        status = userPose.correct;
+      } else if (prediction[2].probability.toFixed(2) > 0.95) {
+        if (
+          status.pose === userPose.correct ||
+          status.pose === userPose.default
+        ) {
+          /* its wrong ... */
+          const audio = new Audio(audioWrong);
+          audio.play();
+        }
+        status = userPose.wrong;
       }
-      status = userPose.default;
-    } else if (prediction[1].probability.toFixed(2) > 0.9) {
-      status = userPose.correct;
-    } else if (prediction[2].probability.toFixed(2) > 0.95) {
-      if (
-        status.pose === userPose.correct ||
-        status.pose === userPose.default
-      ) {
-        /* its wrong ... */
-      }
-      status = userPose.wrong;
     }
 
     for (let i = 0; i < maxPredictions; i++) {

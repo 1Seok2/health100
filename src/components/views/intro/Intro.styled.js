@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import introImg from 'assets/img/intro_background.jpg';
-import introLogo from 'assets/img/health100logo.png';
+import introLogo from 'assets/img/health100intrologo-removebg-preview.png';
 
 import {
   DeskTopWidth,
@@ -38,12 +38,15 @@ export const Logo = styled.div`
   position: absolute;
   top: 4rem;
   right: 3rem;
-  width: 100px;
+  width: 180px;
   height: 100px;
   @media (max-width: ${SmallTabletWidth}) {
-    width: 60px;
+    width: 120px;
     height: 60px;
     right: 1rem;
+  }
+  @media (max-width: 345px) {
+    top: 1.5rem;
   }
 `;
 
