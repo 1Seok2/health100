@@ -50,7 +50,6 @@ const Navigation = ({ pathname, userObj }) => {
             if (idx < 2 && (userObj.type === true || userObj.type === 1)) {
               return null;
             }
-            console.log(userObj);
             return (
               <MenuList
                 key={value.name + value.path}
