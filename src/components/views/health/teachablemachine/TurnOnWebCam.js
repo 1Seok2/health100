@@ -227,13 +227,18 @@ const TurnOnWebCam = ({ userObj, title, URL }) => {
   /* save counts in firebaseStore */
   const SaveCounts = (times) => {
     stop();
+    let counts = 0;
+    setCount((prev) => {
+      counts = prev;
+      return prev;
+    });
     FirebaseStore.collection(`${userObj.uid}`)
       .doc(`${Date.now()}`)
       .set({
         userId: userObj.uid,
         email: userObj.email,
         exercise: title,
-        count: count,
+        count: counts,
         createdAt: Date.now(),
         duration: Date.now() - times - readyDown * 1000 - 1000,
       });
