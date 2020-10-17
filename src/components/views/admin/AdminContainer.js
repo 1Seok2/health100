@@ -1,22 +1,25 @@
+/**
+ * @description 관리자 전용 페이지
+ */
+
 import React, { useEffect, useState } from 'react';
-import { FirebaseStore, FirebaseAuth } from 'config/fbConfig';
-import moment from 'moment';
-import { Containter, Wrapper, TypeButton, Empty } from './Admin.styled';
+import { FirebaseStore } from 'config/fbConfig';
+import AdminPresenter from './AdminPresenter';
 
-import Loading from 'components/modules/loading/Loading';
-import ValidAuth from './valid';
-import IntroAuth from './introduce';
-
-const Admin = ({ userObj }) => {
+const AdminContainer = () => {
   const [isLoading, setLoading] = useState(true);
+
+  /* 검수가 필요한 항목들 */
   const [needValid, setValid] = useState([]);
   const [needIntro, setIntro] = useState([]);
 
   /* true : valid / false : intro */
   const [type, setType] = useState(true);
 
+  /* 검수 위해 선택된 항목 */
   const [selected, setSelected] = useState({});
 
+  /* 검수해야할 목록 불러오기 */
   const getAdminList = async () => {
     FirebaseStore.collection('users').onSnapshot((snap) => {
       let listValid = [];
@@ -54,6 +57,7 @@ const Admin = ({ userObj }) => {
     });
   };
 
+  /* 검수 승인 */
   const acceptValid = async (e) => {
     e.preventDefault();
     const updateType = await FirebaseStore.collection('users').doc(
@@ -73,6 +77,7 @@ const Admin = ({ userObj }) => {
       });
   };
 
+  /* 트레이너 소개 승인 */
   const acceptIntro = async (e) => {
     e.preventDefault();
     const updateType = await FirebaseStore.collection('users').doc(
@@ -94,6 +99,7 @@ const Admin = ({ userObj }) => {
       });
   };
 
+  /* 승인 반려 */
   const rejectIntro = async (e) => {
     e.preventDefault();
     const updateType = await FirebaseStore.collection('users').doc(
@@ -120,55 +126,19 @@ const Admin = ({ userObj }) => {
   }, []);
 
   return (
-    <Containter>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Wrapper>
-          <div>
-            <TypeButton
-              onClick={() => {
-                setSelected({});
-                setType(true);
-              }}
-              current={type}
-            >
-              권한 승인 대기 ({needValid.length})
-            </TypeButton>
-            <TypeButton
-              onClick={() => {
-                setSelected({});
-                setType(false);
-              }}
-              current={!type}
-            >
-              소개 승인 대기 ({needIntro.length})
-            </TypeButton>
-            <TypeButton onClick={() => FirebaseAuth.signOut()}>
-              로그아웃
-            </TypeButton>
-          </div>
-          {type ? (
-            <ValidAuth
-              needAdmin={needValid}
-              setSelected={setSelected}
-              selected={selected}
-              accept={acceptValid}
-            />
-          ) : (
-            <IntroAuth
-              needIntro={needIntro}
-              setSelected={setSelected}
-              selected={selected}
-              accept={acceptIntro}
-              reject={rejectIntro}
-            />
-          )}
-          <Empty />
-        </Wrapper>
-      )}
-    </Containter>
+    <AdminPresenter
+      isLoading={isLoading}
+      setSelected={setSelected}
+      setType={setType}
+      type={type}
+      needValid={needValid}
+      needIntro={needIntro}
+      selected={selected}
+      acceptValid={acceptValid}
+      acceptIntro={acceptIntro}
+      rejectIntro={rejectIntro}
+    />
   );
 };
 
-export default Admin;
+export default AdminContainer;
