@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { FirebaseStore } from 'config/fbConfig';
+/**
+ * @description 트레이너 모드에서 자신의 소개를
+ *              등록 / 수정 / 삭제 할 수 있음
+ */
+
+import React from 'react';
 import { UserEnrollInfo, GoReEnrollButton, STitle } from './TrainerMode.styled';
 
 import ErrorContainer from 'components/modules/error';
@@ -16,53 +20,7 @@ import UpdateVideo from './UpdateVideo';
 
 /* trainer can upload, watch, delete own video */
 /* but Only "One" Video is accepted */
-const TrainerMode = ({ userObj }) => {
-  const [isExist, setExist] = useState(false);
-
-  /* 반려처리에서 재 등록 원할 시 */
-  const restart = async (e) => {
-    e.preventDefault();
-    const updateType = await FirebaseStore.collection('users').doc(
-      `${userObj.createdAt}`,
-    );
-    updateType
-      .update({
-        introAvailable: 2,
-        originSrc: userObj.originSrc,
-        desc: userObj.desc,
-      })
-      .catch(function (error) {
-        // The document probably doesn't exist.
-        console.error('Error updating document: ', error);
-        alert('실패하였습니다');
-      });
-  };
-
-  /* 승인 대기 중 취소하고 싶을 시 */
-  const decline = async (e) => {
-    e.preventDefault();
-    const yes = window.confirm('신청을 취소하시겠습니까?');
-    if (yes) {
-      const updateType = await FirebaseStore.collection('users').doc(
-        `${userObj.createdAt}`,
-      );
-      updateType
-        .update({
-          introAvailable: 0,
-        })
-        .catch(function (error) {
-          // The document probably doesn't exist.
-          console.error('Error updating document: ', error);
-          alert('실패하였습니다');
-        });
-    }
-  };
-
-  useEffect(() => {
-    if (userObj.originSrc !== undefined && userObj.originSrc !== '')
-      setExist(true);
-  }, []);
-
+const TrainerMode = ({ isExist, restart, decline, userObj }) => {
   return (
     <div>
       {isExist ? (

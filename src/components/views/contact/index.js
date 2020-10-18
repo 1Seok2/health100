@@ -1,1 +1,1 @@
-export { default } from './ContactTrainer';
+export { default } from './ContactContainer';

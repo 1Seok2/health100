@@ -1,3 +1,7 @@
+/**
+ * @description 영상이 없다면 등록페이지 나타냄
+ */
+
 import React, { useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
 import {
@@ -17,8 +21,6 @@ const EnrollVideo = ({ userObj }) => {
   const [description, setDesc] = useState('');
   const [src, setSrc] = useState('');
   const [video, setVideo] = useState([]);
-
-  const [isError, setError] = useState(false);
 
   const onChange = (e) => {
     const {

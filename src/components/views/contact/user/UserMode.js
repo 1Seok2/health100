@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { FirebaseStore } from 'config/fbConfig';
+import React from 'react';
 import {
   Container,
   Title,
   VideoWrapper,
   Video,
-  DescWrapper,
   ItemDesc,
   Empty,
   // table
@@ -31,28 +29,7 @@ Your browser does not support the video tag.
 </video> */
 }
 
-const UserMode = () => {
-  const [trainerList, setList] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [selected, setSelected] = useState();
-
-  const getTrainerIntro = async () => {
-    FirebaseStore.collection('users').onSnapshot((snap) => {
-      let list = [];
-      snap.docs.map((doc) => {
-        if (doc.data().introAvailable) {
-          const obj = {
-            ...doc.data(),
-          };
-          list = [...list, obj];
-        }
-      });
-      setList(list);
-    });
-  };
-  useEffect(() => {
-    getTrainerIntro().then(() => setLoading(false));
-  }, []);
+const UserMode = ({ trainerList, isLoading, selected, setSelected }) => {
   return (
     <>
       {isLoading ? (
@@ -184,6 +161,7 @@ const UserMode = () => {
 
 export default UserMode;
 
+// 추후 실제 등록된 트레이너의 영상 보여주는 코드
 {
   /* <>
 <Title>트레이너와 컨택하세요 !</Title>

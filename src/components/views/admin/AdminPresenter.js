@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { FirebaseStore, FirebaseAuth } from 'config/fbConfig';
+import { FirebaseAuth } from 'config/fbConfig';
 import { Containter, Wrapper, TypeButton, Empty } from './Admin.styled';
 
 import Loading from 'components/modules/loading/Loading';

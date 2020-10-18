@@ -1,3 +1,7 @@
+/**
+ * @description 트레이너 소개 영상을 수정하는 페이지
+ */
+
 import React, { useState } from 'react';
 import { FirebaseStore } from 'config/fbConfig';
 import {
@@ -12,14 +16,12 @@ import {
   SButton,
 } from './TrainerMode.styled';
 
-import UploadVideo from 'components/modules/upload';
+// 트레이너가 동영상을 직접 업로드 할 수 있게
+// import UploadVideo from 'components/modules/upload';
 
 const UpdateVideo = ({ userObj }) => {
   const [description, setDesc] = useState(userObj.desc);
   const [originSrc, setOriginSrc] = useState(userObj.originSrc);
-  const [video, setVideo] = useState('');
-
-  const [isError, setError] = useState(false);
 
   const onChange = (e) => {
     const {
