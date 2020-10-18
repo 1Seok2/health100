@@ -9,7 +9,7 @@ import moment from 'moment';
 
 import { Container } from './MyPage.styled';
 
-import Caliper from '../../modules/caliper/Caliper';
+import Caliper from 'components/modules/caliper/Caliper';
 import MyPagePresenter from './MyPagePresenter';
 
 import Loading from 'components/modules/loading';

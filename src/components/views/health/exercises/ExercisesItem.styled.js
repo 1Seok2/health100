@@ -1,17 +1,5 @@
 import styled from 'styled-components';
-import {
-  DeskTopWidth,
-  TabletWidth,
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
-import {
-  HEALTH_COLOR,
-  NEGATIVE_COLOR,
-  NEGATIVE_COLOR_DARK,
-  HEALTH_COLOR_LIGHT,
-  HEALTH_COLOR_DARK,
-} from 'components/modules/style/Color';
+import { HEALTH_COLOR_DARK } from 'components/modules/style/Color';
 
 export const Container = styled.div`
   display: inline-block;

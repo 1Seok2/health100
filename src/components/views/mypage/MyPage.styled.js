@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
+import { SmallTabletWidth } from 'components/modules/style/Width';
 import {
   HEALTH_COLOR_DARK,
   HEALTH_COLOR,
@@ -12,7 +9,7 @@ import {
   NEGATIVE_COLOR_LIGHT,
 } from 'components/modules/style/Color';
 
-const Arrow = require('../../../assets/img/arrow_bottom.png');
+const Arrow = require('assets/img/arrow_bottom.png');
 
 export const Container = styled.div`
   width: 100%;

@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 import {
-  HEALTH_COLOR_DARK,
   HEALTH_COLOR,
   HEALTH_COLOR_LIGHT,
-  NEGATIVE_COLOR,
-  NEGATIVE_COLOR_LIGHT,
 } from 'components/modules/style/Color';
 
 export const Title = styled.h1`

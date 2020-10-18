@@ -3,9 +3,6 @@ import MenuList from './Menu';
 import { FirebaseAuth } from 'config/fbConfig';
 
 const Navigation = ({ pathname, userObj }) => {
-  const [clicked, setClicked] = useState('none');
-  const [aboutClicked, setAboutClicked] = useState('none');
-
   const MenuValueList = [
     {
       name: '셀프운동',

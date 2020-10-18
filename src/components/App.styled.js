@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import {
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
+import { SmartPhoneWidth } from 'components/modules/style/Width';
 
 export const OuterContainer = styled.div`
   min-width: 280px;

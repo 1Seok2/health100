@@ -1,10 +1,4 @@
 import styled from 'styled-components';
-import {
-  DeskTopWidth,
-  TabletWidth,
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
 
 export const Container = styled.div`
   float: right;

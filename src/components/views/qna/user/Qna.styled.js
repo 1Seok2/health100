@@ -8,7 +8,7 @@ import {
   NEGATIVE_COLOR,
   NEGATIVE_COLOR_LIGHT,
 } from 'components/modules/style/Color';
-const Arrow = require('../../../../assets/img/arrow_bottom.png');
+const Arrow = require('assets/img/arrow_bottom.png');
 
 export const ButtonWrapper = styled.div`
   margin-bottom: 12px;

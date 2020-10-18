@@ -1,10 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import introImg from 'assets/img/intro_background.jpg';
-import introLogo from 'assets/img/health100intrologo-removebg-preview.png';
 
 import {
-  DeskTopWidth,
   TabletWidth,
   SmallTabletWidth,
   SmartPhoneWidth,

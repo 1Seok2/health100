@@ -1,10 +1,7 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Logo from 'assets/img/logo.png';
-import {
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
+import { SmartPhoneWidth } from 'components/modules/style/Width';
 
 const ShowMenu = keyframes`
 0%{

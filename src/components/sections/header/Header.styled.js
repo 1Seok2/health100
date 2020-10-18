@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import {
-  SmallTabletWidth,
-  SmartPhoneWidth,
-} from 'components/modules/style/Width';
+import { SmartPhoneWidth } from 'components/modules/style/Width';
 import {
   HEALTH_COLOR,
   HEALTH_COLOR_LIGHT,

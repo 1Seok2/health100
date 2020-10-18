@@ -1,17 +1,17 @@
 const ImgSrc = {
   self: [
-    require('../../../assets/img/intro_self1.jpg'),
-    require('../../../assets/img/intro_self2.jpg'),
+    require('assets/img/intro_self1.jpg'),
+    require('assets/img/intro_self2.jpg'),
   ],
   log: [
-    require('../../../assets/img/intro_log1.jpg'),
-    require('../../../assets/img/intro_log2.jpg'),
+    require('assets/img/intro_log1.jpg'),
+    require('assets/img/intro_log2.jpg'),
   ],
   pt: [
-    require('../../../assets/img/intro_pt1.jpg'),
-    require('../../../assets/img/intro_pt2.jpg'),
+    require('assets/img/intro_pt1.jpg'),
+    require('assets/img/intro_pt2.jpg'),
   ],
-  chart: require('../../../assets/img/intro_chart.jpg'),
+  chart: require('assets/img/intro_chart.jpg'),
 };
 
 export const IntroItemList = [
