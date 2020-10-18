@@ -1,1 +1,1 @@
-export { default } from './TrainerAnswer';
+export { default } from './ConsultContainer';

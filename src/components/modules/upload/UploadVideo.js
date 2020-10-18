@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { SLabel, Wrapper, InputFile, Delete } from './UploadVideo.styled';
 
 const UploadVideo = ({ video, setVideo }) => {

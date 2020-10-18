@@ -1,1 +1,1 @@
-export { default } from './OwnQna';
+export { default } from './QnaContainer';

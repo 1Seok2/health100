@@ -1,5 +1,8 @@
+/**
+ * @description 유저 / 트레이너 구분
+ */
+
 import React, { useEffect, useState } from 'react';
-import { FirebaseStore } from 'config/fbConfig';
 import { Containter, Wrapper } from './Qna.styled';
 
 import Loading from 'components/modules/loading/Loading';

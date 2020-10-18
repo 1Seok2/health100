@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { FirebaseStore } from 'config/fbConfig';
-import { Empty, TypeButton, ButtonWrapper } from './OwnQna.styled';
+import { Empty, TypeButton, ButtonWrapper } from './Qna.styled';
 
 import Loading from 'components/modules/loading/Loading';
-import AnswerList from './AnswerList';
-import EnrollList from './EnrollList';
-import OtherPeople from './OtherPeople';
+import AnswerPresenter from './AnswerPresenter';
+import EnrollPresenter from './wait';
+import OtherData from './data';
 
 const OwnQna = ({ userObj }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -81,7 +81,7 @@ const OwnQna = ({ userObj }) => {
   }, []);
 
   return (
-    <div>
+    <>
       {isLoading ? (
         <Loading />
       ) : (
@@ -116,7 +116,7 @@ const OwnQna = ({ userObj }) => {
             </TypeButton>
           </ButtonWrapper>
           {showAnswer === 0 ? (
-            <AnswerList
+            <AnswerPresenter
               isDone={isDone}
               setSelected={setSelected}
               selected={selected}
@@ -124,20 +124,20 @@ const OwnQna = ({ userObj }) => {
           ) : (
             <>
               {showAnswer === 1 ? (
-                <EnrollList
+                <EnrollPresenter
                   isYet={isYet}
                   setSelected={setSelected}
                   selected={selected}
                 />
               ) : (
-                <OtherPeople />
+                <OtherData />
               )}
             </>
           )}
         </>
       )}
       <Empty />
-    </div>
+    </>
   );
 };
 
