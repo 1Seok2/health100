@@ -23,9 +23,8 @@ import Login from 'components/views/login';
 
 /* already login ... */
 import Health from 'components/views/health';
-import Type from './views/health/type';
 import MyPage from 'components/views/mypage';
-import Graph from './views/mypage/graph/Graph';
+import Graph from 'components/views/mypage/graph';
 import Qna from 'components/views/qna';
 import ContactTrainer from 'components/views/contact';
 

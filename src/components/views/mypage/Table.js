@@ -8,7 +8,7 @@ import moment from 'moment';
 import { STable, SThead, STh, STbody, STr, STd } from './MyPage.styled';
 
 /* data list */
-export const Table = memo(
+const Table = memo(
   ({ myList, title, select, makePackage, setMake, checkPackage, setCheck }) => {
     return (
       <>
@@ -116,3 +116,5 @@ export const Table = memo(
     );
   },
 );
+
+export default Table;
