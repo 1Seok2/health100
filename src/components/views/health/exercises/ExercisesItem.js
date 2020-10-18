@@ -1,3 +1,7 @@
+/**
+ * @description 처음 운동 목록 표시
+ */
+
 import React from 'react';
 import {
   Container,
@@ -6,7 +10,6 @@ import {
   ImgContainer,
   DescTitle,
 } from './ExercisesItem.styled';
-import GetRandomColor from 'components/modules/style/RandomColor';
 import './Descript.css';
 
 /* show flat list about applied exercises */

@@ -1,25 +1,17 @@
 /**
- * url에 따라 나타내는 tmPose가 달라짐
- * 측정 후 운동횟수 데이터로 저장
+ * @description url에 따라 나타내는 tmPose가 달라짐
+ *              측정 후 운동횟수 데이터로 저장
  */
 
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { FirebaseStore } from 'config/fbConfig';
-import {
-  Container,
-  Assist,
-  CamContainer,
-  CamMessage,
-  Count,
-  Status,
-  ExerciseButton,
-  TimeInput,
-} from './TurnOnWebCam.styled';
 
-import Loading from 'components/modules/loading';
+import TurnOnWebCamPresenter from './TurnOnWebCamPresenter';
+
 import IsNumber from 'components/modules/check/IsNumber';
 
+/* 운동 횟수 세 줄 kakao 음성 */
 import audio1 from 'assets/audio/1.mp3';
 import audio2 from 'assets/audio/2.mp3';
 import audio3 from 'assets/audio/3.mp3';
@@ -58,7 +50,7 @@ const userPose = {
   wrong: 'wrong',
 };
 
-const TurnOnWebCam = ({ userObj, title, URL }) => {
+const TurnOnWebCamConatiner = ({ userObj, title, URL }) => {
   const [count, setCount] = useState(0);
   const [start, setStart] = useState({
     is: false,
@@ -66,14 +58,8 @@ const TurnOnWebCam = ({ userObj, title, URL }) => {
   });
   const [isLoading, setIsLoading] = useState(true);
   const [showStatus, setShow] = useState(false);
-  const [times, setTimes] = useState({
-    start: 0,
-    end: 0,
-  });
 
   // timer
-  const [time, setTime] = useState(moment.duration(0));
-  const [timeTick, setTimeTick] = useState(null);
   const [readyDown, setReadyDown] = useState('');
   const [countDown, setCountDown] = useState('');
 
@@ -260,103 +246,18 @@ const TurnOnWebCam = ({ userObj, title, URL }) => {
   };
 
   return (
-    <>
-      <Container>
-        <CamContainer>
-          {!start.is ? (
-            <CamMessage>캠을 켜주세요</CamMessage>
-          ) : (
-            <>
-              <canvas id="canvas"></canvas>
-              {isLoading && <Loading />}
-            </>
-          )}
-        </CamContainer>
-        <Assist>
-          {!start.is && (
-            <div>
-              <h5>목표시간설정</h5>
-
-              <div
-                style={{
-                  fontSize: 10,
-                  fontFamily: 'Nanum Gothic',
-                  marginTop: 8,
-                  lineHeight: '14px',
-                }}
-              >
-                웹캠이 켜지는 시간과 운동 준비를 마칠 권장 시간은 10초 입니다.
-                <br />
-                준비시간이 끝난 후 운동시간이 측정됩니다.
-                <br />
-                운동이 끝나면, 자동으로 "내 기록보기" 메뉴에 저장됩니다.
-              </div>
-              <TimeInput
-                type="ready"
-                name="ready"
-                value={readyDown}
-                onChange={onChange}
-                placeholder="준비시간(초)"
-              />
-
-              <TimeInput
-                type="count"
-                name="count"
-                value={countDown}
-                onChange={onChange}
-                placeholder="운동시간(초)"
-              />
-            </div>
-          )}
-          {start.is && (
-            <div
-              style={{
-                marginBottom: 24,
-                fontSize: 28,
-                color: '#555',
-                fontFamily: 'Nanum Gothic',
-              }}
-            >
-              {readyDown === 0 ? '남은 운동' : '남은 준비'} 시간 :{' '}
-              {readyDown === 0 ? countDown : readyDown} 초
-              <br />
-            </div>
-          )}
-          {start.is && (
-            <Count style={{ fontSize: 18, fontFamily: 'Nanum Gothic' }}>
-              운동 횟수 :{' '}
-              <span style={{ fontSize: 38, fontFamily: 'Nanum Gothic' }}>
-                {count}
-              </span>{' '}
-              회
-            </Count>
-          )}
-          <Status display={showStatus && start} id="label-container"></Status>
-        </Assist>
-      </Container>
-      {!start.is ? (
-        <ExerciseButton
-          onClick={() => {
-            if (Number(readyDown) < 10) {
-              alert('준비시간은 최소 10초입니다.');
-              return;
-            }
-            if (Number(countDown) < 5) {
-              alert('운동시간은 최소 5초입니다.');
-              return;
-            }
-            init();
-          }}
-        >
-          운동 시작하기
-        </ExerciseButton>
-      ) : (
-        <ExerciseButton onClick={() => SaveCounts()}>
-          결과 저장하기
-        </ExerciseButton>
-      )}
-    </>
+    <TurnOnWebCamPresenter
+      start={start}
+      isLoading={isLoading}
+      readyDown={readyDown}
+      onChange={onChange}
+      countDown={countDown}
+      showStatus={showStatus}
+      count={count}
+      init={init}
+      SaveCounts={SaveCounts}
+    />
   );
 };
 
-export default TurnOnWebCam;
+export default TurnOnWebCamConatiner;

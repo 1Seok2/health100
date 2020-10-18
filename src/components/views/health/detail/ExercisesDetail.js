@@ -1,6 +1,6 @@
 /**
- * 새로운 운동 추가 시 assets/ai에 URL 추가 후 불러와야하는 페이지
- * webcam stop, init 관리 추가적으로 필요
+ * @description 새로운 운동 추가 시 assets/ai에 URL 추가 후 불러와야하는 페이지
+ *              webcam stop, init 관리 추가적으로 필요
  */
 
 import React, { useEffect, useState } from 'react';

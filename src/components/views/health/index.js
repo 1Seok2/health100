@@ -1,1 +1,1 @@
-export { default } from './Health';
+export { default } from './HealthContainer';

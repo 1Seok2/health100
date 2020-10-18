@@ -1,1 +1,1 @@
-export { default } from './TurnOnWebCam';
+export { default } from './TurnOnWebCamContainer';
