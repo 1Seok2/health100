@@ -22,6 +22,7 @@ const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
       imgSrc: item.imgSrc,
     });
   };
+  console.log(idx);
   return (
     <Container
       onClick={() => clickList()}

@@ -101,7 +101,13 @@
   .adult-2,
   .adult-3,
   .adult-4,
-  .adult-5 {
+  .adult-5,
+  .grand-0,
+  .grand-1,
+  .grand-2,
+  .grand-3,
+  .grand-4,
+  .grand-5 {
     width: 63%;
   }
 }
@@ -112,7 +118,110 @@
   .adult-2,
   .adult-3,
   .adult-4,
-  .adult-5 {
+  .adult-5,
+  .grand-0,
+  .grand-1,
+  .grand-2,
+  .grand-3,
+  .grand-4,
+  .grand-5 {
     display: none;
   }
+}
+
+.grand-0 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.grand-1 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.grand-2 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.grand-3 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.grand-4 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+.grand-5 {
+  width: 52%;
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #fafafa;
+  background-color: #fafafa;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: justify;
+  font-family: 'Nanum Gothic', sans-serif;
 }
