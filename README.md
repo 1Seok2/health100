@@ -1,6 +1,6 @@
 # 비대면 국민체력 100
 
-with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데이터 활용 경진대회](http://sportsdata.or.kr/event_view.html) 대상
+with 체육종합 빅데이터 센터 주관 [2020년도 1차 체육종합 데이터 활용 경진대회](http://sportsdata.or.kr/event_view.html) 대상 🏅
 
 <br />
 
