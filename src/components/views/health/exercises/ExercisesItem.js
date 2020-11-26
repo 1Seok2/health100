@@ -47,15 +47,7 @@ const ExercisesItem = ({ showDetail, setShow, item, idx }) => {
           }}
         >
           {item.imgSrc.map((src) => (
-            <img
-              src={src}
-              alt={src}
-              width="31%"
-              height="140px"
-              style={{
-                border: '1px solid gray',
-              }}
-            />
+            <img src={src} alt={src} width="31%" height="180px" />
           ))}
         </ImgContainer>
         {item.desc}
